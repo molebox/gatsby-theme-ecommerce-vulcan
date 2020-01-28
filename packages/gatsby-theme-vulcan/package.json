@@ -1,0 +1,28 @@
+{
+  "name": "gatsby-theme-vulcan",
+  "version": "0.0.1",
+  "main": "index.js",
+  "author": "Hungry Bear Studio <roar@hungrybearstudio.com>",
+  "license": "MIT",
+  "scripts": {
+    "dev": "gatsby develop",
+    "build": "gatsby build",
+    "clean": "gatsby clean",
+    "pretty-check": "prettier --check \"src/**/*.{js}\"",
+    "pretty": "prettier --write \"src/**/*js\"",
+    "sitemap": "gatsby build && gatsby serve"
+  },
+  "dependencies": {
+    "@emotion/styled": "^10.0.27",
+    "gatsby": "^2.19.8",
+    "gatsby-plugin-emotion": "^4.1.21",
+    "gatsby-plugin-google-fonts": "^1.0.1",
+    "gatsby-plugin-theme-ui": "^0.3.0",
+    "react": "^16.12.0",
+    "react-dom": "^16.12.0",
+    "theme-ui": "^0.3.1"
+  },
+  "devDependencies": {
+    "prettier": "^1.19.1"
+  }
+}

@@ -1,0 +1,24 @@
+{
+  "name": "gatsby-theme-vulcan-base",
+  "version": "0.0.1",
+  "description": "Base theme",
+  "main": "index.js",
+  "author": "Hungry Bear Studio <roar@hungrybearstudio.com>",
+  "license": "MIT",
+  "scripts": {
+    "dev": "gatsby develop",
+    "build": "gatsby build",
+    "clean": "gatsby clean",
+    "pretty-check": "prettier --check \"src/**/*.{js}\"",
+    "pretty": "prettier --write \"src/**/*js\"",
+    "sitemap": "gatsby build && gatsby serve"
+  },
+  "dependencies": {
+    "gatsby": "^2.19.8",
+    "gatsby-plugin-sharp": "^2.4.3",
+    "gatsby-plugin-sitemap": "^2.2.26",
+    "gatsby-transformer-sharp": "^2.3.13",
+    "react": "^16.12.0",
+    "react-dom": "^16.12.0"
+  }
+}
