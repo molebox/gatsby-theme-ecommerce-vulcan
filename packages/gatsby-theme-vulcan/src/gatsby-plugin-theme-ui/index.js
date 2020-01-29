@@ -20,7 +20,7 @@ export default {
   colors: {
     text: "#111",
     background: "#fff",
-    primary: "#00001F",
+    primary: "#000010",
     accent: "#FFE900"
   }
 };

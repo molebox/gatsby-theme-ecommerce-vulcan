@@ -12,9 +12,6 @@ const Container = styled.div`
     "sidebar"
     "footer";
 
-  height: 100vh;
-  width: 100vw;
-
   @media (min-width: 500px) {
     grid-template-columns: 1fr 3fr;
     grid-template-areas:
@@ -38,8 +35,8 @@ const Container = styled.div`
   @media (min-width: 1280px) {
     grid-template-columns: 1fr 4fr 1fr;
     grid-template-areas:
-      "header header  header"
-      "nav    nav     nav"
+      "sidebar header  header"
+      "sidebar    nav     nav"
       "sidebar main main"
       "footer footer  footer";
   }
@@ -59,7 +56,7 @@ export default ({ children }) => {
           body {
             overflow-y: scroll;
             -webkit-overflow-scrolling: touch;
-            overflow-x: hidden;
+            // overflow-x: hidden;
           }
         `}
       />

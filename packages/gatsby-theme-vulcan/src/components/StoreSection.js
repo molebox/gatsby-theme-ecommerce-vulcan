@@ -3,7 +3,7 @@ import { jsx } from "theme-ui";
 import styled from "@emotion/styled";
 import Card from "./Card";
 
-const ListContainer = styled.ul`
+const Container = styled.ul`
   list-style: none;
   margin: 2em;
   display: grid;
@@ -14,7 +14,7 @@ const ListContainer = styled.ul`
 
 export default () => {
   return (
-    <ListContainer>
+    <Container>
       <li>
         <Card>
           <img src="https://source.unsplash.com/nimElTcTNyY" alt="fashion" />
@@ -45,6 +45,6 @@ export default () => {
           <img src="https://source.unsplash.com/-yPg8cusGD8" alt="fashion" />
         </Card>
       </li>
-    </ListContainer>
+    </Container>
   );
 };

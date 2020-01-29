@@ -7,12 +7,14 @@ const Container = styled.div`
   grid-area: nav;
   height: 10vh;
   // border: solid 1px purple;
-  display: flex;
+  display: grid;
+  grid-template-columns: auto 35em auto;
   align-items: center;
-  border-bottom: solid 1px black;
+  // border-bottom: solid 1px black;
 `;
 
 const Nav = styled.nav`
+  grid-column: 2;
   width: 100%;
   & > ul > li {
     cursor: crosshair;
@@ -45,17 +47,17 @@ const Nav = styled.nav`
     }
 
     & > ul > li > a {
-      &:before {
-        content: "";
-        border-left: solid 1px black;
-        padding: 0.5em;
-      }
+      // &:before {
+      //   content: "";
+      //   border-left: solid 1px black;
+      //   padding: 0.5em;
+      // }
 
-      &:after {
-        content: "";
-        border-right: solid 1px black;
-        padding: 0.5em;
-      }
+      // &:after {
+      //   content: "";
+      //   border-right: solid 1px black;
+      //   padding: 0.5em;
+      // }
     }
   }
 `;

@@ -6,7 +6,7 @@ import Header from "../components/Header";
 import Footer from "../components/Footer";
 import Sidebar from "../components/Sidebar";
 import Main from "../components/Main";
-import MainSection from "../components/MainSection";
+import StoreSection from "../components/StoreSection";
 
 export default () => {
   return (
@@ -15,7 +15,7 @@ export default () => {
       <Navbar />
       <Sidebar />
       <Main>
-        <MainSection />
+        <StoreSection />
       </Main>
       <Footer />
     </Layout>

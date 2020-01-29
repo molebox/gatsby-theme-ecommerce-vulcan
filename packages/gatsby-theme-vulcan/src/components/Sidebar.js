@@ -6,7 +6,7 @@ const Container = styled.div`
   grid-area: sidebar;
   display: flex;
   justify-content: center;
-  align-items: center;
+  // align-items: center;
   height: 100%;
   width: 80%;
   padding: 1em;
@@ -27,7 +27,7 @@ const Container = styled.div`
 
 const Text = styled.p`
   font-size: 0.9em;
-  // text-shadow: -1px 2px #FFE900;
+  text-shadow: -1px 2px #ffe900;
 
   @media (min-width: 500px) {
     font-size: 2em;

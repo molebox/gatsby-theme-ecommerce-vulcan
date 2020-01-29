@@ -6,7 +6,7 @@ import { Link } from "gatsby";
 
 const Container = styled.header`
   grid-area: header;
-  height: 15vh;
+  height: 10vh;
   display: flex;
   align-items: center;
   justify-content: center;
