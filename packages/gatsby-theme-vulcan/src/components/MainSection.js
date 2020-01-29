@@ -17,32 +17,32 @@ export default () => {
     <Container>
       <li>
         <Card>
-          <img src="https://source.unsplash.com/nimElTcTNyY" />
+          <img src="https://source.unsplash.com/nimElTcTNyY" alt="fashion" />
         </Card>
       </li>
       <li>
         <Card>
-          <img src="https://source.unsplash.com/pkUH647RogQ" />
+          <img src="https://source.unsplash.com/pkUH647RogQ" alt="fashion" />
         </Card>
       </li>
       <li>
         <Card>
-          <img src="https://source.unsplash.com/6ozhV5b9ims" />
+          <img src="https://source.unsplash.com/6ozhV5b9ims" alt="fashion" />
         </Card>
       </li>
       <li>
         <Card>
-          <img src="https://source.unsplash.com/svQZUVLOLjM" />
+          <img src="https://source.unsplash.com/svQZUVLOLjM" alt="fashion" />
         </Card>
       </li>
       <li>
         <Card>
-          <img src="https://source.unsplash.com/nahUo1GhcrA" />
+          <img src="https://source.unsplash.com/nahUo1GhcrA" alt="fashion" />
         </Card>
       </li>
       <li>
         <Card>
-          <img src="https://source.unsplash.com/-yPg8cusGD8" />
+          <img src="https://source.unsplash.com/-yPg8cusGD8" alt="fashion" />
         </Card>
       </li>
     </Container>

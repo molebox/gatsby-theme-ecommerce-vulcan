@@ -30,6 +30,16 @@ const Container = styled.div`
     grid-template-areas:
       "header header  header"
       "nav    nav     nav"
+      "main main main"
+      "sidebar sidebar sidebar"
+      "footer footer  footer";
+  }
+
+  @media (min-width: 1280px) {
+    grid-template-columns: 1fr 4fr 1fr;
+    grid-template-areas:
+      "header header  header"
+      "nav    nav     nav"
       "sidebar main main"
       "footer footer  footer";
   }

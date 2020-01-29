@@ -1,6 +1,7 @@
 /** @jsx jsx */
 import { jsx } from "theme-ui";
 import styled from "@emotion/styled";
+import { Link } from "gatsby";
 
 const Container = styled.div`
   grid-area: nav;
@@ -8,6 +9,7 @@ const Container = styled.div`
   // border: solid 1px purple;
   display: flex;
   align-items: center;
+  border-bottom: solid 1px black;
 `;
 
 const Nav = styled.nav`
@@ -15,6 +17,11 @@ const Nav = styled.nav`
   & > ul > li {
     cursor: crosshair;
   }
+
+  & > ul > li > a {
+    text-transform: uppercase;
+  }
+
   & > ul {
     display: flex;
     align-items: center;
@@ -36,6 +43,20 @@ const Nav = styled.nav`
       justify-content: space-evenly;
       flex-direction: row;
     }
+
+    & > ul > li > a {
+      &:before {
+        content: "";
+        border-left: solid 1px black;
+        padding: 0.5em;
+      }
+
+      &:after {
+        content: "";
+        border-right: solid 1px black;
+        padding: 0.5em;
+      }
+    }
   }
 `;
 
@@ -49,21 +70,78 @@ export default () => {
               fontFamily: "heading"
             }}
           >
-            about
+            <Link
+              to="about"
+              sx={{
+                color: "primary",
+                cursor: "crosshair",
+                textDecoration: "none",
+                fontSize: "1.2em",
+                fontWeight: "heading",
+                letterSpacing: "body",
+                "&:hover": {
+                  color: "accent",
+                  textShadow: "-3px 3px #00001F"
+                },
+                "&.active": {
+                  color: "accent"
+                }
+              }}
+            >
+              about
+            </Link>
           </li>
           <li
             sx={{
               fontFamily: "heading"
             }}
           >
-            store
+            <Link
+              to="store"
+              sx={{
+                color: "primary",
+                cursor: "crosshair",
+                textDecoration: "none",
+                fontSize: "1.2em",
+                fontWeight: "heading",
+                letterSpacing: "body",
+                "&:hover": {
+                  color: "accent",
+                  textShadow: "-3px 3px #00001F"
+                },
+                "&.active": {
+                  color: "accent"
+                }
+              }}
+            >
+              store
+            </Link>
           </li>
           <li
             sx={{
               fontFamily: "heading"
             }}
           >
-            blog
+            <Link
+              to="blog"
+              sx={{
+                color: "primary",
+                cursor: "crosshair",
+                textDecoration: "none",
+                fontSize: "1.2em",
+                fontWeight: "heading",
+                letterSpacing: "body",
+                "&:hover": {
+                  color: "accent",
+                  textShadow: "-3px 3px #00001F"
+                },
+                "&.active": {
+                  color: "accent"
+                }
+              }}
+            >
+              blog
+            </Link>
           </li>
         </ul>
       </Nav>

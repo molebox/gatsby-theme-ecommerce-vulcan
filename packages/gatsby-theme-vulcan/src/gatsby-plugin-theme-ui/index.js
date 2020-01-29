@@ -19,6 +19,8 @@ export default {
   },
   colors: {
     text: "#111",
-    background: "#fff"
+    background: "#fff",
+    primary: "#00001F",
+    accent: "#FFE900"
   }
 };

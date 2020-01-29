@@ -14,8 +14,6 @@ const Container = styled.div`
   // border: solid 1px black;
 
   & > img {
-    // height: auto;
-    // max-width: 100%;
     object-fit: cover;
     width: 300px;
     height: 500px;
