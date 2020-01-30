@@ -28,8 +28,7 @@ const OverlayContent = styled.div`
   left: 0;
   top: 0;
   background: rgb(0, 0, 0);
-  background: rgba(0, 0, 0, 0.5); /* Black see-through */
-  color: #f1f1f1;
+  background: rgba(0, 0, 0, 0.5);
   width: 100%;
   transition: 0.5s ease;
   opacity: 0;
@@ -49,7 +48,8 @@ export default ({ children }) => {
       <OverlayContent className="overlay">
         <p
           sx={{
-            fontFamily: "heading"
+            fontFamily: "heading",
+            color: "background"
           }}
         >
           SHOP

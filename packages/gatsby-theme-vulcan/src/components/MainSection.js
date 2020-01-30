@@ -7,9 +7,11 @@ const ListContainer = styled.ul`
   list-style: none;
   margin: 2em;
   display: grid;
-  grid-gap: 2em;
+  grid-gap: 3em;
   grid-auto-flow: dense;
-  grid-template-columns: repeat(auto-fill, minmax(400px, 1fr));
+  grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+  justify-items: center;
+  width: auto;
 `;
 
 export default () => {
@@ -33,6 +35,16 @@ export default () => {
       <li>
         <Card>
           <img src="https://source.unsplash.com/svQZUVLOLjM" alt="fashion" />
+        </Card>
+      </li>
+      <li>
+        <Card>
+          <img src="https://source.unsplash.com/nahUo1GhcrA" alt="fashion" />
+        </Card>
+      </li>
+      <li>
+        <Card>
+          <img src="https://source.unsplash.com/-yPg8cusGD8" alt="fashion" />
         </Card>
       </li>
       <li>

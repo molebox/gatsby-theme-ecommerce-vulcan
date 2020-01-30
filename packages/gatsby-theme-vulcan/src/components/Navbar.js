@@ -15,7 +15,7 @@ const Container = styled.div`
 
 const Nav = styled.nav`
   grid-column: 2;
-  width: 100%;
+  // width: 100%;
   & > ul > li {
     cursor: crosshair;
   }

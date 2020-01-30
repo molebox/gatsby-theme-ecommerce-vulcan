@@ -5,12 +5,16 @@ import styled from "@emotion/styled";
 
 const Container = styled.div`
   display: grid;
+  grid-template-columns: 1fr;
   grid-template-areas:
     "header"
     "nav"
     "main"
     "sidebar"
     "footer";
+
+  height: 100vh;
+  width: 100vw;
 
   @media (min-width: 500px) {
     grid-template-columns: 1fr 3fr;
@@ -20,16 +24,22 @@ const Container = styled.div`
       "main     main"
       "sidebar sidebar"
       "footer   footer";
+
+    height: 100vh;
+    width: 100vw;
   }
 
   @media (min-width: 700px) {
-    grid-template-columns: 1fr 4fr 1fr;
+    grid-template-columns: 1fr 4fr;
     grid-template-areas:
-      "header header  header"
-      "nav    nav     nav"
-      "main main main"
-      "sidebar sidebar sidebar"
-      "footer footer  footer";
+      "header header"
+      "nav    nav"
+      "main main"
+      "sidebar sidebar"
+      "footer footer ";
+
+    height: 100vh;
+    width: 100vw;
   }
 
   @media (min-width: 1280px) {
@@ -39,6 +49,9 @@ const Container = styled.div`
       "sidebar    nav     nav"
       "sidebar main main"
       "footer footer  footer";
+
+    height: 100vh;
+    width: 100vw;
   }
 `;
 
@@ -56,7 +69,7 @@ export default ({ children }) => {
           body {
             overflow-y: scroll;
             -webkit-overflow-scrolling: touch;
-            // overflow-x: hidden;
+            overflow-x: hidden;
           }
         `}
       />

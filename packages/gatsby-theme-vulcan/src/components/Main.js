@@ -5,7 +5,7 @@ import styled from "@emotion/styled";
 const Container = styled.div`
   grid-area: main;
   height: auto;
-  // border: solid 1px green;
+  margin: 1em;
 `;
 
 export default ({ children }) => {

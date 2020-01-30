@@ -8,10 +8,9 @@ const Container = styled.div`
   justify-content: center;
   // align-items: center;
   height: 100%;
-  width: 80%;
+  width: 50%;
   padding: 1em;
   margin: 0 auto;
-  // border-right: solid 1px black;
 
   @media (min-width: 700px) {
     width: 90%;
@@ -26,8 +25,8 @@ const Container = styled.div`
 `;
 
 const Text = styled.p`
-  font-size: 0.9em;
-  text-shadow: -1px 2px #ffe900;
+  font-size: 0.8em;
+  // text-shadow: -1px 1px #ffe900;
 
   @media (min-width: 500px) {
     font-size: 2em;
