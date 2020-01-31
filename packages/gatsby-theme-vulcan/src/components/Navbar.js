@@ -2,11 +2,11 @@
 import { jsx } from "theme-ui";
 import styled from "@emotion/styled";
 import { Link } from "gatsby";
-import BuyButton from "./snipcart/BuyButton";
 
 const Container = styled.div`
   grid-area: nav;
   height: 10vh;
+  align-self: center;
   // border: solid 1px purple;
   display: grid;
   grid-template-columns: auto 35em auto;
@@ -23,6 +23,8 @@ const Nav = styled.nav`
 
   & > ul > li > a {
     text-transform: uppercase;
+    // border-bottom: 3px solid black;
+    // padding: 0.3em;
   }
 
   & > ul {
@@ -73,7 +75,6 @@ export default () => {
               fontFamily: "heading"
             }}
           >
-            <BuyButton text="BUY" />
             <Link
               to="about"
               sx={{

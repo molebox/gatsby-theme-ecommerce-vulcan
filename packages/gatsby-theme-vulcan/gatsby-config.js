@@ -1,5 +1,5 @@
 module.exports = (options) => {
-    const {snipcart_api_key, version} = options;
+    const {sanity_project_id, sanity_dataset,snipcart_api_key, version} = options;
 
     return {
         siteMetadata: {
@@ -7,6 +7,17 @@ module.exports = (options) => {
         },
 
         plugins: [
+          {
+            resolve: 'gatsby-source-sanity',
+            options: {
+              projectId: sanity_project_id,
+              dataset: sanity_dataset,
+              watchMode: true
+              // a token with read permissions is required
+              // if you have a private dataset
+              // token: process.env.MY_SANITY_TOKEN
+            }
+          },
             {
                 resolve: 'gatsby-plugin-google-fonts',
                 options: {
@@ -17,6 +28,8 @@ module.exports = (options) => {
                   ]
                 }
             },
+            'gatsby-transformer-sharp',
+            'gatsby-plugin-sharp',
             'gatsby-plugin-emotion',
             'gatsby-plugin-theme-ui'
         ]

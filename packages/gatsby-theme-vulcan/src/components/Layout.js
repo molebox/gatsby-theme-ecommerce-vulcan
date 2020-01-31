@@ -43,12 +43,12 @@ const Container = styled.div`
   }
 
   @media (min-width: 1280px) {
-    grid-template-columns: 1fr 4fr 1fr;
+    grid-template-columns: 1fr 4fr;
     grid-template-areas:
-      "sidebar header  header"
-      "sidebar    nav     nav"
-      "sidebar main main"
-      "footer footer  footer";
+      "sidebar header"
+      "sidebar nav"
+      "sidebar main"
+      "footer footer";
 
     height: 100vh;
     width: 100vw;

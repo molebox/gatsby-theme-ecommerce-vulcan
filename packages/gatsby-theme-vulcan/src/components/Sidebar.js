@@ -2,12 +2,14 @@
 import { jsx } from "theme-ui";
 import styled from "@emotion/styled";
 
+import GlitchConstant from "./GlitchConstant";
+
 const Container = styled.div`
   grid-area: sidebar;
   display: flex;
   justify-content: center;
   // align-items: center;
-  height: 100%;
+  height: auto;
   width: 50%;
   padding: 1em;
   margin: 0 auto;
@@ -55,7 +57,9 @@ export default () => {
           color: "primary"
         }}
       >
-        STYLE IS A WAY TO SAY WHO YOU ARE WITHOUT HAVING TO SPEAK
+        <GlitchConstant>STYLE IS</GlitchConstant>A WAY TO SAY
+        <GlitchConstant>WHO YOU ARE</GlitchConstant>
+        WITHOUT HAVING TO SPEAK
       </Text>
     </Container>
   );

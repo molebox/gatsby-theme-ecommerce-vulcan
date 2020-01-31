@@ -10,6 +10,7 @@ const Container = styled.header`
   display: flex;
   align-items: center;
   justify-content: center;
+  align-self: center;
 `;
 
 const Title = styled.h1`

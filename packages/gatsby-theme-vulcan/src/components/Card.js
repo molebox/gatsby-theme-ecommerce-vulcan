@@ -6,6 +6,10 @@ const Container = styled.div`
   position: relative;
   max-width: 300px;
   max-height: 500px;
+  width: 300px;
+  height: auto;
+  // margin: 0 auto;
+  // object-fit: cover;
 
   cursor: crosshair;
 
@@ -15,11 +19,11 @@ const Container = styled.div`
     }
   }
 
-  & > img {
-    object-fit: cover;
-    width: 300px;
-    height: 500px;
-  }
+  // & > div > img {
+  //   object-fit: cover;
+  //   width: 300px;
+  //   height: 500px;
+  // }
 `;
 
 const OverlayContent = styled.div`

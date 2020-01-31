@@ -2,6 +2,7 @@
 import { jsx } from "theme-ui";
 import styled from "@emotion/styled";
 import Card from "./Card";
+import { graphql } from "gatsby";
 
 const Container = styled.ul`
   list-style: none;
@@ -48,3 +49,23 @@ export default () => {
     </Container>
   );
 };
+
+export const query = graphql`
+  query StoreSectionProductsQuery {
+    allSanityProduct {
+      nodes {
+        categories {
+          title
+        }
+        slug {
+          current
+        }
+        title
+        blurb {
+          en
+        }
+        _rawBody
+      }
+    }
+  }
+`;
