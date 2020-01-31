@@ -7,7 +7,7 @@ import GatsbyImage from "gatsby-image";
 
 const ListContainer = styled.ul`
   list-style: none;
-  // margin: 2em;
+  margin: 2em;
   display: grid;
   grid-gap: 3em;
   grid-auto-flow: dense;

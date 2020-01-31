@@ -37,9 +37,10 @@ export default () => {
         }}
       >
         <ul>
-          <li>Facebook</li>
-          <li>Twitter</li>
-          <li>Pinterest</li>
+          <li>TODO: style footer</li>
+          <li>Facebook link</li>
+          <li>Twitter link</li>
+          <li>Pinterest link</li>
         </ul>
       </Social>
     </Container>
