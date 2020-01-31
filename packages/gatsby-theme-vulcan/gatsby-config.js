@@ -1,5 +1,5 @@
 module.exports = (options) => {
-    const {} = options;
+    const {snipcart_api_key, version} = options;
 
     return {
         siteMetadata: {

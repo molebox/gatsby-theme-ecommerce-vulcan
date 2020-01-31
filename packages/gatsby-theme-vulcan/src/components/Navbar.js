@@ -2,6 +2,7 @@
 import { jsx } from "theme-ui";
 import styled from "@emotion/styled";
 import { Link } from "gatsby";
+import BuyButton from "./snipcart/BuyButton";
 
 const Container = styled.div`
   grid-area: nav;
@@ -72,6 +73,7 @@ export default () => {
               fontFamily: "heading"
             }}
           >
+            <BuyButton text="BUY" />
             <Link
               to="about"
               sx={{
