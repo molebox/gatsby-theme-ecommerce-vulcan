@@ -5,6 +5,7 @@ import styled from "@emotion/styled";
 const Container = styled.div`
   grid-area: main;
   height: auto;
+  // min-height: 700px;
   margin: 1em;
 `;
 

@@ -3,9 +3,12 @@ import { jsx } from "theme-ui";
 import styled from "@emotion/styled";
 
 const Container = styled.div`
-  grid-area: main;
-  height: auto;
-  margin: 1em;
+  display: flex;
+  align-content: center;
+`;
+
+const ContactForm = styled.form`
+  
 `;
 
 export default ({ children }) => {

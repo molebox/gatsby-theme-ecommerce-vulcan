@@ -7,11 +7,7 @@ import Header from "../components/Header";
 import Footer from "../components/Footer";
 import Sidebar from "../components/Sidebar";
 import Main from "../components/Main";
-import MainSection from "../components/MainSection";
-
-const ContactSection = styled.div`
-    
-`;
+import ContactSection from "../components/ContactSection";
 
 export default () => {
   return (
@@ -20,7 +16,7 @@ export default () => {
       <Navbar />
       <Sidebar />
       <Main>
-        <MainSection />
+        <ContactSection />
       </Main>
       <Footer />
     </Layout>

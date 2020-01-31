@@ -11,6 +11,7 @@ const Container = styled.div`
   display: grid;
   grid-template-columns: auto 35em auto;
   align-items: center;
+  justify-itesm: start;
   // border-bottom: solid 1px black;
 `;
 
@@ -43,24 +44,11 @@ const Nav = styled.nav`
   }
 
   @media (min-width: 700px) {
-    & > ul {
-      display: flex;
-      justify-content: space-evenly;
-      flex-direction: row;
-    }
-
-    & > ul > li > a {
-      // &:before {
-      //   content: "";
-      //   border-left: solid 1px black;
-      //   padding: 0.5em;
-      // }
-
-      // &:after {
-      //   content: "";
-      //   border-right: solid 1px black;
-      //   padding: 0.5em;
-      // }
+      & > ul {
+        display: flex;
+        justify-content: space-evenly;
+        flex-direction: row;
+      }
     }
   }
 `;
@@ -76,7 +64,7 @@ export default () => {
             }}
           >
             <Link
-              to="about"
+              to="/about"
               sx={{
                 color: "primary",
                 cursor: "crosshair",
@@ -102,7 +90,7 @@ export default () => {
             }}
           >
             <Link
-              to="store"
+              to="/store"
               sx={{
                 color: "primary",
                 cursor: "crosshair",
@@ -128,7 +116,7 @@ export default () => {
             }}
           >
             <Link
-              to="blog"
+              to="/blog"
               sx={{
                 color: "primary",
                 cursor: "crosshair",

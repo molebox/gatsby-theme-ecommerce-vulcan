@@ -26,7 +26,7 @@ const Container = styled.div`
   }
 `;
 
-const Text = styled.p`
+const Text = styled.div`
   font-size: 0.8em;
   // text-shadow: -1px 1px #ffe900;
 

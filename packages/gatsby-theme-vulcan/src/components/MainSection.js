@@ -26,7 +26,8 @@ export default () => {
         <li
           sx={{
             border: "solid 3px",
-            borderColor: "primary"
+            borderColor: "primary",
+            boxShadow: '-3px 3px #00001F'
           }}
           key={index}
         >

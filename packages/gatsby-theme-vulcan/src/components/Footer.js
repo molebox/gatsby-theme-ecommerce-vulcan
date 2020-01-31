@@ -9,11 +9,9 @@ const Container = styled.div`
   display: grid;
   grid-template-columns: 1fr 1fr;
   grid-template-areas:
-    "social social"
-    "customerCare customerCare"
-    "info info"
-    "other other";
-
+    "social customerCare"
+    "info other";
+    
   justify-items: center;
   align-content: space-evenly;
 
@@ -73,12 +71,13 @@ export default () => {
     <Container
       sx={{
         backgroundColor: "primary",
-        color: "accent"
+        color: "accent",
+        marginTop: '2em'
       }}
     >
       <CustomerCare>
         <Link
-          to="contact"
+          to="/contact"
           sx={{
             color: "accent",
             cursor: "crosshair",
@@ -98,7 +97,7 @@ export default () => {
           contact
         </Link>
         <Link
-          to="payment"
+          to="/payment"
           sx={{
             color: "accent",
             cursor: "crosshair",
@@ -118,7 +117,7 @@ export default () => {
           payment options
         </Link>
         <Link
-          to="shipping"
+          to="/shipping"
           sx={{
             color: "accent",
             cursor: "crosshair",
@@ -138,7 +137,7 @@ export default () => {
           shipping + delivary
         </Link>
         <Link
-          to="returns"
+          to="/returns"
           sx={{
             color: "accent",
             cursor: "crosshair",
@@ -158,7 +157,7 @@ export default () => {
           returns
         </Link>
         <Link
-          to="faq"
+          to="/faq"
           sx={{
             color: "accent",
             cursor: "crosshair",
@@ -180,7 +179,7 @@ export default () => {
       </CustomerCare>
       <Info>
         <Link
-          to="sizeGuide"
+          to="/sizeGuide"
           sx={{
             color: "accent",
             cursor: "crosshair",
@@ -200,7 +199,7 @@ export default () => {
           size guide
         </Link>
         <Link
-          to="privacy"
+          to="/privacy"
           sx={{
             color: "accent",
             cursor: "crosshair",
@@ -220,7 +219,7 @@ export default () => {
           privacy policy
         </Link>
         <Link
-          to="terms"
+          to="/terms"
           sx={{
             color: "accent",
             cursor: "crosshair",
