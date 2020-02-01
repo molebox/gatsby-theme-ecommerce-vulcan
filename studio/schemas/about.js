@@ -20,11 +20,18 @@ export default {
             }
           },
           {
-            title: 'About Us', 
+            title: 'About Us',
             name: 'aboutUs',
-            type: 'array', 
-            of: [{type: 'block'}]
-          },
+            type: 'array',
+            of: [
+                    {
+                        type: 'block'
+                    },
+                    {
+                        type: 'image'
+                    }
+                ]
+        },
           {
             name: 'images',
             title: 'Image',

@@ -7,9 +7,7 @@ const Container = styled.div`
   align-content: center;
 `;
 
-const ContactForm = styled.form`
-  
-`;
+const ContactForm = styled.form``;
 
 export default ({ children }) => {
   return <Container>{children}</Container>;

@@ -1,6 +1,5 @@
 /** @jsx jsx */
 import { jsx } from "theme-ui";
-import { Global, css } from "@emotion/core";
 import styled from "@emotion/styled";
 
 const Container = styled.div`
@@ -9,7 +8,6 @@ const Container = styled.div`
   grid-template-areas:
     "header"
     "main"
-    "sidebar"
     "footer";
 
   height: 100vh;
@@ -20,7 +18,6 @@ const Container = styled.div`
     grid-template-areas:
       "header  header"
       "main     main"
-      "sidebar sidebar"
       "footer   footer";
 
     height: 100vh;
@@ -32,7 +29,6 @@ const Container = styled.div`
     grid-template-areas:
       "header header"
       "main main"
-      "sidebar sidebar"
       "footer footer ";
 
     height: 100vh;
@@ -43,8 +39,7 @@ const Container = styled.div`
     grid-template-columns: 1fr 4fr;
     grid-template-areas:
       "header header"
-      "sidebar main"
-      "sidebar main"
+      "main main"
       "footer footer";
 
     height: 100vh;
@@ -53,24 +48,5 @@ const Container = styled.div`
 `;
 
 export default ({ children }) => {
-  return (
-    <Container>
-      <Global
-        styles={css`
-          * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-            scroll-behavior: smooth;
-          }
-          body {
-            overflow-y: scroll;
-            -webkit-overflow-scrolling: touch;
-            overflow-x: hidden;
-          }
-        `}
-      />
-      {children}
-    </Container>
-  );
+  return <Container>{children}</Container>;
 };

@@ -1,9 +1,9 @@
 module.exports = (options) => {
-    const {sanity_project_id, sanity_dataset,snipcart_api_key, version} = options;
+    const {siteName, sanity_project_id, sanity_dataset,snipcart_api_key, version} = options;
 
     return {
         siteMetadata: {
-
+          siteName
         },
 
         plugins: [

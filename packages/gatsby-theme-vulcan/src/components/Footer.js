@@ -8,11 +8,12 @@ const Container = styled.div`
   height: 20em;
   display: grid;
   grid-template-columns: 1fr 1fr;
+  grid-gap: 2em;
   grid-template-areas:
     "social customerCare"
     "info other";
-    
-  justify-items: center;
+
+  justify-items: start;
   align-content: space-evenly;
 
   @media (min-width: 500px) {
@@ -32,38 +33,64 @@ const Container = styled.div`
       "customerCare info social other"
       "customerCare info social other"
       "customerCare info social other";
+    justify-items: center;
   }
 `;
 
 const CustomerCare = styled.div`
   grid-area: customerCare;
+  margin-left: 2em;
   display: flex;
   flex-direction: column;
   justify-content: space-evenly;
+
+  @media (min-width: 700px) {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
+  }
 `;
 
 const Info = styled.div`
   grid-area: info;
-
+  margin-left: 2em;
   display: flex;
   flex-direction: column;
   justify-content: space-evenly;
+
+  @media (min-width: 700px) {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
+  }
 `;
 
 const Social = styled.div`
   grid-area: social;
-
+  margin-left: 2em;
   display: flex;
   flex-direction: column;
   justify-content: space-evenly;
+
+  @media (min-width: 700px) {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
+  }
 `;
 
 const Other = styled.div`
   grid-area: other;
-
+  margin-left: 2em;
   display: flex;
   flex-direction: column;
   justify-content: space-evenly;
+
+  @media (min-width: 700px) {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
+  }
 `;
 
 export default () => {
@@ -72,7 +99,7 @@ export default () => {
       sx={{
         backgroundColor: "primary",
         color: "accent",
-        marginTop: '2em'
+        marginTop: "2em"
       }}
     >
       <CustomerCare>

@@ -8,11 +8,10 @@ const Container = styled.div`
   grid-area: sidebar;
   display: flex;
   justify-content: center;
-  // align-items: center;
   height: auto;
   width: 50%;
   padding: 1em;
-  margin: 0 auto;
+  margin: 2em;
 
   @media (min-width: 700px) {
     width: 90%;
@@ -41,8 +40,8 @@ const Text = styled.div`
   }
 
   @media (min-width: 1280px) {
-    font-size: 4em;
-    line-height: 100px;
+    font-size: 3em;
+    line-height: 80px;
   }
 `;
 

@@ -11,7 +11,8 @@ module.exports = {
             resolve: 'gatsby-theme-vulcan', 
             options: {
                 sanity_project_id: process.env.SANITY_PROJECT_ID,
-                sanity_dataset: process.env.SANITY_PROJECT_DATASET
+                sanity_dataset: process.env.SANITY_PROJECT_DATASET,
+                siteName: 'VULCAN'
             }
         }
     ]
