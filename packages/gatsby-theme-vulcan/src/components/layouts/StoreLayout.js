@@ -7,6 +7,7 @@ const Container = styled.div`
   grid-template-columns: 1fr;
   grid-template-areas:
     "header"
+    "storeSidebar"
     "main"
     "footer";
 
@@ -17,6 +18,7 @@ const Container = styled.div`
     grid-template-columns: 1fr 3fr;
     grid-template-areas:
       "header  header"
+      "storeSidebar storeSidebar"
       "main     main"
       "footer   footer";
 
@@ -28,7 +30,7 @@ const Container = styled.div`
     grid-template-columns: 1fr 4fr;
     grid-template-areas:
       "header header"
-      "main main"
+      "storeSidebar main"
       "footer footer ";
 
     height: 100vh;
@@ -36,10 +38,10 @@ const Container = styled.div`
   }
 
   @media (min-width: 1280px) {
-    grid-template-columns: 1fr 1fr;
+    grid-template-columns: 1fr 4fr;
     grid-template-areas:
       "header header"
-      "main main"
+      "storeSidebar main"
       "footer footer";
 
     height: 100vh;

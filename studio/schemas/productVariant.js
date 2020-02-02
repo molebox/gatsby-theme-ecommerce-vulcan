@@ -29,8 +29,21 @@ export default {
       type: 'boolean'
     },
     {
-      name: 'images',
-      title: 'Images',
+      name: 'mainImage',
+      title: 'Main Image',
+      type: 'array',
+      of: [
+        {
+          type: 'image',
+          options: {
+            hotspot: true
+          }
+        }
+      ]
+    },
+    {
+      name: 'thumbnails',
+      title: 'Thumbnails',
       type: 'array',
       of: [
         {
