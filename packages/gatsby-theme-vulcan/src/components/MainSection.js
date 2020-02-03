@@ -12,11 +12,19 @@ const ListContainer = styled.ul`
   display: grid;
   grid-gap: 3em;
   grid-auto-flow: dense;
-  grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+  grid-template-columns: 1fr 1fr;
   justify-items: center;
   width: auto;
   height: auto;
   justify-self: center;
+
+  @media (min-width: 700px) {
+    grid-template-columns: 1fr 1fr;
+  }
+
+  @media (min-width: 1280px) {
+    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+  }
 `;
 
 export default () => {

@@ -1,6 +1,7 @@
 /** @jsx jsx */
 import { jsx } from "theme-ui";
 import styled from "@emotion/styled";
+import GlobalReset from "./GlobalReset";
 
 const Container = styled.div`
   display: grid;
@@ -50,5 +51,9 @@ const Container = styled.div`
 `;
 
 export default ({ children }) => {
-  return <Container>{children}</Container>;
+  return (
+    <GlobalReset>
+      <Container>{children}</Container>
+    </GlobalReset>
+  );
 };

@@ -9,12 +9,13 @@ const Container = styled.div`
   display: flex;
   justify-content: center;
   height: auto;
-  width: 50%;
+  width: 100%;
   padding: 1em;
   margin: 2em;
 
   @media (min-width: 700px) {
     width: 90%;
+    justify-content: center;
   }
 
   @media (min-width: 1280px) {
@@ -22,12 +23,12 @@ const Container = styled.div`
     flex-wrap: wrap;
     height: 100%;
     padding: 1em;
+    justify-content: center;
   }
 `;
 
 const Text = styled.div`
-  font-size: 0.8em;
-  // text-shadow: -1px 1px #ffe900;
+  font-size: 1em;
 
   @media (min-width: 500px) {
     font-size: 2em;

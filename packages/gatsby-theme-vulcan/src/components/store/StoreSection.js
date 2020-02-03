@@ -33,15 +33,16 @@ const Container = styled.section`
 export default () => {
   const products = useStaticQuery(query);
   const info = products.allSanityProduct.nodes;
+  console.log({ info });
   return (
     <Container>
       {info.map((node, index) => (
         <ProductCard
+          itemId={node.id}
           key={index + node.title}
           title={node.title}
           category={node.categories[0].title}
           description={node._rawBody.en}
-          mainImage={node.defaultProductVariant.mainImage[0].asset.fluid}
           thumbnails={node.defaultProductVariant.thumbnails}
           price={node.defaultProductVariant.price}
           blurb={node.blurb.en}

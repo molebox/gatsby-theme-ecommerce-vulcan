@@ -7,6 +7,8 @@ export const useSiteMetadata = () => {
         site {
           siteMetadata {
             siteName
+            currencySymbol
+            siteUrl
           }
         }
       }

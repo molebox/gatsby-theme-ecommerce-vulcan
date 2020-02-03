@@ -5,6 +5,7 @@ import styled from "@emotion/styled";
 import BuyButton from "../snipcart/BuyButton";
 import GatsbyImage from "gatsby-image";
 import PortableText from "@sanity/block-content-to-react";
+import { useSiteMetadata } from "./../useSiteMetadata";
 
 // Inspiration: https://github.com/heyjordn/gatsby-slide-example/blob/master/src/components/slideshow.js
 
@@ -12,6 +13,7 @@ const Container = styled.div`
   display: grid;
   grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
   grid-auto-rows: auto;
+  grid-gap: 2em;
   height: auto;
 `;
 
@@ -45,7 +47,8 @@ const MainImageContainer = styled.div`
 const Info = styled.div`
   display: flex;
   flex-direction: column;
-  justify-content: space-around;
+  justify-content: space-between;
+  height: auto;
 `;
 
 const Category = styled.div``;
@@ -55,9 +58,8 @@ const Header = styled.div`
   flex-direction: row;
   justify-content: space-evenly;
   align-items: center;
+  margin-bottom: 2em;
 `;
-
-const Title = styled.h2``;
 
 const Price = styled.div`
   font-size: 2em;
@@ -69,7 +71,10 @@ const PriceAndPurchase = styled.div`
   align-items: center;
 `;
 
-const Description = styled.p``;
+const Description = styled.p`
+  font-size: 1.2em;
+  margin-bottom: 2em;
+`;
 
 const serializers = {
   types: {
@@ -94,9 +99,10 @@ export default ({
   description,
   blurb,
   price,
-  mainImage,
-  thumbnails
+  thumbnails,
+  itemId
 }) => {
+  const { currencySymbol, siteUrl } = useSiteMetadata();
   const [index, setIndex] = React.useState(0);
   const length = thumbnails.length - 1;
   const handleNext = () =>
@@ -182,14 +188,14 @@ export default ({
       </ImageContainer>
       <Info>
         <Header>
-          <Title
+          <h2
             sx={{
               fontFamily: "heading",
               letterSpacing: "body"
             }}
           >
             {title}
-          </Title>
+          </h2>
           <Category
             sx={{
               fontFamily: "heading",
@@ -217,11 +223,18 @@ export default ({
           </Price>
 
           <BuyButton
+            key={title}
             text="BUY NOW"
             itemPrice={price}
-            image={mainImage}
+            image={asset.fluid.src}
             itemTitle={title}
             itemDescription={blurb}
+            pricesymbol={currencySymbol}
+            itemId={itemId}
+            itemUrl={siteUrl}
+            itemPath="/store"
+            isStackable={true}
+            isTaxIncluded={true}
           />
         </PriceAndPurchase>
       </Info>

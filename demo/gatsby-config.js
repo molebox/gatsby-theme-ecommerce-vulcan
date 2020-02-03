@@ -12,7 +12,11 @@ module.exports = {
             options: {
                 sanity_project_id: process.env.SANITY_PROJECT_ID,
                 sanity_dataset: process.env.SANITY_PROJECT_DATASET,
-                siteName: 'VULCAN'
+                siteName: 'VULCAN',
+                snipcart_api_key: process.env.SNIPCART_APIKEY,
+                version: 'v3',
+                currencySymbol: '$',
+                siteUrl: "http://localhost:8000"
             }
         }
     ]
