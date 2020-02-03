@@ -4,6 +4,7 @@ import styled from "@emotion/styled";
 import Card from "./Card";
 import { graphql, useStaticQuery } from "gatsby";
 import GatsbyImage from "gatsby-image";
+import { Link } from "gatsby";
 
 const ListContainer = styled.ul`
   list-style: none;
@@ -14,6 +15,7 @@ const ListContainer = styled.ul`
   grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
   justify-items: center;
   width: auto;
+  height: auto;
   justify-self: center;
 `;
 
@@ -31,12 +33,14 @@ export default () => {
           }}
           key={index}
         >
-          <Card>
-            <GatsbyImage
-              fluid={node.defaultProductVariant.images[0].asset.fluid}
-              alt={node.defaultProductVariant.title}
-            />
-          </Card>
+          <Link to="/store">
+            <Card>
+              <GatsbyImage
+                fluid={node.defaultProductVariant.mainImage[0].asset.fluid}
+                alt={node.defaultProductVariant.title}
+              />
+            </Card>
+          </Link>
         </li>
       ))}
     </ListContainer>
@@ -49,7 +53,7 @@ export const query = graphql`
       nodes {
         defaultProductVariant {
           title
-          images {
+          mainImage {
             asset {
               fluid(maxWidth: 500) {
                 ...GatsbySanityImageFluid

@@ -4,7 +4,7 @@ import styled from "@emotion/styled";
 import Glitch from "./Glitch";
 import { Link } from "gatsby";
 import Navbar from "./Navbar";
-import { useSiteMetadata } from './useSiteMetadata';
+import { useSiteMetadata } from "./useSiteMetadata";
 
 const Container = styled.header`
   grid-area: header;
@@ -35,7 +35,7 @@ const Title = styled.h1`
 `;
 
 export default () => {
-  const {siteName} = useSiteMetadata();
+  const { siteName } = useSiteMetadata();
   return (
     <Container>
       <Title

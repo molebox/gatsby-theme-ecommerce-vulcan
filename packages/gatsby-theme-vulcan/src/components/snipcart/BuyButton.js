@@ -36,7 +36,9 @@ export default ({
     <button
       sx={{
         fontFamily: "heading",
-        fontWeight: "bold",
+        fontWeight: "heading",
+        height: "3em",
+        width: "10em",
         border: "0.1em solid",
         padding: "0.35em 1.2em",
         borderColor: "primary",
@@ -45,7 +47,9 @@ export default ({
         cursor: "crosshair",
         "&:hover": {
           color: "primary",
-          backgroundColor: "accent"
+          backgroundColor: "accent",
+          fontWeight: "bold",
+          boxShadow: "-3px 3px #00001F"
         },
         "&:active": {
           boxShadow: "-3px 3px #00001F"

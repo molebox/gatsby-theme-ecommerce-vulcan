@@ -30,7 +30,7 @@ const Container = styled.div`
     grid-template-columns: 1fr 4fr;
     grid-template-areas:
       "header header"
-      "storeSidebar main"
+      "main main"
       "footer footer ";
 
     height: 100vh;
@@ -41,7 +41,7 @@ const Container = styled.div`
     grid-template-columns: 1fr 4fr;
     grid-template-areas:
       "header header"
-      "storeSidebar main"
+      "main main"
       "footer footer";
 
     height: 100vh;

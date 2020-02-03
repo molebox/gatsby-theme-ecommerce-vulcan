@@ -1,31 +1,52 @@
 /** @jsx jsx */
 import { jsx } from "theme-ui";
 import styled from "@emotion/styled";
-import Card from "../Card";
 import { graphql } from "gatsby";
+import ProductCard from "./ProductCard";
+import { useStaticQuery } from "gatsby";
 
 const Container = styled.section`
   margin: 2em;
   display: grid;
   grid-gap: 2em;
-  grid-auto-flow: dense;
-  grid-template-columns: repeat(auto-fill, minmax(400px, 1fr));
+  width: 100%;
+  grid-template-columns: 1fr 1fr;
+
+  grid-auto-rows: auto;
+  justify-self: center;
+  justify-items: center;
+  width: auto;
+
+  @media (min-width: 500px) {
+    grid-template-columns: 1fr;
+  }
+
+  @media (min-width: 700px) {
+    grid-template-columns: 1fr 1fr;
+  }
+
+  @media (min-width: 1280px) {
+    grid-template-columns: 1fr 1fr 1fr;
+  }
 `;
 
-const Category = styled.div``;
-
-const Title = styled.h2``;
-
-const ShortDescription = styled.p``;
-
-const Description = styled.p``;
-
-
-
 export default () => {
+  const products = useStaticQuery(query);
+  const info = products.allSanityProduct.nodes;
   return (
     <Container>
-
+      {info.map((node, index) => (
+        <ProductCard
+          key={index + node.title}
+          title={node.title}
+          category={node.categories[0].title}
+          description={node._rawBody.en}
+          mainImage={node.defaultProductVariant.mainImage[0].asset.fluid}
+          thumbnails={node.defaultProductVariant.thumbnails}
+          price={node.defaultProductVariant.price}
+          blurb={node.blurb.en}
+        />
+      ))}
     </Container>
   );
 };
@@ -34,7 +55,7 @@ export const query = graphql`
   query StoreSectionProductsQuery {
     allSanityProduct {
       nodes {
-        _rawBody
+        _rawBody(resolveReferences: { maxDepth: 10 })
         title
         categories {
           title
@@ -44,13 +65,23 @@ export const query = graphql`
           price
           taxable
           title
-          images {
+          mainImage {
             asset {
               fluid {
-                src
+                ...GatsbySanityImageFluid
               }
             }
           }
+          thumbnails {
+            asset {
+              fluid {
+                ...GatsbySanityImageFluid
+              }
+            }
+          }
+        }
+        blurb {
+          en
         }
       }
     }

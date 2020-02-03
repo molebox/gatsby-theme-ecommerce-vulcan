@@ -6,7 +6,7 @@ const Container = styled.div`
   position: relative;
   max-width: 300px;
   max-height: 500px;
-  width: 300px;
+  width: 250px;
   height: auto;
 
   cursor: crosshair;
