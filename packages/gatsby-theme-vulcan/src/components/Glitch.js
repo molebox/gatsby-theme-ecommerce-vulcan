@@ -16,7 +16,7 @@ const Conatiner = styled.div`
 
       left: 2px;
       text-shadow: -1px 0 #ffe900;
-      background: white;
+      background: #e7e7e9;
 
       // clip-path: inset();
 
@@ -34,7 +34,7 @@ const Conatiner = styled.div`
 
       left: -2px;
       text-shadow: -1px 0 #ffe900;
-      background: white;
+      background: #e7e7e9;
       overflow: hidden;
       animation: noise-anim 2s infinite linear alternate-reverse;
     }
@@ -112,7 +112,8 @@ export default ({ children }) => {
     <Conatiner
       sx={{
         fontFamily: "heading",
-        color: "primary"
+        color: "primary",
+        backgroundColor: "secondary"
       }}
       data-text={children}
     >

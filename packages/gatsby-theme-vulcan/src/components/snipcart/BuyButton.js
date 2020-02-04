@@ -45,6 +45,7 @@ export default ({
         backgroundColor: "primary",
         color: "accent",
         cursor: "crosshair",
+        textTransform: "uppercase",
         "&:hover": {
           color: "primary",
           backgroundColor: "accent",
@@ -52,7 +53,7 @@ export default ({
           boxShadow: "-3px 3px #00001F"
         },
         "&:active": {
-          boxShadow: "-3px 3px #00001F"
+          boxShadow: "-1px 1px #00001F"
         }
       }}
       className="snipcart-add-item"

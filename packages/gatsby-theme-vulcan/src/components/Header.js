@@ -37,7 +37,11 @@ const Title = styled.h1`
 export default () => {
   const { siteName } = useSiteMetadata();
   return (
-    <Container>
+    <Container
+      sx={{
+        backgroundColor: "secondary"
+      }}
+    >
       <Title
         sx={{
           fontFamily: "heading"

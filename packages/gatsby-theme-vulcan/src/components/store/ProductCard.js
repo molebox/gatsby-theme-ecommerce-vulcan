@@ -133,24 +133,25 @@ export default ({
           <button
             sx={{
               fontFamily: "heading",
-              fontWeight: "heading",
+              fontWeight: "bold",
               letterSpacing: "body",
               height: "3em",
               width: "10em",
-              border: "0.1em solid",
+              border: "2px solid",
               padding: "0.35em 1.2em",
               borderColor: "primary",
-              backgroundColor: "primary",
-              color: "accent",
+              backgroundColor: "secondary",
+              color: "primary",
               cursor: "crosshair",
+              boxShadow: "-3px 3px #00001F",
               "&:hover": {
                 color: "primary",
-                backgroundColor: "accent",
+                backgroundColor: "secondary",
                 fontWeight: "bold",
                 boxShadow: "-3px 3px #00001F"
               },
               "&:active": {
-                boxShadow: "-3px 3px #00001F"
+                boxShadow: "-1px 1px #00001F"
               }
             }}
             onClick={() => handlePrevious()}
@@ -160,24 +161,25 @@ export default ({
           <button
             sx={{
               fontFamily: "heading",
-              fontWeight: "heading",
+              fontWeight: "bold",
               letterSpacing: "body",
               height: "3em",
               width: "10em",
-              border: "0.1em solid",
+              border: "2px solid",
               padding: "0.35em 1.2em",
               borderColor: "primary",
-              backgroundColor: "primary",
-              color: "accent",
+              backgroundColor: "secondary",
+              color: "primary",
               cursor: "crosshair",
+              boxShadow: "-3px 3px #00001F",
               "&:hover": {
                 color: "primary",
-                backgroundColor: "accent",
+                backgroundColor: "secondary",
                 fontWeight: "bold",
                 boxShadow: "-3px 3px #00001F"
               },
               "&:active": {
-                boxShadow: "-3px 3px #00001F"
+                boxShadow: "-1px 1px #00001F"
               }
             }}
             onClick={() => handleNext()}
@@ -224,7 +226,7 @@ export default ({
 
           <BuyButton
             key={title}
-            text="BUY NOW"
+            text="add to cart"
             itemPrice={price}
             image={asset.fluid.src}
             itemTitle={title}
