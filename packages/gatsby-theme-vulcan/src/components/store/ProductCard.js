@@ -20,7 +20,7 @@ const Container = styled.div`
 
 const ImageContainer = styled.div`
   display: grid;
-  grid-template-columns: 1em auto 1em;
+  grid-template-columns: 1em minmax(300px, auto) 1em;
   align-items: center;
 `;
 
@@ -61,6 +61,14 @@ const PriceAndPurchase = styled.div`
 const Description = styled.p`
   font-size: 1.2em;
   margin-bottom: 2em;
+`;
+
+const Size = styled.div`
+
+`;
+
+const Fit = styled.div`
+
 `;
 
 const serializers = {
@@ -108,7 +116,8 @@ export default ({
     >
       <ImageContainer>
         <div sx={{
-          cursor: 'crosshair'
+          cursor: 'crosshair',
+          justifySelf: 'center'
         }}>
         <FiChevronLeft size="1.5em" onClick={() => handlePrevious()}/>
         </div>
@@ -121,7 +130,8 @@ export default ({
           <GatsbyImage fluid={asset.fluid} key={title + index} alt={title} />
         </MainImageContainer>
         <div sx={{
-          cursor: 'crosshair'
+          cursor: 'crosshair',
+          justifySelf: 'center'
         }}>
         <FiChevronRight size="1.5em" onClick={() => handleNext()}/>
         </div>

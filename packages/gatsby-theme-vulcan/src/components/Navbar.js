@@ -2,6 +2,7 @@
 import { jsx } from "theme-ui";
 import styled from "@emotion/styled";
 import { Link } from "gatsby";
+import { useSiteMetadata } from './useSiteMetadata';
 
 const Nav = styled.nav`
   display: grid;
@@ -30,6 +31,7 @@ const Nav = styled.nav`
 `;
 
 export default () => {
+  const {hasBlog} = useSiteMetadata();
   return (
     <Nav>
       <Link
@@ -76,7 +78,8 @@ export default () => {
       >
         store
       </Link>
-      <Link
+      {hasBlog ? (
+        <Link
         to="/blog"
         sx={{
           color: "primary",
@@ -95,9 +98,11 @@ export default () => {
             color: "accent"
           }
         }}
-      >
+        >
         blog
-      </Link>
+        </Link>
+      ) : null}
+     
     </Nav>
   );
 };

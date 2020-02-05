@@ -1,11 +1,12 @@
 module.exports = (options) => {
-    const {siteName, siteUrl, sanity_project_id, sanity_dataset,snipcart_api_key, version, currencySymbol} = options;
+    const {siteName, siteUrl, sanity_project_id, sanity_dataset,snipcart_api_key, version, currencySymbol, hasBlog} = options;
 
     return {
         siteMetadata: {
           siteName,
           currencySymbol,
-          siteUrl
+          siteUrl,
+          hasBlog
         },
 
         plugins: [

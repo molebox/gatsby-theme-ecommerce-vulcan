@@ -5,7 +5,8 @@ import styled from "@emotion/styled";
 import { graphql } from "gatsby";
 import ProductCard from "./ProductCard";
 import { useStaticQuery } from "gatsby";
-import Filter from "./Filter";
+import SearchBar from './../Searchbar';
+// import { useSearchBar } from './../useSearchbar';
 
 const Container = styled.section`
   margin: 2em;
@@ -35,60 +36,71 @@ const Container = styled.section`
 export default () => {
   const products = useStaticQuery(query);
   const info = products.allSanityProduct.nodes;
+
+  // const { categories, handleSearchQuery } = useSearchBar(info);
+  // console.log('result: ', categories);
   return (
     <>
-    <Filter productInfo={info}/>
+    {/* <SearchBar handleSearchQuery={handleSearchQuery} /> */}
     <Container>
-      {info.map((node, index) => (
-        <ProductCard
-          itemId={node.id}
-          key={index + node.title}
-          title={node.title}
-          // category={node.categories[0].title}
-          description={node._rawBody.en}
-          thumbnails={node.defaultProductVariant.thumbnails}
-          price={node.defaultProductVariant.price}
-          blurb={node.blurb.en}
-        />
-      ))}
+      {info.map((node, index) => {
+        return (
+          <ProductCard
+            itemId={node.id}
+            key={index + node.title}
+            title={node.title}
+            // category={node.categories[0].title}
+            description={node._rawBody.en}
+            thumbnails={node.defaultProductVariant.thumbnails}
+            price={node.defaultProductVariant.price}
+            blurb={node.blurb.en}
+          />
+        )
+      } )}
     </Container>
     </>
   );
 };
 
 export const query = graphql`
-  query StoreSectionProductsQuery {
-    allSanityProduct {
-      nodes {
-        _rawBody(resolveReferences: { maxDepth: 10 })
+query StoreSectionProductsQuery {
+  allSanityProduct {
+    nodes {
+      _rawBody(resolveReferences: {maxDepth: 10})
+      title
+      categories {
         title
-        categories {
-          title
-        }
-        defaultProductVariant {
-          sku
-          price
-          taxable
-          title
-          mainImage {
-            asset {
-              fluid {
-                ...GatsbySanityImageFluid
-              }
-            }
-          }
-          thumbnails {
-            asset {
-              fluid {
-                ...GatsbySanityImageFluid
-              }
+      }
+      defaultProductVariant {
+        sku
+        price
+        taxable
+        title
+        mainImage {
+          asset {
+            fluid {
+              src
             }
           }
         }
-        blurb {
-          en
+        thumbnails {
+          asset {
+            fluid {
+              src
+            }
+          }
         }
+        fits {
+          title
+        }
+        size {
+          title
+        }
+      }
+      blurb {
+        en
       }
     }
   }
+}
 `;

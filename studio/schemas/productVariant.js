@@ -19,6 +19,30 @@ export default {
       type: 'number'
     },
     {
+      title: 'Sizes',
+      name: 'size',
+      type: 'array',
+      description: 'The size of the product',
+      of: [
+        {
+          type: 'reference',
+          to: {type: 'size'}
+        }
+      ]
+    },
+    {
+      title: 'Fits',
+      name: 'fits',
+      type: 'array',
+      description: 'The fit of the product',
+      of: [
+        {
+          type: 'reference',
+          to: {type: 'fit'}
+        }
+      ]
+    },
+    {
       title: 'SKU',
       name: 'sku',
       type: 'string'

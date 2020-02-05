@@ -1,7 +1,14 @@
 import React from "react";
 
-export const useSearchBar = cats => {
-  console.log({ cats });
+export const useSearchBar = (info) => {
+
+  const removeDuplicates = (array, key) => {
+    let lookup = new Set();
+    return array.filter(obj => !lookup.has(obj[key]) && lookup.add(obj[key]));
+  }
+  const categoryInfo = removeDuplicates(info.map(cat => cat.categories), 'id');
+  console.log({categoryInfo})
+
   const emptyQuery = "";
   const [searchQuery, setSearchQuery] = React.useState({
     filteredData: [],
@@ -11,10 +18,13 @@ export const useSearchBar = cats => {
   const handleSearchQuery = e => {
     const query = e.target.value;
 
-    const category = cats || [];
+    const categories = categoryInfo || [];
 
-    const filteredData = category.filter(cat => {
-      return cat.toLowerCase().includes(query.toLowerCase());
+    const filteredData = categories.filter(cat => {
+      if (cat.title) {
+        console.log(cat.title)
+        return cat.title.toLowerCase().includes(query.toLowerCase());
+      }
     });
 
     setSearchQuery({ filteredData, query });
@@ -22,7 +32,8 @@ export const useSearchBar = cats => {
 
   const { filteredData, query } = searchQuery;
   const hasSearchResult = filteredData && query !== emptyQuery;
-  const category = hasSearchResult ? filteredData : cats;
+  const categories = hasSearchResult ? filteredData : info;
+  console.log('result: ', categories)
 
-  return { category, handleSearchQuery };
+  return { categories, handleSearchQuery };
 };

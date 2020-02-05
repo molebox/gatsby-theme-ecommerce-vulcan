@@ -18,7 +18,8 @@ module.exports = {
                 snipcart_api_key: process.env.SNIPCART_APIKEY,
                 version: 'v3',
                 currencySymbol: '$',
-                siteUrl: activeSiteUrl
+                siteUrl: activeSiteUrl,
+                hasBlog: true
             }
         }
     ]
