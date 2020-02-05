@@ -8,7 +8,7 @@ const Container = styled.div`
   grid-template-columns: 1fr;
   grid-template-areas:
     "header"
-    "storeSidebar"
+    "filter"
     "main"
     "footer";
 
@@ -19,7 +19,7 @@ const Container = styled.div`
     grid-template-columns: 1fr 3fr;
     grid-template-areas:
       "header  header"
-      "storeSidebar storeSidebar"
+      "filter filter"
       "main     main"
       "footer   footer";
 
@@ -31,6 +31,7 @@ const Container = styled.div`
     grid-template-columns: 1fr 4fr;
     grid-template-areas:
       "header header"
+      "filter filter"
       "main main"
       "footer footer ";
 
@@ -42,6 +43,7 @@ const Container = styled.div`
     grid-template-columns: 1fr 4fr;
     grid-template-areas:
       "header header"
+      "filter filter"
       "main main"
       "footer footer";
 

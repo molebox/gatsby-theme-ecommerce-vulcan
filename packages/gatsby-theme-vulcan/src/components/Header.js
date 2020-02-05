@@ -5,6 +5,7 @@ import Glitch from "./Glitch";
 import { Link } from "gatsby";
 import Navbar from "./Navbar";
 import { useSiteMetadata } from "./useSiteMetadata";
+import Checkout from "./snipcart/Checkout";
 
 const Container = styled.header`
   grid-area: header;
@@ -14,6 +15,8 @@ const Container = styled.header`
   align-items: center;
   justify-content: center;
   align-self: center;
+  position: relative;
+
 `;
 
 const Title = styled.h1`
@@ -64,6 +67,7 @@ export default () => {
           <Glitch>{siteName}</Glitch>
         </Link>
       </Title>
+      <Checkout/>
       <Navbar />
     </Container>
   );

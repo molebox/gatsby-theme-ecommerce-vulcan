@@ -1,7 +1,6 @@
 /** @jsx jsx */
 import { jsx } from "theme-ui";
-import styled from "@emotion/styled";
-import Layout from "../components/Layout";
+import HomeLayout from "../components/layouts/HomeLayout";
 import Navbar from "../components/Navbar";
 import Header from "../components/Header";
 import Footer from "../components/Footer";
@@ -11,7 +10,7 @@ import ContactSection from "../components/ContactSection";
 
 export default () => {
   return (
-    <Layout>
+    <HomeLayout>
       <Header />
       <Navbar />
       <Sidebar />
@@ -19,6 +18,6 @@ export default () => {
         <ContactSection />
       </Main>
       <Footer />
-    </Layout>
+    </HomeLayout>
   );
 };

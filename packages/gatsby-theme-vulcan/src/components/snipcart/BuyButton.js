@@ -1,23 +1,5 @@
 /** @jsx jsx */
 import { jsx } from "theme-ui";
-// import styled from "@emotion/styled";
-
-// const Button = styled.button`
-//      display: inline-block;
-//      padding: 0.35em 1.2em;
-//      margin: 0 0.3em 0.3em 0;
-//      border-radius: 0.12em;
-//      box-sizing: border-box;
-//      text-align: center;
-//      transition: all 0.2s;
-//      cursor: crosshair;
-
-//     @media all and (max-width:30em){
-//         & {
-//           display:block;
-//           margin:0.4em auto;
-//          }
-// `;
 
 export default ({
   itemId,
@@ -30,6 +12,7 @@ export default ({
   itemPath,
   isStackable,
   isTaxIncluded,
+  onClick,
   ...customFieldProps
 }) => {
   return (

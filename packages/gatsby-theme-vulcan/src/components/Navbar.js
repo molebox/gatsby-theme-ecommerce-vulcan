@@ -11,22 +11,22 @@ const Nav = styled.nav`
   justify-items: center;
   width: 500px;
 
-  @media (min-width: 500px) {
-    & > ul {
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-    }
-  }
+  // @media (min-width: 500px) {
+  //   & > ul {
+  //     display: flex;
+  //     align-items: center;
+  //     justify-content: space-between;
+  //   }
+  // }
 
-  @media (min-width: 700px) {
-      & > ul {
-        display: flex;
-        justify-content: space-evenly;
-        flex-direction: row;
-      }
-    }
-  }
+  // @media (min-width: 700px) {
+  //     & > ul {
+  //       display: flex;
+  //       justify-content: space-evenly;
+  //       flex-direction: row;
+  //     }
+  //   }
+  // }
 `;
 
 export default () => {

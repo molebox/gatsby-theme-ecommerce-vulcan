@@ -1,17 +1,19 @@
 /** @jsx jsx */
 import { jsx } from "theme-ui";
-import CartToast from "./CartToast";
-import { useToasts } from 'react-toast-notifications';
+import { FiShoppingBag } from 'react-icons/fi';
 
 export default () => {
-  const { addToast } = useToasts();
   return (
     <div sx={{
       top: '1em',
-      right: '2em',
-      position: 'absolute'
-    }}>
- <button
+      right: '3em',
+      position: 'absolute',
+      cursor: 'crosshair'
+    }}
+    className="snipcart-checkout"
+    >
+      <FiShoppingBag size="2em"/>
+ {/* <button
     sx={{
       fontFamily: "heading",
       fontWeight: "bold",
@@ -36,16 +38,10 @@ export default () => {
         boxShadow: "-1px 1px #00001F"
       }
     }}
-    onClick={() => addToast(<CartToast/>, {
-    appearance: 'info',
-    autoDismiss: false,
-    })}
     >
-    My Cart
-  </button>
+    checkout
+  </button> */}
     </div>
    
   );
 };
-
-

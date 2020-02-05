@@ -1,6 +1,6 @@
 /** @jsx jsx */
 import { jsx } from "theme-ui";
-import Layout from "../components/Layout";
+import StoreLayout from "../components/layouts/StoreLayout";
 import Navbar from "../components/Navbar";
 import Header from "../components/Header";
 import Footer from "../components/Footer";
@@ -10,7 +10,7 @@ import MainSection from "../components/MainSection";
 
 export default () => {
   return (
-    <Layout>
+    <StoreLayout>
       <Header />
       <Navbar />
       <Sidebar />
@@ -18,6 +18,6 @@ export default () => {
         <MainSection />
       </Main>
       <Footer />
-    </Layout>
+    </StoreLayout>
   );
 };

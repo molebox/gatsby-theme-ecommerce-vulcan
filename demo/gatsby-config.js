@@ -5,6 +5,8 @@ require("dotenv").config({
   path: `.env.${activeEnv}`,
 })
 
+const activeSiteUrl = activeEnv === "development" ? "http://localhost:8000" : "https://gatsby-theme-vulcan.netlify.com/";
+
 module.exports = {
     plugins: [
         {
@@ -16,7 +18,7 @@ module.exports = {
                 snipcart_api_key: process.env.SNIPCART_APIKEY,
                 version: 'v3',
                 currencySymbol: '$',
-                siteUrl: "http://localhost:8000"
+                siteUrl: activeSiteUrl
             }
         }
     ]

@@ -6,6 +6,7 @@ import BuyButton from "../snipcart/BuyButton";
 import GatsbyImage from "gatsby-image";
 import PortableText from "@sanity/block-content-to-react";
 import { useSiteMetadata } from "./../useSiteMetadata";
+import { FiChevronLeft, FiChevronRight } from 'react-icons/fi';
 
 // Inspiration: https://github.com/heyjordn/gatsby-slide-example/blob/master/src/components/slideshow.js
 
@@ -18,22 +19,9 @@ const Container = styled.div`
 `;
 
 const ImageContainer = styled.div`
-  display: flex;
-  flex-direction: column;
-  justify-content: space-between;
+  display: grid;
+  grid-template-columns: 1em auto 1em;
   align-items: center;
-`;
-
-const ImageChangeButtons = styled.div`
-  margin: 2em;
-  display: flex;
-  justify-content: space-evenly;
-  align-items: center;
-  width: 100%;
-
-  & button {
-    text-transform: uppercase;
-  }
 `;
 
 const MainImageContainer = styled.div`
@@ -42,6 +30,7 @@ const MainImageContainer = styled.div`
   height: auto;
   justify-self: center;
   align-self: center;
+  grid-column: 2;
 `;
 
 const Info = styled.div`
@@ -50,8 +39,6 @@ const Info = styled.div`
   justify-content: space-between;
   height: auto;
 `;
-
-const Category = styled.div``;
 
 const Header = styled.div`
   display: flex;
@@ -95,7 +82,6 @@ const serializers = {
 
 export default ({
   title,
-  category,
   description,
   blurb,
   price,
@@ -121,6 +107,11 @@ export default ({
       }}
     >
       <ImageContainer>
+        <div sx={{
+          cursor: 'crosshair'
+        }}>
+        <FiChevronLeft size="1.5em" onClick={() => handlePrevious()}/>
+        </div>
         <MainImageContainer
           sx={{
             border: "0.1em solid",
@@ -129,64 +120,11 @@ export default ({
         >
           <GatsbyImage fluid={asset.fluid} key={title + index} alt={title} />
         </MainImageContainer>
-        <ImageChangeButtons>
-          <button
-            sx={{
-              fontFamily: "heading",
-              fontWeight: "bold",
-              letterSpacing: "body",
-              height: "3em",
-              width: "10em",
-              border: "2px solid",
-              padding: "0.35em 1.2em",
-              borderColor: "primary",
-              backgroundColor: "secondary",
-              color: "primary",
-              cursor: "crosshair",
-              boxShadow: "-3px 3px #00001F",
-              "&:hover": {
-                color: "primary",
-                backgroundColor: "secondary",
-                fontWeight: "bold",
-                boxShadow: "-3px 3px #00001F"
-              },
-              "&:active": {
-                boxShadow: "-1px 1px #00001F"
-              }
-            }}
-            onClick={() => handlePrevious()}
-          >
-            Previous
-          </button>
-          <button
-            sx={{
-              fontFamily: "heading",
-              fontWeight: "bold",
-              letterSpacing: "body",
-              height: "3em",
-              width: "10em",
-              border: "2px solid",
-              padding: "0.35em 1.2em",
-              borderColor: "primary",
-              backgroundColor: "secondary",
-              color: "primary",
-              cursor: "crosshair",
-              boxShadow: "-3px 3px #00001F",
-              "&:hover": {
-                color: "primary",
-                backgroundColor: "secondary",
-                fontWeight: "bold",
-                boxShadow: "-3px 3px #00001F"
-              },
-              "&:active": {
-                boxShadow: "-1px 1px #00001F"
-              }
-            }}
-            onClick={() => handleNext()}
-          >
-            Next
-          </button>
-        </ImageChangeButtons>
+        <div sx={{
+          cursor: 'crosshair'
+        }}>
+        <FiChevronRight size="1.5em" onClick={() => handleNext()}/>
+        </div>
       </ImageContainer>
       <Info>
         <Header>
@@ -198,7 +136,7 @@ export default ({
           >
             {title}
           </h2>
-          <Category
+          {/* <Category
             sx={{
               fontFamily: "heading",
               fontWeight: "bold",
@@ -209,7 +147,7 @@ export default ({
             }}
           >
             {category}
-          </Category>
+          </Category> */}
         </Header>
         <Description>
           <PortableText blocks={description} serializers={serializers} />
