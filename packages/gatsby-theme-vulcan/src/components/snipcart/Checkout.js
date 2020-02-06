@@ -1,19 +1,19 @@
 /** @jsx jsx */
 import { jsx } from "theme-ui";
-import { FiShoppingBag } from 'react-icons/fi';
+import { FiShoppingBag } from "react-icons/fi";
 
 export default () => {
   return (
-    <div sx={{
-      top: '1em',
-      right: '3em',
-      position: 'absolute',
-      cursor: 'crosshair'
-    }}
-    className="snipcart-checkout"
+    <div
+      sx={{
+        top: "1em",
+        right: "3em",
+        position: "absolute",
+        cursor: "crosshair"
+      }}
+      className="snipcart-checkout"
     >
-      <FiShoppingBag size="2em"/>
+      <FiShoppingBag size="2em" />
     </div>
-   
   );
 };

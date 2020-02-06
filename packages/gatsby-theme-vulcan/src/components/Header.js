@@ -16,7 +16,6 @@ const Container = styled.header`
   justify-content: center;
   align-self: center;
   position: relative;
-
 `;
 
 const Title = styled.h1`
@@ -42,12 +41,15 @@ export default () => {
   return (
     <Container
       sx={{
-        backgroundColor: "secondary"
+        backgroundColor: "secondary",
+        borderBottom: "solid 3px",
+        borderColor: "promary"
       }}
     >
       <Title
         sx={{
-          fontFamily: "heading"
+          fontFamily: "heading",
+          letterSpacing: "text"
         }}
       >
         <Link
@@ -67,7 +69,7 @@ export default () => {
           <Glitch>{siteName}</Glitch>
         </Link>
       </Title>
-      <Checkout/>
+      <Checkout />
       <Navbar />
     </Container>
   );

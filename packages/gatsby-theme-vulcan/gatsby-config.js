@@ -15,7 +15,7 @@ module.exports = (options) => {
             options: {
               projectId: sanity_project_id,
               dataset: sanity_dataset,
-              watchMode: true
+              watchMode: false
               // a token with read permissions is required
               // if you have a private dataset
               // token: process.env.MY_SANITY_TOKEN

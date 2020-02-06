@@ -6,7 +6,7 @@ import BuyButton from "../snipcart/BuyButton";
 import GatsbyImage from "gatsby-image";
 import PortableText from "@sanity/block-content-to-react";
 import { useSiteMetadata } from "./../useSiteMetadata";
-import { FiChevronLeft, FiChevronRight } from 'react-icons/fi';
+import { FiChevronLeft, FiChevronRight } from "react-icons/fi";
 
 // Inspiration: https://github.com/heyjordn/gatsby-slide-example/blob/master/src/components/slideshow.js
 
@@ -36,7 +36,7 @@ const MainImageContainer = styled.div`
 const Info = styled.div`
   display: flex;
   flex-direction: column;
-  justify-content: space-between;
+  justify-content: space-evenly;
   height: auto;
 `;
 
@@ -58,17 +58,34 @@ const PriceAndPurchase = styled.div`
   align-items: center;
 `;
 
-const Description = styled.p`
+const Description = styled.div`
   font-size: 1.2em;
-  margin-bottom: 2em;
+  margin-bottom: 1em;
+`;
+
+const SizesContainer = styled.div`
+  display: flex;
+  justify-content: space-evenly;
+  align-items: center;
+  align-self: center;
+  margin-bottom: 1em;
+  width: 100%;
 `;
 
 const Size = styled.div`
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 2em;
+  width: 2em;
+  margin: 0.5em;
 
+  font-size: 1.5em;
 `;
 
-const Fit = styled.div`
-
+const Fit = styled.p`
+  font-size: 1.2em;
+  margin: 1em auto;
 `;
 
 const serializers = {
@@ -94,7 +111,9 @@ export default ({
   blurb,
   price,
   thumbnails,
-  itemId
+  itemId,
+  size,
+  fit
 }) => {
   const { currencySymbol, siteUrl } = useSiteMetadata();
   const [index, setIndex] = React.useState(0);
@@ -104,6 +123,15 @@ export default ({
   const handlePrevious = () =>
     index === 0 ? setIndex(length) : setIndex(index - 1);
   const { asset } = thumbnails[index];
+
+  const sizes = size
+    .map(productSize => {
+      return `${productSize.title}|`;
+    })
+    .join("")
+    .toString();
+
+  console.log({ sizes });
 
   return (
     <Container
@@ -115,11 +143,13 @@ export default ({
       }}
     >
       <ImageContainer>
-        <div sx={{
-          cursor: 'crosshair',
-          justifySelf: 'center'
-        }}>
-        <FiChevronLeft size="1.5em" onClick={() => handlePrevious()}/>
+        <div
+          sx={{
+            cursor: "crosshair",
+            justifySelf: "center"
+          }}
+        >
+          <FiChevronLeft size="1.5em" onClick={() => handlePrevious()} />
         </div>
         <MainImageContainer
           sx={{
@@ -129,11 +159,13 @@ export default ({
         >
           <GatsbyImage fluid={asset.fluid} key={title + index} alt={title} />
         </MainImageContainer>
-        <div sx={{
-          cursor: 'crosshair',
-          justifySelf: 'center'
-        }}>
-        <FiChevronRight size="1.5em" onClick={() => handleNext()}/>
+        <div
+          sx={{
+            cursor: "crosshair",
+            justifySelf: "center"
+          }}
+        >
+          <FiChevronRight size="1.5em" onClick={() => handleNext()} />
         </div>
       </ImageContainer>
       <Info>
@@ -146,22 +178,29 @@ export default ({
           >
             {title}
           </h2>
-          {/* <Category
-            sx={{
-              fontFamily: "heading",
-              fontWeight: "bold",
-              border: "3px solid",
-              borderColor: "primary",
-              padding: "1em",
-              letterSpacing: "body"
-            }}
-          >
-            {category}
-          </Category> */}
         </Header>
         <Description>
           <PortableText blocks={description} serializers={serializers} />
         </Description>
+        <Fit
+          sx={{
+            fontFamily: "body"
+          }}
+        >
+          Fit: {fit[0].title}
+        </Fit>
+        <SizesContainer>
+          {size.map(product => (
+            <Size
+              sx={{
+                fontFamily: "body",
+                backgroundColor: "secondary"
+              }}
+            >
+              {product.title}
+            </Size>
+          ))}
+        </SizesContainer>
         <PriceAndPurchase>
           <Price
             sx={{
@@ -185,6 +224,8 @@ export default ({
             itemPath="/store"
             isStackable={true}
             isTaxIncluded={true}
+            data-item-custom1-name="Size"
+            data-item-custom1-options={sizes}
           />
         </PriceAndPurchase>
       </Info>

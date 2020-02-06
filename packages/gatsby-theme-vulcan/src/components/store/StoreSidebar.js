@@ -14,7 +14,13 @@ const Container = styled.section`
 `;
 
 export default () => {
-  return <Container sx={{
-    backgroundColor: 'secondary'
-  }}>store sidebar</Container>;
+  return (
+    <Container
+      sx={{
+        backgroundColor: "secondary"
+      }}
+    >
+      store sidebar
+    </Container>
+  );
 };

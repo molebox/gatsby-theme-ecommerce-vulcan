@@ -1,12 +1,10 @@
 /** @jsx jsx */
 import { jsx } from "theme-ui";
-import React from 'react';
+import React from "react";
 import styled from "@emotion/styled";
 import { graphql } from "gatsby";
 import ProductCard from "./ProductCard";
 import { useStaticQuery } from "gatsby";
-import SearchBar from './../Searchbar';
-// import { useSearchBar } from './../useSearchbar';
 
 const Container = styled.section`
   margin: 2em;
@@ -37,70 +35,69 @@ export default () => {
   const products = useStaticQuery(query);
   const info = products.allSanityProduct.nodes;
 
-  // const { categories, handleSearchQuery } = useSearchBar(info);
-  // console.log('result: ', categories);
   return (
     <>
-    {/* <SearchBar handleSearchQuery={handleSearchQuery} /> */}
-    <Container>
-      {info.map((node, index) => {
-        return (
-          <ProductCard
-            itemId={node.id}
-            key={index + node.title}
-            title={node.title}
-            // category={node.categories[0].title}
-            description={node._rawBody.en}
-            thumbnails={node.defaultProductVariant.thumbnails}
-            price={node.defaultProductVariant.price}
-            blurb={node.blurb.en}
-          />
-        )
-      } )}
-    </Container>
+      <Container>
+        {info.map((node, index) => {
+          return (
+            <ProductCard
+              itemId={node.id}
+              key={index + node.title}
+              title={node.title}
+              // category={node.categories[0].title}
+              description={node._rawBody.en}
+              thumbnails={node.defaultProductVariant.thumbnails}
+              price={node.defaultProductVariant.price}
+              blurb={node.blurb.en}
+              size={node.defaultProductVariant.size}
+              fit={node.defaultProductVariant.fits}
+            />
+          );
+        })}
+      </Container>
     </>
   );
 };
 
 export const query = graphql`
-query StoreSectionProductsQuery {
-  allSanityProduct {
-    nodes {
-      _rawBody(resolveReferences: {maxDepth: 10})
-      title
-      categories {
+  query StoreSectionProductsQuery {
+    allSanityProduct {
+      nodes {
+        _rawBody(resolveReferences: { maxDepth: 10 })
         title
-      }
-      defaultProductVariant {
-        sku
-        price
-        taxable
-        title
-        mainImage {
-          asset {
-            fluid {
-              src
-            }
-          }
-        }
-        thumbnails {
-          asset {
-            fluid {
-              src
-            }
-          }
-        }
-        fits {
+        categories {
           title
         }
-        size {
+        defaultProductVariant {
+          sku
+          price
+          taxable
           title
+          mainImage {
+            asset {
+              fluid {
+                ...GatsbySanityImageFluid
+              }
+            }
+          }
+          thumbnails {
+            asset {
+              fluid {
+                ...GatsbySanityImageFluid
+              }
+            }
+          }
+          fits {
+            title
+          }
+          size {
+            title
+          }
         }
-      }
-      blurb {
-        en
+        blurb {
+          en
+        }
       }
     }
   }
-}
 `;

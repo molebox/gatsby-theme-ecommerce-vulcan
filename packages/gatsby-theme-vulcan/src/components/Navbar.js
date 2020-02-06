@@ -2,7 +2,7 @@
 import { jsx } from "theme-ui";
 import styled from "@emotion/styled";
 import { Link } from "gatsby";
-import { useSiteMetadata } from './useSiteMetadata';
+import { useSiteMetadata } from "./useSiteMetadata";
 
 const Nav = styled.nav`
   display: grid;
@@ -31,7 +31,7 @@ const Nav = styled.nav`
 `;
 
 export default () => {
-  const {hasBlog} = useSiteMetadata();
+  const { hasBlog } = useSiteMetadata();
   return (
     <Nav>
       <Link
@@ -40,9 +40,10 @@ export default () => {
           color: "primary",
           cursor: "crosshair",
           textDecoration: "none",
+          textTransform: "uppercase",
           fontSize: "1.2em",
           fontFamily: "heading",
-          fontWeight: "heading",
+          fontWeight: "bold",
           letterSpacing: "body",
           gridColumn: 1,
           "&:hover": {
@@ -63,8 +64,9 @@ export default () => {
           cursor: "crosshair",
           textDecoration: "none",
           fontFamily: "heading",
+          textTransform: "uppercase",
           fontSize: "1.2em",
-          fontWeight: "heading",
+          fontWeight: "bold",
           letterSpacing: "body",
           gridColumn: 2,
           "&:hover": {
@@ -80,29 +82,29 @@ export default () => {
       </Link>
       {hasBlog ? (
         <Link
-        to="/blog"
-        sx={{
-          color: "primary",
-          cursor: "crosshair",
-          textDecoration: "none",
-          fontFamily: "heading",
-          fontSize: "1.2em",
-          fontWeight: "heading",
-          letterSpacing: "body",
-          gridColumn: 3,
-          "&:hover": {
-            color: "accent",
-            textShadow: "-3px 3px #00001F"
-          },
-          "&.active": {
-            color: "accent"
-          }
-        }}
+          to="/blog"
+          sx={{
+            color: "primary",
+            cursor: "crosshair",
+            textDecoration: "none",
+            fontFamily: "heading",
+            fontWeight: "bold",
+            textTransform: "uppercase",
+            fontSize: "1.2em",
+            letterSpacing: "body",
+            gridColumn: 3,
+            "&:hover": {
+              color: "accent",
+              textShadow: "-3px 3px #00001F"
+            },
+            "&.active": {
+              color: "accent"
+            }
+          }}
         >
-        blog
+          blog
         </Link>
       ) : null}
-     
     </Nav>
   );
 };
