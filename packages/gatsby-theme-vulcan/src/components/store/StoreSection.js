@@ -51,6 +51,7 @@ export default () => {
               blurb={node.blurb.en}
               size={node.defaultProductVariant.size}
               fit={node.defaultProductVariant.fits}
+              onSalePrice={node.defaultProductVariant.onSalePrice}
             />
           );
         })}
@@ -71,6 +72,7 @@ export const query = graphql`
         defaultProductVariant {
           sku
           price
+          onSalePrice
           taxable
           title
           mainImage {

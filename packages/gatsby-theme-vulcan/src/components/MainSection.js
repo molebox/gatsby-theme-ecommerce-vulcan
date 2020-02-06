@@ -37,7 +37,7 @@ export default () => {
           sx={{
             border: "solid 3px",
             borderColor: "primary",
-            boxShadow: "-3px 3px #00001F"
+            boxShadow: "-4px 4px #00001F"
           }}
           key={index}
         >

@@ -22,6 +22,7 @@ export default {
     background: "#fff",
     primary: "#000010",
     secondary: "#E7E7E9",
+    secondaryDarker: "#545455",
     accent: "#FFE900"
   }
 };

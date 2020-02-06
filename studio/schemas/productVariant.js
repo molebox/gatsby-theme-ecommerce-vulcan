@@ -19,6 +19,11 @@ export default {
       type: 'number'
     },
     {
+      title: 'On Sale Price',
+      name: 'onSalePrice',
+      type: 'number'
+    },
+    {
       title: 'Sizes',
       name: 'size',
       type: 'array',

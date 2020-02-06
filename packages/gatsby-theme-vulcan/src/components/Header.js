@@ -42,7 +42,7 @@ export default () => {
     <Container
       sx={{
         backgroundColor: "secondary",
-        borderBottom: "solid 3px",
+        borderBottom: "solid 2px",
         borderColor: "promary"
       }}
     >

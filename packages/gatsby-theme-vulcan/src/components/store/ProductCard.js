@@ -16,6 +16,27 @@ const Container = styled.div`
   grid-auto-rows: auto;
   grid-gap: 2em;
   height: auto;
+  position: relative;
+
+  ${props => props.onSale ? `
+    &::before {
+      content: 'SALE';
+      width: 2em;
+      height: 6em;
+      border-right: 1px solid black;
+      border-bottom: 1px solid black;
+      writing-mode: vertical-rl;
+      text-orientation: upright;
+      background-color: black;
+      color: white;
+      position: absolute;
+      z-index: 100;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-weight: bold;
+    }
+  ` : null}
 `;
 
 const ImageContainer = styled.div`
@@ -113,7 +134,8 @@ export default ({
   thumbnails,
   itemId,
   size,
-  fit
+  fit,
+  onSalePrice
 }) => {
   const { currencySymbol, siteUrl } = useSiteMetadata();
   const [index, setIndex] = React.useState(0);
@@ -131,16 +153,16 @@ export default ({
     .join("")
     .toString();
 
-  console.log({ sizes });
-
   return (
     <Container
       sx={{
-        border: "3px solid",
+        border: "2px solid",
         borderColor: "primary",
         padding: "2em",
-        boxShadow: "-3px 3px #00001F"
+        boxShadow: "-4px 4px #00001F",
+        fontFamily: 'heading'
       }}
+      onSale={onSalePrice ? true : false}
     >
       <ImageContainer>
         <div
@@ -202,7 +224,29 @@ export default ({
           ))}
         </SizesContainer>
         <PriceAndPurchase>
+          {onSalePrice ? (
+            <>
+            <Price
+            sx={{
+              fontFamily: "body",
+              fontWeight: "bold",
+              textDecoration: 'line-through',
+              fontSize: '1em'
+            }}
+          >
+            ${price}
+          </Price>
           <Price
+          sx={{
+            fontFamily: "body",
+            fontWeight: "bold"
+          }}
+        >
+          ${onSalePrice}
+        </Price>
+        </>
+          ) : (
+            <Price
             sx={{
               fontFamily: "body",
               fontWeight: "bold"
@@ -210,6 +254,7 @@ export default ({
           >
             ${price}
           </Price>
+          )}
 
           <BuyButton
             key={title}

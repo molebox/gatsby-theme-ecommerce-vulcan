@@ -38,6 +38,6 @@ export default createSchema({
     productVariant,
     about,
     size,
-    fit
+    fit,
   ])
 })
