@@ -11,7 +11,7 @@ export default () => {
         position: "absolute",
         cursor: "crosshair",
         "&:hover": {
-          color: 'secondaryDarker'
+          color: "secondaryDarker"
         }
       }}
       className="snipcart-checkout"

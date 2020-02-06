@@ -12,11 +12,13 @@ export default ({ children }) => {
             box-sizing: border-box;
             scroll-behavior: smooth;
           }
+
           body {
+            scroll-behavior: smooth;
             overflow-y: scroll;
             -webkit-overflow-scrolling: touch;
             overflow-x: hidden;
-            max-width: 100%;
+            height: 100%;
           }
         `}
       />

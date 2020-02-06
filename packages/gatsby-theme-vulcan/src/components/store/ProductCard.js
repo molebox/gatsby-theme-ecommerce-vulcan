@@ -18,7 +18,9 @@ const Container = styled.div`
   height: auto;
   position: relative;
 
-  ${props => props.onSale ? `
+  ${props =>
+    props.onSale
+      ? `
     &::before {
       content: 'SALE';
       width: 2em;
@@ -36,7 +38,8 @@ const Container = styled.div`
       justify-content: center;
       font-weight: bold;
     }
-  ` : null}
+  `
+      : null}
 `;
 
 const ImageContainer = styled.div`
@@ -160,7 +163,7 @@ export default ({
         borderColor: "primary",
         padding: "2em",
         boxShadow: "-4px 4px #00001F",
-        fontFamily: 'heading'
+        fontFamily: "heading"
       }}
       onSale={onSalePrice ? true : false}
     >
@@ -226,34 +229,34 @@ export default ({
         <PriceAndPurchase>
           {onSalePrice ? (
             <>
-            <Price
-            sx={{
-              fontFamily: "body",
-              fontWeight: "bold",
-              textDecoration: 'line-through',
-              fontSize: '1em'
-            }}
-          >
-            ${price}
-          </Price>
-          <Price
-          sx={{
-            fontFamily: "body",
-            fontWeight: "bold"
-          }}
-        >
-          ${onSalePrice}
-        </Price>
-        </>
+              <Price
+                sx={{
+                  fontFamily: "body",
+                  fontWeight: "bold",
+                  textDecoration: "line-through",
+                  fontSize: "1em"
+                }}
+              >
+                ${price}
+              </Price>
+              <Price
+                sx={{
+                  fontFamily: "body",
+                  fontWeight: "bold"
+                }}
+              >
+                ${onSalePrice}
+              </Price>
+            </>
           ) : (
             <Price
-            sx={{
-              fontFamily: "body",
-              fontWeight: "bold"
-            }}
-          >
-            ${price}
-          </Price>
+              sx={{
+                fontFamily: "body",
+                fontWeight: "bold"
+              }}
+            >
+              ${price}
+            </Price>
           )}
 
           <BuyButton
