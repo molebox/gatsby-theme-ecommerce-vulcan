@@ -15,7 +15,7 @@ const Conatiner = styled.div`
       height: 100%;
 
       left: 2px;
-      text-shadow: -1px 0 #ffe900;
+      text-shadow: -1px 0 #de3c4b;
       background: #e7e7e9;
 
       // clip-path: inset();
@@ -33,7 +33,7 @@ const Conatiner = styled.div`
       height: 100%;
 
       left: -2px;
-      text-shadow: -1px 0 #ffe900;
+      text-shadow: -1px 0 #de3c4b;
       background: #e7e7e9;
       overflow: hidden;
       animation: noise-anim 2s infinite linear alternate-reverse;

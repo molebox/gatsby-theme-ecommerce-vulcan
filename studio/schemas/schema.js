@@ -16,6 +16,7 @@ import localeBlockContent from './locale/BlockContent'
 import about from './about'
 import size from './size'
 import fit from './fit'
+import company from './company'
 
 // Then we give our schema to the builder and provide the result to Sanity
 export default createSchema({
@@ -39,5 +40,6 @@ export default createSchema({
     about,
     size,
     fit,
+    company
   ])
 })

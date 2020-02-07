@@ -11,7 +11,7 @@ const Container = styled.div`
     "main"
     "footer";
 
-  height: 100vh;
+  height: 100%;
 
   @media (min-width: 500px) {
     grid-template-columns: 1fr 3fr;
@@ -20,7 +20,7 @@ const Container = styled.div`
       "main     main"
       "footer   footer";
 
-    height: 100vh;
+    height: 100%;
   }
 
   @media (min-width: 700px) {
@@ -30,7 +30,7 @@ const Container = styled.div`
       "main main"
       "footer footer ";
 
-    height: 100vh;
+    height: 100%;
   }
 
   @media (min-width: 1280px) {
@@ -40,14 +40,21 @@ const Container = styled.div`
       "main main"
       "footer footer";
 
-    height: 100vh;
+    height: 100%;
   }
 `;
 
 export default ({ children }) => {
   return (
     <GlobalReset>
-      <Container>{children}</Container>
+      <Container
+        sx={{
+          border: "3px solid",
+          borderColor: "primary"
+        }}
+      >
+        {children}
+      </Container>
     </GlobalReset>
   );
 };

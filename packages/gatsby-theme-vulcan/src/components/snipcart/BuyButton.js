@@ -19,14 +19,14 @@ export default ({
     <button
       sx={{
         fontFamily: "heading",
-        fontWeight: "heading",
+        fontWeight: "bold",
         height: "3em",
         width: "10em",
         border: "0.1em solid",
         padding: "0.35em 1.2em",
         borderColor: "primary",
         backgroundColor: "primary",
-        color: "accent",
+        color: "white",
         cursor: "crosshair",
         textTransform: "uppercase",
         "&:hover": {

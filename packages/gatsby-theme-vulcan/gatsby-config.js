@@ -1,5 +1,14 @@
 module.exports = (options) => {
-    const {siteName, siteUrl, sanity_project_id, sanity_dataset,snipcart_api_key, version, currencySymbol, hasBlog} = options;
+    const {
+      siteName, 
+      siteUrl, 
+      sanity_project_id, 
+      sanity_dataset,
+      snipcart_api_key, 
+      version, 
+      currencySymbol, 
+      hasBlog,
+    } = options;
 
     return {
         siteMetadata: {
@@ -16,9 +25,6 @@ module.exports = (options) => {
               projectId: sanity_project_id,
               dataset: sanity_dataset,
               watchMode: false
-              // a token with read permissions is required
-              // if you have a private dataset
-              // token: process.env.MY_SANITY_TOKEN
             }
           },
             {
@@ -30,6 +36,13 @@ module.exports = (options) => {
                     'source sans pro\:300,400,400i,700'
                   ]
                 }
+            },
+            {
+              resolve: 'gatsby-source-filesystem',
+              options: {
+                name: 'pages',
+                path: `${__dirname}/src/pages/`
+              }
             },
             'gatsby-transformer-sharp',
             'gatsby-plugin-sharp',

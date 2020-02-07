@@ -1,7 +1,7 @@
 /** @jsx jsx */
 import { jsx } from "theme-ui";
 import styled from "@emotion/styled";
-import Card from "./Card";
+import Card from "../Card";
 import { graphql, useStaticQuery } from "gatsby";
 import GatsbyImage from "gatsby-image";
 import { Link } from "gatsby";
@@ -27,17 +27,29 @@ const ListContainer = styled.ul`
   }
 `;
 
+const ProductInfo = styled.div`
+  z-index: 1000;
+  font-size: 1.5em;
+  height: 4em;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+`;
+
+// pass in the currency from siteMetadata
 export default () => {
   const products = useStaticQuery(query);
-  const images = products.allSanityProduct.nodes;
+  const productNodes = products.allSanityProduct.nodes;
   return (
     <ListContainer>
-      {images.map((node, index) => (
+      {productNodes.map((node, index) => (
         <li
           sx={{
             border: "solid 3px",
             borderColor: "primary",
-            boxShadow: "-4px 4px #00001F"
+            boxShadow: "-4px 4px #00001F",
+            textDecoration: "none"
           }}
           key={index}
         >
@@ -49,6 +61,17 @@ export default () => {
               />
             </Card>
           </Link>
+          <ProductInfo
+            sx={{
+              fontFamily: "heading",
+              borderTop: "3px solid",
+              borderColor: "primary",
+              textDecoration: "none"
+            }}
+          >
+            <p>{node.defaultProductVariant.title}</p>
+            <p>${node.defaultProductVariant.price}</p>
+          </ProductInfo>
         </li>
       ))}
     </ListContainer>
@@ -56,7 +79,7 @@ export default () => {
 };
 
 export const query = graphql`
-  query MainSectionProductImageQuery {
+  query ProductsSectionQuery {
     allSanityProduct {
       nodes {
         defaultProductVariant {
