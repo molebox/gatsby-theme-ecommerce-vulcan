@@ -35,6 +35,8 @@ const Container = styled.div`
 
   @media (min-width: 1280px) {
     grid-template-columns: 1fr 4fr;
+    grid-template-rows: auto 1fr auto;
+    min-height: 100%;
     grid-template-areas:
       "header header"
       "sidebar main"

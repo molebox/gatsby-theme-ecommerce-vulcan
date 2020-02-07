@@ -9,6 +9,7 @@ import StoreLayout from "../components/layouts/StoreLayout";
 import Header from "../components/Header";
 import Footer from "../components/Footer";
 import Main from "../components/Main";
+import { useSiteMetadata } from "./../components/useSiteMetadata";
 
 const ListContainer = styled.ul`
   list-style: none;
@@ -41,10 +42,33 @@ const ProductInfo = styled.div`
   align-items: center;
 `;
 
-// pass in the currency from siteMetadata
+const PriceContainer = styled.div`
+  display: flex;
+  justify-content: space-evenly;
+  align-items: center;
+  width: 100%;
+`;
+
+const Price = styled.div`
+  font-size: 1em;
+
+  @media (min-width: 1280px) {
+    font-size: 1em;
+  }
+`;
+
+const OnSalePrice = styled.div`
+  font-size: 0.8em;
+
+  @media (min-width: 1280px) {
+    font-size: 0.5em;
+  }
+`;
+
 export default ({ data }) => {
   const { nodes } = data.allSanityProduct;
-  console.log({ nodes });
+  const { currencySymbol } = useSiteMetadata();
+
   return (
     <StoreLayout>
       <Header />
@@ -77,7 +101,39 @@ export default ({ data }) => {
                 }}
               >
                 <p>{node.defaultProductVariant.title}</p>
-                <p>${node.defaultProductVariant.price}</p>
+                {node.defaultProductVariant.onSalePrice ? (
+                  <PriceContainer>
+                    <OnSalePrice
+                      sx={{
+                        fontFamily: "body",
+                        fontWeight: "bold",
+                        textDecoration: "line-through"
+                      }}
+                    >
+                      {currencySymbol}
+                      {node.defaultProductVariant.price}
+                    </OnSalePrice>
+                    <Price
+                      sx={{
+                        fontFamily: "body",
+                        fontWeight: "bold"
+                      }}
+                    >
+                      {currencySymbol}
+                      {node.defaultProductVariant.onSalePrice}
+                    </Price>
+                  </PriceContainer>
+                ) : (
+                  <Price
+                    sx={{
+                      fontFamily: "body",
+                      fontWeight: "bold"
+                    }}
+                  >
+                    {currencySymbol}
+                    {node.defaultProductVariant.price}
+                  </Price>
+                )}
               </ProductInfo>
             </li>
           ))}
@@ -99,6 +155,7 @@ export const query = graphql`
         defaultProductVariant {
           title
           price
+          onSalePrice
           mainImage {
             asset {
               fluid(maxWidth: 500) {

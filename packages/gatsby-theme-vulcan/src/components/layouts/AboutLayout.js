@@ -11,8 +11,6 @@ const Container = styled.div`
     "main"
     "footer";
 
-  height: 100%;
-
   @media (min-width: 500px) {
     grid-template-columns: 1fr 3fr;
     grid-template-areas:
@@ -39,8 +37,6 @@ const Container = styled.div`
       "header header"
       "main main"
       "footer footer";
-
-    height: 100%;
   }
 `;
 

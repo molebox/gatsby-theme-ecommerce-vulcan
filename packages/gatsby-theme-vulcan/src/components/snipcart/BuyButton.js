@@ -1,5 +1,24 @@
 /** @jsx jsx */
 import { jsx } from "theme-ui";
+import styled from "@emotion/styled";
+
+const Button = styled.button`
+  font-size: 1.6em;
+  height: 3em;
+  width: 10em;
+
+  @media (min-width: 500px) {
+    font-size: 2em;
+  }
+
+  @media (min-width: 700px) {
+    font-size: 2em;
+  }
+
+  @media (min-width: 1280px) {
+    font-size: 1em;
+  }
+`;
 
 export default ({
   itemId,
@@ -16,12 +35,10 @@ export default ({
   ...customFieldProps
 }) => {
   return (
-    <button
+    <Button
       sx={{
         fontFamily: "heading",
-        fontWeight: "bold",
-        height: "3em",
-        width: "10em",
+        fontWeight: "heading",
         border: "0.1em solid",
         padding: "0.35em 1.2em",
         borderColor: "primary",
@@ -51,6 +68,6 @@ export default ({
       {...customFieldProps}
     >
       {text}
-    </button>
+    </Button>
   );
 };

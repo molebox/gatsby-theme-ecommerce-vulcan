@@ -101,7 +101,19 @@ const ProductHeader = styled.div`
 `;
 
 const Price = styled.div`
+  font-size: 3em;
+
+  @media (min-width: 1280px) {
+    font-size: 2em;
+  }
+`;
+
+const OnSalePrice = styled.div`
   font-size: 2em;
+
+  @media (min-width: 1280px) {
+    font-size: 1.5em;
+  }
 `;
 
 const PriceAndPurchase = styled.div`
@@ -111,34 +123,21 @@ const PriceAndPurchase = styled.div`
 `;
 
 const Description = styled.div`
-  font-size: 1.2em;
+  font-size: 1.5em;
   margin-bottom: 1em;
+
+  @media (min-width: 500px) {
+    font-size: 1.2em;
+  }
+
+  @media (min-width: 700px) {
+    font-size: 1.2em;
+  }
+
+  @media (min-width: 1280px) {
+    font-size: 1.2em;
+  }
 `;
-
-// const SizesContainer = styled.div`
-//   display: flex;
-//   justify-content: space-evenly;
-//   align-items: center;
-//   align-self: center;
-//   margin-bottom: 1em;
-//   width: 100%;
-// `;
-
-// const Size = styled.div`
-//   display: flex;
-//   align-items: center;
-//   justify-content: center;
-//   height: 2em;
-//   width: 2em;
-//   margin: 0.5em;
-
-//   font-size: 1.5em;
-// `;
-
-// const Fit = styled.p`
-//   font-size: 1.2em;
-//   margin: 1em auto;
-// `;
 
 const serializers = {
   types: {
@@ -218,7 +217,7 @@ export default ({ data }) => {
             </div>
             <MainImageContainer
               sx={{
-                border: "0.1em solid",
+                border: "2px solid",
                 borderColor: "primary"
               }}
             >
@@ -254,39 +253,19 @@ export default ({ data }) => {
             <Description>
               <PortableText blocks={_rawBody.en} serializers={serializers} />
             </Description>
-            {/* <Fit
-              sx={{
-                fontFamily: "body"
-              }}
-            >
-              Fit: {fits[0].title}
-            </Fit>
-            <SizesContainer>
-              {size.map(product => (
-                <Size
-                  sx={{
-                    fontFamily: "body",
-                    backgroundColor: "secondary"
-                  }}
-                >
-                  {product.title}
-                </Size>
-              ))}
-            </SizesContainer> */}
             <PriceAndPurchase>
               {onSalePrice ? (
                 <>
-                  <Price
+                  <OnSalePrice
                     sx={{
                       fontFamily: "body",
                       fontWeight: "bold",
-                      textDecoration: "line-through",
-                      fontSize: "1em"
+                      textDecoration: "line-through"
                     }}
                   >
                     {currencySymbol}
                     {price}
-                  </Price>
+                  </OnSalePrice>
                   <Price
                     sx={{
                       fontFamily: "body",

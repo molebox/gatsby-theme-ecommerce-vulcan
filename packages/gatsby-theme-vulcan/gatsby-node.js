@@ -62,10 +62,10 @@ exports.createPages = ({ actions, graphql }) => {
     const products = result.data.allSanityProduct.nodes || [];
 
     products.forEach((product, index) => {
-    //     console.log({product})
-    //   const previous =
-    //     index === product.length - 1 ? null : products[index + 1]
-    //   const next = index === 0 ? null : products[index - 1]
+      console.log({product})
+      const previous =
+        index === product.length - 1 ? null : products[index + 1]
+      const next = index === 0 ? null : products[index - 1]
         console.log({product})
     const path = `/${product.slug.current}`
 
@@ -74,9 +74,9 @@ exports.createPages = ({ actions, graphql }) => {
         component: productTemplate,
         context: {
         slug: product.slug.current,
-        id: product.id
-        //   previous,
-        //   next,
+        id: product.id,
+        previous,
+        next,
         },
       })
     })

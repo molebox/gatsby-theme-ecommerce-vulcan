@@ -26,7 +26,7 @@ module.exports = (options) => {
             options: {
               projectId: sanity_project_id,
               dataset: sanity_dataset,
-              watchMode: false
+              watchMode: true
             }
           },
             {

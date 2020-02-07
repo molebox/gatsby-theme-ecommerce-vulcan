@@ -12,7 +12,6 @@ export default () => {
         cursor: "crosshair",
         color: "white",
         "&:hover": {
-          color: "accent",
           backgroundColor: "accent",
           color: "primary"
         }

@@ -20,6 +20,10 @@ export default ({ children }) => {
             overflow-x: hidden;
             height: 100%;
 
+            min-height: 100%;
+            display: grid;
+            grid-template-rows: auto 1fr auto;
+
             @-ms-viewport {
               width: device-width;
             }
