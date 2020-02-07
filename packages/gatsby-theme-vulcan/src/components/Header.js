@@ -58,7 +58,7 @@ export default () => {
             color: "primary",
             cursor: "crosshair",
             textDecoration: "none",
-            textTransform: 'uppercase',
+            textTransform: "uppercase",
             "&:hover": {
               color: "accent"
             },

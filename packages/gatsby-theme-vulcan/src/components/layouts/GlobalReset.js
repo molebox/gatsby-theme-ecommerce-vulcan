@@ -19,6 +19,10 @@ export default ({ children }) => {
             -webkit-overflow-scrolling: touch;
             overflow-x: hidden;
             height: 100%;
+
+            @viewport {
+              width: device-width;
+            }
           }
         `}
       />

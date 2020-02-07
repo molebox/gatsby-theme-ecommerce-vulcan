@@ -47,14 +47,7 @@ const Container = styled.div`
 export default ({ children }) => {
   return (
     <GlobalReset>
-      <Container
-        sx={{
-          border: "3px solid",
-          borderColor: "primary"
-        }}
-      >
-        {children}
-      </Container>
+      <Container>{children}</Container>
     </GlobalReset>
   );
 };
