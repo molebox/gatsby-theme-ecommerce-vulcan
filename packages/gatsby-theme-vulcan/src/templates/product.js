@@ -158,7 +158,6 @@ const serializers = {
 };
 
 export default ({ data }) => {
-  console.log({ data });
   const {
     slug,
     blurb,

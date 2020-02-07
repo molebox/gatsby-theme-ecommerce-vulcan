@@ -10,6 +10,7 @@ export const useSiteMetadata = () => {
             currencySymbol
             siteUrl
             hasBlog
+            tagline
           }
         }
       }

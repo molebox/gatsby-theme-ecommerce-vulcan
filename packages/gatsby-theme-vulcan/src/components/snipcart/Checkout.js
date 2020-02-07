@@ -1,6 +1,6 @@
 /** @jsx jsx */
 import { jsx } from "theme-ui";
-import { FiShoppingBag } from "react-icons/fi";
+import { AiOutlineShopping } from "react-icons/ai";
 
 export default () => {
   return (
@@ -10,13 +10,16 @@ export default () => {
         right: "3em",
         position: "absolute",
         cursor: "crosshair",
+        color: "white",
         "&:hover": {
-          color: "accent"
+          color: "accent",
+          backgroundColor: "accent",
+          color: "primary"
         }
       }}
       className="snipcart-checkout"
     >
-      <FiShoppingBag size="2em" />
+      <AiOutlineShopping size="2em" />
     </div>
   );
 };

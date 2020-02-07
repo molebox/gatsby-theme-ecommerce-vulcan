@@ -8,6 +8,7 @@ module.exports = (options) => {
       version, 
       currencySymbol, 
       hasBlog,
+      tagline
     } = options;
 
     return {
@@ -15,7 +16,8 @@ module.exports = (options) => {
           siteName,
           currencySymbol,
           siteUrl,
-          hasBlog
+          hasBlog,
+          tagline
         },
 
         plugins: [

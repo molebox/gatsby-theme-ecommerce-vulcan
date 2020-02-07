@@ -37,18 +37,19 @@ export default () => {
       <Link
         to="/about"
         sx={{
-          color: "primary",
+          color: "white",
           cursor: "crosshair",
           textDecoration: "none",
           textTransform: "uppercase",
           fontSize: "1.1em",
           fontFamily: "heading",
-          fontWeight: "bold",
+          fontWeight: "heading",
           letterSpacing: "body",
           gridColumn: 1,
+          width: "max-content",
           "&:hover": {
-            color: "accent",
-            textShadow: "-3px 3px #00001F"
+            color: "primary",
+            backgroundColor: "accent"
           },
           "&.active": {
             color: "accent"
@@ -60,18 +61,19 @@ export default () => {
       <Link
         to="/productsPage"
         sx={{
-          color: "primary",
+          color: "white",
           cursor: "crosshair",
           textDecoration: "none",
           fontFamily: "heading",
           textTransform: "uppercase",
           fontSize: "1.1em",
-          fontWeight: "bold",
+          fontWeight: "heading",
           letterSpacing: "body",
           gridColumn: 2,
+          width: "max-content",
           "&:hover": {
-            color: "accent",
-            textShadow: "-3px 3px #00001F"
+            color: "primary",
+            backgroundColor: "accent"
           },
           "&.active": {
             color: "accent"
@@ -84,18 +86,19 @@ export default () => {
         <Link
           to="/blog"
           sx={{
-            color: "primary",
+            color: "white",
             cursor: "crosshair",
             textDecoration: "none",
             fontFamily: "heading",
-            fontWeight: "bold",
+            fontWeight: "heading",
             textTransform: "uppercase",
             fontSize: "1.1em",
             letterSpacing: "body",
             gridColumn: 3,
+            width: "max-content",
             "&:hover": {
-              color: "accent",
-              textShadow: "-3px 3px #00001F"
+              color: "primary",
+              backgroundColor: "accent"
             },
             "&.active": {
               color: "accent"

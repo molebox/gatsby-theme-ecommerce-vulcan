@@ -1,6 +1,7 @@
 /** @jsx jsx */
 import { jsx } from "theme-ui";
 import styled from "@emotion/styled";
+import { useSiteMetadata } from "./useSiteMetadata";
 
 const Container = styled.div`
   grid-area: sidebar;
@@ -46,6 +47,7 @@ const Text = styled.p`
 `;
 
 export default () => {
+  const { tagline } = useSiteMetadata();
   return (
     <Container>
       <Text
@@ -53,11 +55,11 @@ export default () => {
           fontFamily: "heading",
           letterSpacing: "text",
           fontWeight: "bold",
-          color: "primary"
+          color: "primary",
+          textTransform: "uppercase"
         }}
       >
-        STYLE IS A WAY TO SAY WHO YOU ARE WITHOUT HAVING TO SPEAK
-        {/* <GlitchConstant>STYLE IS</GlitchConstant>A WAY TO SAY<GlitchConstant>WHO YOU ARE</GlitchConstant>WITHOUT HAVING TO SPEAK */}
+        {tagline}
       </Text>
     </Container>
   );

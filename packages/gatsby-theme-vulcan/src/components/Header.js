@@ -41,9 +41,9 @@ export default () => {
   return (
     <Container
       sx={{
-        backgroundColor: "secondary",
-        borderBottom: "solid 2px",
-        borderColor: "promary"
+        backgroundColor: "primary",
+        borderBottom: "solid 1px",
+        borderColor: "accent"
       }}
     >
       <Title
@@ -55,12 +55,12 @@ export default () => {
         <Link
           to="/"
           sx={{
-            color: "primary",
+            color: "white",
             cursor: "crosshair",
             textDecoration: "none",
             textTransform: "uppercase",
             "&:hover": {
-              color: "accent"
+              color: "white"
             },
             "&.active": {
               color: "accent"

@@ -20,7 +20,7 @@ export default ({ children }) => {
             overflow-x: hidden;
             height: 100%;
 
-            @viewport {
+            @-ms-viewport {
               width: device-width;
             }
           }

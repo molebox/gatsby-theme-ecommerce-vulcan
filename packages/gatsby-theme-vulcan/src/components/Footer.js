@@ -2,6 +2,8 @@
 import { jsx } from "theme-ui";
 import styled from "@emotion/styled";
 import { Link } from "gatsby";
+import { graphql } from "gatsby";
+import { useStaticQuery } from "gatsby";
 
 const Container = styled.div`
   grid-area: footer;
@@ -94,19 +96,23 @@ const Other = styled.div`
 `;
 
 export default () => {
+  const info = useStaticQuery(query);
+  const { phone, email } = info.sanityCompany;
   return (
     <Container
       sx={{
         backgroundColor: "primary",
-        color: "accent",
-        marginTop: "2em"
+        color: "white",
+        marginTop: "2em",
+        borderTop: "2px solid",
+        borderColor: "accent"
       }}
     >
       <CustomerCare>
         <Link
           to="/contact"
           sx={{
-            color: "accent",
+            color: "white",
             cursor: "crosshair",
             textDecoration: "none",
             fontSize: "1em",
@@ -126,7 +132,7 @@ export default () => {
         <Link
           to="/payment"
           sx={{
-            color: "accent",
+            color: "white",
             cursor: "crosshair",
             textDecoration: "none",
             fontSize: "1em",
@@ -146,7 +152,7 @@ export default () => {
         <Link
           to="/shipping"
           sx={{
-            color: "accent",
+            color: "white",
             cursor: "crosshair",
             textDecoration: "none",
             fontSize: "1em",
@@ -166,7 +172,7 @@ export default () => {
         <Link
           to="/returns"
           sx={{
-            color: "accent",
+            color: "white",
             cursor: "crosshair",
             textDecoration: "none",
             fontSize: "1em",
@@ -186,7 +192,7 @@ export default () => {
         <Link
           to="/faq"
           sx={{
-            color: "accent",
+            color: "white",
             cursor: "crosshair",
             textDecoration: "none",
             fontSize: "1em",
@@ -208,7 +214,7 @@ export default () => {
         <Link
           to="/sizeGuide"
           sx={{
-            color: "accent",
+            color: "white",
             cursor: "crosshair",
             textDecoration: "none",
             fontSize: "1em",
@@ -228,7 +234,7 @@ export default () => {
         <Link
           to="/privacy"
           sx={{
-            color: "accent",
+            color: "white",
             cursor: "crosshair",
             textDecoration: "none",
             fontSize: "1em",
@@ -248,7 +254,7 @@ export default () => {
         <Link
           to="/terms"
           sx={{
-            color: "accent",
+            color: "white",
             cursor: "crosshair",
             textDecoration: "none",
             fontSize: "1em",
@@ -269,7 +275,7 @@ export default () => {
       <Social>
         <a
           sx={{
-            color: "accent",
+            color: "white",
             cursor: "crosshair",
             textDecoration: "none",
             fontSize: "1em",
@@ -288,7 +294,7 @@ export default () => {
         </a>
         <a
           sx={{
-            color: "accent",
+            color: "white",
             cursor: "crosshair",
             textDecoration: "none",
             fontSize: "1em",
@@ -307,7 +313,7 @@ export default () => {
         </a>
         <a
           sx={{
-            color: "accent",
+            color: "white",
             cursor: "crosshair",
             textDecoration: "none",
             fontSize: "1em",
@@ -328,7 +334,7 @@ export default () => {
       <Other>
         <a
           sx={{
-            color: "accent",
+            color: "white",
             cursor: "crosshair",
             textDecoration: "none",
             fontSize: "1em",
@@ -343,11 +349,11 @@ export default () => {
             }
           }}
         >
-          email
+          {email}
         </a>
         <p
           sx={{
-            color: "accent",
+            color: "white",
             cursor: "crosshair",
             textDecoration: "none",
             fontSize: "1em",
@@ -362,28 +368,19 @@ export default () => {
             }
           }}
         >
-          phone
-        </p>
-        <p
-          sx={{
-            color: "accent",
-            cursor: "crosshair",
-            textDecoration: "none",
-            fontSize: "1em",
-            fontWeight: "heading",
-            fontFamily: "heading",
-            letterSpacing: "body",
-            textTransform: "uppercase",
-            width: "min-content",
-            "&:hover": {
-              color: "primary",
-              backgroundColor: "accent"
-            }
-          }}
-        >
-          address
+          {phone}
         </p>
       </Other>
     </Container>
   );
 };
+
+export const query = graphql`
+  query FooterInfoQuery {
+    sanityCompany {
+      email
+      companyName
+      phone
+    }
+  }
+`;
