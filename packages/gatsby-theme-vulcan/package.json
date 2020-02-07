@@ -1,6 +1,6 @@
 {
   "name": "gatsby-theme-vulcan",
-  "version": "0.0.17",
+  "version": "0.0.18",
   "main": "index.js",
   "author": "Hungry Bear Studio <roar@hungrybearstudio.com>",
   "license": "MIT",
@@ -25,6 +25,7 @@
     "gatsby-source-filesystem": "^2.1.48",
     "gatsby-source-sanity": "^5.0.5",
     "gatsby-transformer-sharp": "^2.3.13",
+    "lodash.isempty": "^4.4.0",
     "react": "^16.12.0",
     "react-dom": "^16.12.0",
     "react-helmet": "^5.2.1",
