@@ -49,7 +49,7 @@ module.exports = (options) => {
             {
               resolve: "@horacioh/gatsby-theme-instagram",
               options: {
-                username: "alexachung",
+                username: "guardianfashion",
               },
             },
             'gatsby-transformer-sharp',

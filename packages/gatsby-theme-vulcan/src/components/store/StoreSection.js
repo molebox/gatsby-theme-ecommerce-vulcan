@@ -44,7 +44,6 @@ export default () => {
               itemId={node.id}
               key={index + node.title}
               title={node.title}
-              // category={node.categories[0].title}
               description={node._rawBody.en}
               thumbnails={node.defaultProductVariant.thumbnails}
               price={node.defaultProductVariant.price}

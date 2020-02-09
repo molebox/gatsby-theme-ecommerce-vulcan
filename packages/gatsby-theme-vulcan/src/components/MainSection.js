@@ -8,8 +8,9 @@ import GatsbyImage from "gatsby-image";
 // import { Link } from "gatsby";
 import { useSiteMetadata } from "./useSiteMetadata";
 import { Grid } from "@horacioh/gatsby-theme-instagram";
+import ProductCard from "./store/ProductCard";
 
-const Instagram = styled.h3`
+const Heading = styled.h3`
   font-size: 1.5em;
 
   display: flex;
@@ -74,8 +75,48 @@ const Text = styled.h2`
   }
 `;
 
+const Showcase = styled.section`
+  // display: grid;
+  // grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+  // grid-auto-rows: auto;
+  // grid-gap: 2em;
+
+  margin: 2em;
+  display: grid;
+  grid-gap: 2em;
+  width: auto;
+  grid-template-columns: 1fr;
+
+  grid-auto-rows: auto;
+  justify-self: center;
+  justify-items: center;
+
+  @media (min-width: 500px) {
+    grid-template-columns: 1fr;
+  }
+
+  @media (min-width: 700px) {
+    grid-template-columns: 1fr 1fr;
+  }
+
+  @media (min-width: 1280px) {
+    grid-template-columns: 1fr 1fr 1fr;
+  }
+`;
+
+// const ImageContainer = styled.div`
+//   width: 100%;
+//   max-width: 300px;
+//   height: auto;
+//   justify-self: center;
+//   align-self: center;
+// `;
+
 export default () => {
   const home = useStaticQuery(query);
+  const showcaseImages = home.sanityShowcase.products;
+  console.log({ home });
+  console.log({ showcaseImages });
   const { tagline } = useSiteMetadata();
   const { images } = home.sanityHomePage;
   return (
@@ -101,7 +142,36 @@ export default () => {
       >
         {tagline}
       </Text>
-      <Instagram
+      <Heading
+        sx={{
+          fontFamily: "heading",
+          letterSpacing: "text",
+          fontWeight: "heading",
+          textTransform: "uppercase",
+          borderBottom: "solid 2px",
+          borderColor: "primary",
+          padding: "0.5em"
+        }}
+      >
+        Showcase
+      </Heading>
+      <Showcase>
+        {showcaseImages.map((node, index) => (
+          <ProductCard
+            itemId={node.id}
+            key={index + node.title}
+            title={node.title}
+            // category={node.categories[0].title}
+            description={node._rawBody.en}
+            thumbnails={node.defaultProductVariant.thumbnails}
+            price={node.defaultProductVariant.price}
+            blurb={node.blurb.en}
+            size={node.defaultProductVariant.size}
+            onSalePrice={node.defaultProductVariant.onSalePrice}
+          />
+        ))}
+      </Showcase>
+      <Heading
         sx={{
           fontFamily: "heading",
           letterSpacing: "text",
@@ -113,7 +183,7 @@ export default () => {
         }}
       >
         Instagram
-      </Instagram>
+      </Heading>
       <div
         sx={{
           padding: "1em"
@@ -132,6 +202,37 @@ export const query = graphql`
         asset {
           fluid(maxWidth: 1200) {
             ...GatsbySanityImageFluid
+          }
+        }
+      }
+    }
+    sanityShowcase {
+      title
+      products {
+        _rawBody(resolveReferences: { maxDepth: 10 })
+        blurb {
+          en
+        }
+        id
+        defaultProductVariant {
+          title
+          price
+          mainImage {
+            asset {
+              fluid {
+                ...GatsbySanityImageFluid
+              }
+            }
+          }
+          thumbnails {
+            asset {
+              fluid {
+                ...GatsbySanityImageFluid
+              }
+            }
+          }
+          size {
+            title
           }
         }
       }
