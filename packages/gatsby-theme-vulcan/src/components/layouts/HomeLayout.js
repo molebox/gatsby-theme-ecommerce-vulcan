@@ -39,8 +39,9 @@ const Container = styled.div`
     min-height: 100%;
     grid-template-areas:
       "header header"
-      "sidebar main"
-      "sidebar main"
+      "main main"
+      "main main"
+      "sidebar sidebar"
       "footer footer";
     height: 100%;
   }
