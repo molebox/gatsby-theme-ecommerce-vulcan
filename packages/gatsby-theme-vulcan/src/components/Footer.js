@@ -5,10 +5,10 @@ import { Link } from "gatsby";
 import { graphql } from "gatsby";
 import { useStaticQuery } from "gatsby";
 
-const Container = styled.div`
+const Container = styled.footer`
   grid-area: footer;
   height: 20em;
-  margin-top: -20em;
+
   display: grid;
   grid-template-columns: 1fr 1fr;
   grid-gap: 2em;

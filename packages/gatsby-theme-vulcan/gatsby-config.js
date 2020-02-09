@@ -46,6 +46,12 @@ module.exports = (options) => {
                 path: `${__dirname}/src/pages/`
               }
             },
+            {
+              resolve: "@horacioh/gatsby-theme-instagram",
+              options: {
+                username: "alexachung",
+              },
+            },
             'gatsby-transformer-sharp',
             'gatsby-plugin-sharp',
             'gatsby-plugin-emotion',

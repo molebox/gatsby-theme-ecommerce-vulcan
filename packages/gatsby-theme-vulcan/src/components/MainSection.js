@@ -7,43 +7,49 @@ import { graphql, useStaticQuery } from "gatsby";
 import GatsbyImage from "gatsby-image";
 // import { Link } from "gatsby";
 import { useSiteMetadata } from "./useSiteMetadata";
+import { Grid } from "@horacioh/gatsby-theme-instagram";
 
-// const ListContainer = styled.ul`
-//   list-style: none;
-//   margin: 2em;
-//   display: grid;
-//   grid-gap: 3em;
-//   grid-auto-flow: dense;
-//   grid-template-columns: 1fr 1fr;
-//   justify-items: center;
-//   width: auto;
-//   height: auto;
-//   justify-self: center;
+const Instagram = styled.h3`
+  font-size: 1.5em;
 
-//   @media (min-width: 700px) {
-//     grid-template-columns: 1fr 1fr;
-//   }
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: 1em;
 
-//   @media (min-width: 1280px) {
-//     grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
-//   }
-// `;
+  @media (min-width: 500px) {
+    font-size: 2em;
+  }
+
+  @media (min-width: 700px) {
+    font-size: 2.8em;
+  }
+
+  @media (min-width: 1280px) {
+    font-size: 2.8em;
+  }
+`;
+
+const Container = styled.div`
+  min-height: 900px;
+`;
 
 const Image = styled(GatsbyImage)`
   width: auto;
   height: auto;
   max-width: 100%;
   max-height: 100%;
+  margin-bottom: 3em;
 `;
 
-const Text = styled.div`
+const Text = styled.h2`
   position: absolute;
-  top: 40%;
+  top: 45%;
   left: 40%;
   transform: translate(-50%, -50%);
 
   font-size: 1.5em;
-  line-height: 40px;
+  line-height: 35px;
 
   @media (min-width: 500px) {
     font-size: 2em;
@@ -73,7 +79,7 @@ export default () => {
   const { tagline } = useSiteMetadata();
   const { images } = home.sanityHomePage;
   return (
-    <>
+    <Container>
       <Image
         sx={{
           border: "solid 2px",
@@ -95,7 +101,27 @@ export default () => {
       >
         {tagline}
       </Text>
-    </>
+      <Instagram
+        sx={{
+          fontFamily: "heading",
+          letterSpacing: "text",
+          fontWeight: "heading",
+          textTransform: "uppercase",
+          borderBottom: "solid 2px",
+          borderColor: "primary",
+          padding: "0.5em"
+        }}
+      >
+        Instagram
+      </Instagram>
+      <div
+        sx={{
+          padding: "1em"
+        }}
+      >
+        <Grid />
+      </div>
+    </Container>
   );
 };
 

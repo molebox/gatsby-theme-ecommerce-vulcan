@@ -9,7 +9,6 @@ const Container = styled.div`
   grid-template-areas:
     "header"
     "main"
-    "sidebar"
     "footer";
   height: 100%;
 
@@ -18,7 +17,6 @@ const Container = styled.div`
     grid-template-areas:
       "header  header"
       "main     main"
-      "sidebar sidebar"
       "footer   footer";
     height: 100%;
   }
@@ -28,7 +26,6 @@ const Container = styled.div`
     grid-template-areas:
       "header header"
       "main main"
-      "sidebar sidebar"
       "footer footer";
     height: 100%;
   }
@@ -41,7 +38,6 @@ const Container = styled.div`
       "header header"
       "main main"
       "main main"
-      "sidebar sidebar"
       "footer footer";
     height: 100%;
   }
