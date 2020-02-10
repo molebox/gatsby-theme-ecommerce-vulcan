@@ -19,6 +19,9 @@ import fit from './fit'
 import company from './company'
 import homePage from './homePage'
 import showcase from './showcase'
+import privacy from './privacy'
+import deliveryAndRetuns from './deliveryAndRetuns'
+import termsAndConditions from './termsAndConditions'
 
 // Then we give our schema to the builder and provide the result to Sanity
 export default createSchema({
@@ -45,5 +48,8 @@ export default createSchema({
     company,
     homePage,
     showcase,
+    privacy,
+    deliveryAndRetuns,
+    termsAndConditions,
   ])
 })

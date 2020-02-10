@@ -18,15 +18,23 @@ export default {
             }
         },
         {
-            name: 'email',
-            title: 'Email',
-            type: 'string'
-        },
-        {
-            name: 'phone',
-            title: 'Phone',
-            type: 'string'
-        },
+            name: 'facebook',
+            title: 'Facebook',
+            type: 'string',
+            description: 'Facebook page link',
+          },
+          {
+            name: 'instagram',
+            title: 'Instagram',
+            type: 'string',
+            description: 'Instagram link',
+          },
+          {
+            name: 'pinterest',
+            title: 'Pinterest',
+            type: 'string',
+            description: 'Pinterest page link',
+          },
 
     ]
 }

@@ -8,16 +8,18 @@ import { useStaticQuery } from "gatsby";
 const Container = styled.footer`
   grid-area: footer;
   height: 20em;
+  width: 100%;
 
   display: grid;
-  grid-template-columns: 1fr 1fr;
+  grid-template-columns: 1fr;
   grid-gap: 2em;
   grid-template-areas:
-    "social customerCare"
-    "info other";
+    "social"
+    "customerCare"
+    "info";
 
-  justify-items: start;
-  align-content: space-evenly;
+  justify-items: center;
+  align-content: center;
 
   @media (min-width: 500px) {
     grid-template-columns: 1fr 1fr 1fr;
@@ -25,24 +27,25 @@ const Container = styled.footer`
       "customerCare info info"
       "customerCare info info"
       "customerCare info info"
-      "social social other";
+      "social social social";
   }
 
   @media (min-width: 700px) {
-    grid-template-columns: 1fr 1fr 1fr 1fr;
+    grid-template-columns: 1fr 1fr 1fr;
     grid-template-rows: auto;
     grid-template-areas:
-      "customerCare info social other"
-      "customerCare info social other"
-      "customerCare info social other"
-      "customerCare info social other";
+      "customerCare info social"
+      "customerCare info social"
+      "customerCare info social"
+      "customerCare info social";
     justify-items: center;
+    width: 100%;
+    align-content: space-around;
   }
 `;
 
 const CustomerCare = styled.div`
   grid-area: customerCare;
-  margin-left: 2em;
   display: flex;
   flex-direction: column;
   justify-content: space-evenly;
@@ -56,7 +59,6 @@ const CustomerCare = styled.div`
 
 const Info = styled.div`
   grid-area: info;
-  margin-left: 2em;
   display: flex;
   flex-direction: column;
   justify-content: space-evenly;
@@ -70,23 +72,9 @@ const Info = styled.div`
 
 const Social = styled.div`
   grid-area: social;
-  margin-left: 2em;
   display: flex;
   flex-direction: column;
-  justify-content: space-evenly;
-
-  @media (min-width: 700px) {
-    display: flex;
-    flex-direction: column;
-    justify-content: space-evenly;
-  }
-`;
-
-const Other = styled.div`
-  grid-area: other;
-  margin-left: 2em;
-  display: flex;
-  flex-direction: column;
+  align-items: flex-start;
   justify-content: space-evenly;
 
   @media (min-width: 700px) {
@@ -98,7 +86,7 @@ const Other = styled.div`
 
 export default () => {
   const info = useStaticQuery(query);
-  const { phone, email } = info.sanityCompany;
+  const { facebook, instagram } = info.sanityCompany;
   return (
     <Container
       sx={{
@@ -131,7 +119,7 @@ export default () => {
           contact
         </Link>
         <Link
-          to="/payment"
+          to="/deliveryAndReturns"
           sx={{
             color: "white",
             cursor: "crosshair",
@@ -148,47 +136,7 @@ export default () => {
             }
           }}
         >
-          payment options
-        </Link>
-        <Link
-          to="/shipping"
-          sx={{
-            color: "white",
-            cursor: "crosshair",
-            textDecoration: "none",
-            fontSize: "1em",
-            fontWeight: "heading",
-            fontFamily: "heading",
-            letterSpacing: "body",
-            textTransform: "uppercase",
-            width: "max-content",
-            "&:hover": {
-              color: "primary",
-              backgroundColor: "accent"
-            }
-          }}
-        >
-          shipping + delivary
-        </Link>
-        <Link
-          to="/returns"
-          sx={{
-            color: "white",
-            cursor: "crosshair",
-            textDecoration: "none",
-            fontSize: "1em",
-            fontWeight: "heading",
-            fontFamily: "heading",
-            letterSpacing: "body",
-            textTransform: "uppercase",
-            width: "min-content",
-            "&:hover": {
-              color: "primary",
-              backgroundColor: "accent"
-            }
-          }}
-        >
-          returns
+          delivery + returns
         </Link>
         <Link
           to="/faq"
@@ -275,6 +223,7 @@ export default () => {
       </Info>
       <Social>
         <a
+          href={facebook}
           sx={{
             color: "white",
             cursor: "crosshair",
@@ -294,6 +243,7 @@ export default () => {
           facebook
         </a>
         <a
+          href={instagram}
           sx={{
             color: "white",
             cursor: "crosshair",
@@ -332,7 +282,7 @@ export default () => {
           pinterest
         </a>
       </Social>
-      <Other>
+      {/* <Other>
         <a
           sx={{
             color: "white",
@@ -371,7 +321,7 @@ export default () => {
         >
           {phone}
         </p>
-      </Other>
+      </Other> */}
     </Container>
   );
 };
@@ -379,9 +329,9 @@ export default () => {
 export const query = graphql`
   query FooterInfoQuery {
     sanityCompany {
-      email
+      facebook
       companyName
-      phone
+      instagram
     }
   }
 `;

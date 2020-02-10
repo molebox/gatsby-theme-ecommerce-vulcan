@@ -1,21 +1,19 @@
 /** @jsx jsx */
 import { jsx } from "theme-ui";
-import HomeLayout from "../components/layouts/HomeLayout";
+import GenericLayout from "../components/layouts/GenericLayout";
 import Header from "../components/Header";
 import Footer from "../components/Footer";
-import Sidebar from "../components/Sidebar";
 import Main from "../components/Main";
-import MainSection from "../components/MainSection";
+import PrivacySection from "../components/PrivacySection";
 
 export default () => {
   return (
-    <HomeLayout>
+    <GenericLayout>
       <Header />
-      <Sidebar />
       <Main>
-        <MainSection />
+        <PrivacySection />
       </Main>
       <Footer />
-    </HomeLayout>
+    </GenericLayout>
   );
 };

@@ -14,32 +14,17 @@ import {
 } from "./common-page-elements/index";
 
 export default () => {
-  const about = useStaticQuery(query);
-  const info = about.allSanityAbout.nodes;
+  const privacy = useStaticQuery(query);
+  const info = privacy.allSanityPrivacy.nodes;
   return (
     <Outer
       sx={{
-        border: "2px solid",
-        borderColor: "primary",
-        padding: "2em",
-        boxShadow: "-3px 3px #00001F"
+        margin: "1em"
       }}
     >
       <Container>
         {info.map((node, index) => (
           <React.Fragment key={index}>
-            <ImageContainer
-              sx={{
-                border: "2px solid",
-                borderColor: "primary"
-              }}
-            >
-              <GatsbyImage
-                fluid={node.images.asset.fluid}
-                key={node.title + index}
-                alt={node.title}
-              />
-            </ImageContainer>
             <h1
               sx={{
                 fontFamily: "heading",
@@ -67,7 +52,7 @@ export default () => {
               }}
             >
               <PortableText
-                blocks={node._rawAboutUs}
+                blocks={node._rawPrivacyPolicy}
                 serializers={serializers}
               />
             </TextContainer>
@@ -79,18 +64,11 @@ export default () => {
 };
 
 export const query = graphql`
-  query AboutQuery {
-    allSanityAbout {
+  query PrivacyQuery {
+    allSanityPrivacy {
       nodes {
-        _rawAboutUs(resolveReferences: { maxDepth: 10 })
+        _rawPrivacyPolicy(resolveReferences: { maxDepth: 10 })
         title
-        images {
-          asset {
-            fluid {
-              ...GatsbySanityImageFluid
-            }
-          }
-        }
       }
     }
   }

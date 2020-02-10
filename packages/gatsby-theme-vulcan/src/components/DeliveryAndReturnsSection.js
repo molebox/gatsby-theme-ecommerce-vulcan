@@ -4,42 +4,25 @@ import React from "react";
 
 import PortableText from "@sanity/block-content-to-react";
 import { graphql, useStaticQuery } from "gatsby";
-import GatsbyImage from "gatsby-image";
 import {
   Outer,
   Container,
-  ImageContainer,
   TextContainer,
   serializers
 } from "./common-page-elements/index";
 
 export default () => {
-  const about = useStaticQuery(query);
-  const info = about.allSanityAbout.nodes;
+  const dnr = useStaticQuery(query);
+  const info = dnr.allSanityDeliveryAndReturns.nodes;
   return (
     <Outer
       sx={{
-        border: "2px solid",
-        borderColor: "primary",
-        padding: "2em",
-        boxShadow: "-3px 3px #00001F"
+        margin: "1em"
       }}
     >
       <Container>
         {info.map((node, index) => (
           <React.Fragment key={index}>
-            <ImageContainer
-              sx={{
-                border: "2px solid",
-                borderColor: "primary"
-              }}
-            >
-              <GatsbyImage
-                fluid={node.images.asset.fluid}
-                key={node.title + index}
-                alt={node.title}
-              />
-            </ImageContainer>
             <h1
               sx={{
                 fontFamily: "heading",
@@ -67,7 +50,7 @@ export default () => {
               }}
             >
               <PortableText
-                blocks={node._rawAboutUs}
+                blocks={node._rawDeliveryReturns}
                 serializers={serializers}
               />
             </TextContainer>
@@ -79,18 +62,11 @@ export default () => {
 };
 
 export const query = graphql`
-  query AboutQuery {
-    allSanityAbout {
+  query DeliveryAndReturnsQuery {
+    allSanityDeliveryAndReturns {
       nodes {
-        _rawAboutUs(resolveReferences: { maxDepth: 10 })
+        _rawDeliveryReturns(resolveReferences: { maxDepth: 10 })
         title
-        images {
-          asset {
-            fluid {
-              ...GatsbySanityImageFluid
-            }
-          }
-        }
       }
     }
   }

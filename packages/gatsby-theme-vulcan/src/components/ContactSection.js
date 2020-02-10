@@ -1,17 +1,14 @@
 /** @jsx jsx */
 import { jsx } from "theme-ui";
 import styled from "@emotion/styled";
+import { Heading } from "./common-page-elements/index";
 
 const Container = styled.div`
   display: flex;
   justify-content: center;
   align-items: center;
   flex-direction: column;
-  height: 500px;
-`;
-
-const Title = styled.p`
-  margin: 2em;
+  // height: 500px;
 `;
 
 const ContactForm = styled.form`
@@ -20,7 +17,7 @@ const ContactForm = styled.form`
   align-items: center;
   justify-content: space-evenly;
   padding: 1.5em;
-  width: 70%;
+  width: 90%;
 
   @media (min-width: 500px) {
     width: 70%;
@@ -31,7 +28,7 @@ const ContactForm = styled.form`
   }
 
   @media (min-width: 1280px) {
-    width: 30%;
+    width: 50%;
   }
 `;
 
@@ -52,12 +49,25 @@ const Buttons = styled.div`
   display: flex;
   justify-content: space-evenly;
   width: 100%;
+  margin-top: 1em;
 `;
 
 export default () => {
   return (
     <Container>
-      <Title>Lets Talk</Title>
+      <Heading
+        sx={{
+          fontFamily: "heading",
+          letterSpacing: "text",
+          fontWeight: "heading",
+          textTransform: "uppercase",
+          borderBottom: "solid 2px",
+          borderColor: "primary",
+          padding: "0.5em"
+        }}
+      >
+        Lets Talk
+      </Heading>
       <ContactForm
         sx={{
           border: "solid 2px",
@@ -167,7 +177,7 @@ export default () => {
             }}
             name="message"
             id="message"
-            rows="5"
+            rows="10"
             required
           />
         </Label>
