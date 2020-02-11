@@ -17,7 +17,8 @@ const Container = styled.div`
   grid-gap: 2em;
   height: auto;
   position: relative;
-  width: 500px;
+  min-width: 300px;
+  // width: auto;
 
   ${props =>
     props.onSale
@@ -71,6 +72,10 @@ const Header = styled.div`
   justify-content: space-evenly;
   align-items: center;
   margin-bottom: 2em;
+
+  & > p {
+    font-size: 2em;
+  }
 `;
 
 const Price = styled.div`
@@ -84,8 +89,29 @@ const PriceAndPurchase = styled.div`
 `;
 
 const Description = styled.div`
-  font-size: 1.2em;
   margin-bottom: 1em;
+
+  & > p {
+    font-size: 1.4em;
+  }
+
+  @media (min-width: 500px) {
+    & > p {
+      font-size: 1.3em;
+    }
+  }
+
+  @media (min-width: 700px) {
+    & > p {
+      font-size: 1.3em;
+    }
+  }
+
+  @media (min-width: 1280px) {
+    & > p {
+      font-size: 1.2em;
+    }
+  }
 `;
 
 const serializers = {
@@ -171,14 +197,14 @@ export default ({
       </ImageContainer>
       <Info>
         <Header>
-          <h2
+          <p
             sx={{
               fontFamily: "heading",
               letterSpacing: "body"
             }}
           >
             {title}
-          </h2>
+          </p>
         </Header>
         <Description>
           <PortableText blocks={description} serializers={serializers} />

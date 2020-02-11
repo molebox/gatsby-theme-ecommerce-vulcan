@@ -11,13 +11,16 @@ const Container = styled.footer`
   width: 100%;
 
   display: grid;
-  grid-template-columns: 1fr;
   grid-gap: 2em;
+  grid-template-columns: 1fr 1fr 1fr;
   grid-template-areas:
-    "social"
-    "customerCare"
-    "info"
-    "author";
+    " customerCare info social"
+    " customerCare info social"
+    " customerCare info social"
+    ". . ."
+    "author author author";
+
+  font-size: 1.2em;
 
   justify-items: center;
   align-content: center;
@@ -329,14 +332,16 @@ export default () => {
           {phone}
         </p>
       </Other> */}
-      <Author sx={{
-            fontWeight: "heading",
-            fontFamily: "heading",
-            letterSpacing: "body",
-            textTransform: "uppercase",
-            width: "max-content",
-            fontSize: '0.7em'
-      }}>
+      <Author
+        sx={{
+          fontWeight: "heading",
+          fontFamily: "heading",
+          letterSpacing: "body",
+          textTransform: "uppercase",
+          width: "max-content",
+          fontSize: "0.7em"
+        }}
+      >
         Created by Hungry Bear Studio
       </Author>
     </Container>

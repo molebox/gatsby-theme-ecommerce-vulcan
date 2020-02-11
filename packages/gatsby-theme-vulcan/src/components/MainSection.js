@@ -11,7 +11,7 @@ import { Grid } from "@horacioh/gatsby-theme-instagram";
 import ProductCard from "./store/ProductCard";
 
 const Heading = styled.h4`
-  font-size: 1.5em;
+  font-size: 2.5em;
 
   display: flex;
   align-items: center;
@@ -19,7 +19,7 @@ const Heading = styled.h4`
   margin: 1em;
 
   @media (min-width: 500px) {
-    font-size: 2em;
+    font-size: 2.6em;
   }
 
   @media (min-width: 700px) {
@@ -45,12 +45,12 @@ const Image = styled(GatsbyImage)`
 
 const Text = styled.h2`
   position: absolute;
-  top: 45%;
-  left: 40%;
+  top: 65%;
+  left: 45%;
   transform: translate(-50%, -50%);
 
-  font-size: 1.5em;
-  line-height: 35px;
+  font-size: 1.8em;
+  line-height: 60px;
 
   @media (min-width: 500px) {
     font-size: 2em;
@@ -127,7 +127,7 @@ const TextContainer = styled.div`
   }
 
   & > p {
-    font-size: 1.3em;
+    font-size: 1.4em;
   }
 
   @media (min-width: 500px) {
@@ -158,7 +158,7 @@ const TextContainer = styled.div`
     }
 
     & > p {
-      font-size: 1em;
+      font-size: 1.3 em;
     }
   }
 `;
@@ -306,7 +306,7 @@ export default () => {
           <ProductCard
             itemId={node.id}
             key={index + node.title}
-            title={node.title}
+            title={node.defaultProductVariant.title}
             // category={node.categories[0].title}
             description={node._rawBody.en}
             thumbnails={node.defaultProductVariant.thumbnails}
@@ -363,6 +363,7 @@ export const query = graphql`
         defaultProductVariant {
           title
           price
+          onSalePrice
           mainImage {
             asset {
               fluid {
