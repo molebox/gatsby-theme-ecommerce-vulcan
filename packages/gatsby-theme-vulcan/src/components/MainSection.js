@@ -10,7 +10,7 @@ import { useSiteMetadata } from "./useSiteMetadata";
 import { Grid } from "@horacioh/gatsby-theme-instagram";
 import ProductCard from "./store/ProductCard";
 
-const Heading = styled.h3`
+const Heading = styled.h4`
   font-size: 1.5em;
 
   display: flex;
@@ -31,7 +31,7 @@ const Heading = styled.h3`
   }
 `;
 
-const Container = styled.div`
+const Container = styled.section`
   min-height: 900px;
 `;
 
@@ -76,11 +76,6 @@ const Text = styled.h2`
 `;
 
 const Showcase = styled.section`
-  // display: grid;
-  // grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
-  // grid-auto-rows: auto;
-  // grid-gap: 2em;
-
   margin: 2em;
   display: grid;
   grid-gap: 2em;
@@ -104,19 +99,90 @@ const Showcase = styled.section`
   }
 `;
 
-// const ImageContainer = styled.div`
-//   width: 100%;
-//   max-width: 300px;
-//   height: auto;
-//   justify-self: center;
-//   align-self: center;
-// `;
+const IntroSection = styled.section`
+  display: grid;
+  justify-content: center;
+  width: 100%;
+  grid-gap: 2em;
+`;
+
+const FirstIntroContainer = styled.section`
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(500px, 1fr));
+  grid-auto-rows: auto;
+  grid-gap: 2em;
+  max-width: 1200px;
+  width: 100%;
+`;
+
+const TextContainer = styled.div`
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  padding: 2em;
+
+  & > h3 {
+    font-size: 2em;
+    margin-bottom: 1em;
+  }
+
+  & > p {
+    font-size: 1.3em;
+  }
+
+  @media (min-width: 500px) {
+    & > h3 {
+      font-size: 1.8em;
+    }
+
+    & > p {
+      font-size: 1.5em;
+    }
+  }
+
+  @media (min-width: 700px) {
+    & > h3 {
+      font-size: 2em;
+    }
+
+    & > p {
+      font-size: 1.3em;
+    }
+  }
+
+  @media (min-width: 1280px) {
+    justify-content: space-evenly;
+
+    & > h3 {
+      font-size: 1.2em;
+    }
+
+    & > p {
+      font-size: 1em;
+    }
+  }
+`;
+
+const SecondIntroContainer = styled.section`
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(500px, 1fr));
+  grid-auto-rows: auto;
+  grid-gap: 2em;
+  max-width: 1200px;
+`;
+
+const ImageContainer = styled.div`
+  width: 100%;
+  max-width: 1000px;
+  height: auto;
+  justify-self: center;
+  align-self: center;
+`;
 
 export default () => {
   const home = useStaticQuery(query);
   const showcaseImages = home.sanityShowcase.products;
-  console.log({ home });
-  console.log({ showcaseImages });
+
   const { tagline } = useSiteMetadata();
   const { images } = home.sanityHomePage;
   return (
@@ -142,6 +208,86 @@ export default () => {
       >
         {tagline}
       </Text>
+      <IntroSection>
+        <FirstIntroContainer>
+          <ImageContainer
+            sx={{
+              border: "2px solid",
+              borderColor: "primary"
+            }}
+          >
+            <GatsbyImage
+              fluid={images[1].asset.fluid}
+              key="get another key"
+              alt="add alt here"
+            />
+          </ImageContainer>
+          <TextContainer>
+            <h3
+              sx={{
+                fontFamily: "heading",
+                borderBottom: "solid 2px",
+                borderWidth: "100%",
+                padding: "0.5em"
+              }}
+            >
+              First Intro
+            </h3>
+            <p
+              sx={{
+                fontFamily: "body",
+                letterSpacing: "body"
+              }}
+            >
+              Lorem ipsum dolor amet wayfarers narwhal slow-carb lomo la croix
+              paleo, migas tumblr plaid portland selvage vice cloud bread.
+              Biodiesel tumeric fanny pack, sriracha +1 tbh everyday carry pork
+              belly retro etsy fixie shoreditch. Butcher succulents before they
+              sold out, shaman poke fam fingerstache. Whatever venmo gentrify,
+              waistcoat dreamcatcher shabby chic vegan.
+            </p>
+          </TextContainer>
+        </FirstIntroContainer>
+        <SecondIntroContainer>
+          <TextContainer>
+            <h3
+              sx={{
+                fontFamily: "heading",
+                borderBottom: "solid 2px",
+                borderWidth: "100%",
+                padding: "0.5em"
+              }}
+            >
+              Second Intro
+            </h3>
+            <p
+              sx={{
+                fontFamily: "body",
+                letterSpacing: "body"
+              }}
+            >
+              Lorem ipsum dolor amet wayfarers narwhal slow-carb lomo la croix
+              paleo, migas tumblr plaid portland selvage vice cloud bread.
+              Biodiesel tumeric fanny pack, sriracha +1 tbh everyday carry pork
+              belly retro etsy fixie shoreditch. Butcher succulents before they
+              sold out, shaman poke fam fingerstache. Whatever venmo gentrify,
+              waistcoat dreamcatcher shabby chic vegan.
+            </p>
+          </TextContainer>
+          <ImageContainer
+            sx={{
+              border: "2px solid",
+              borderColor: "primary"
+            }}
+          >
+            <GatsbyImage
+              fluid={images[2].asset.fluid}
+              key="get another another key"
+              alt="add alt here"
+            />
+          </ImageContainer>
+        </SecondIntroContainer>
+      </IntroSection>
       <Heading
         sx={{
           fontFamily: "heading",

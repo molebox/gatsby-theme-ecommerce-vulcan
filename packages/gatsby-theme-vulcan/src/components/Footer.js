@@ -16,7 +16,8 @@ const Container = styled.footer`
   grid-template-areas:
     "social"
     "customerCare"
-    "info";
+    "info"
+    "author";
 
   justify-items: center;
   align-content: center;
@@ -27,7 +28,8 @@ const Container = styled.footer`
       "customerCare info info"
       "customerCare info info"
       "customerCare info info"
-      "social social social";
+      "social social social"
+      "author author author";
   }
 
   @media (min-width: 700px) {
@@ -37,11 +39,16 @@ const Container = styled.footer`
       "customerCare info social"
       "customerCare info social"
       "customerCare info social"
-      "customerCare info social";
+      "customerCare info social"
+      "author author author";
     justify-items: center;
     width: 100%;
     align-content: space-around;
   }
+`;
+
+const Author = styled.div`
+  grid-area: author;
 `;
 
 const CustomerCare = styled.div`
@@ -138,7 +145,7 @@ export default () => {
         >
           delivery + returns
         </Link>
-        <Link
+        {/* <Link
           to="/faq"
           sx={{
             color: "white",
@@ -157,7 +164,7 @@ export default () => {
           }}
         >
           faq
-        </Link>
+        </Link> */}
       </CustomerCare>
       <Info>
         <Link
@@ -200,7 +207,7 @@ export default () => {
         >
           privacy policy
         </Link>
-        <Link
+        {/* <Link
           to="/terms"
           sx={{
             color: "white",
@@ -219,7 +226,7 @@ export default () => {
           }}
         >
           terms + conditions
-        </Link>
+        </Link> */}
       </Info>
       <Social>
         <a
@@ -262,7 +269,7 @@ export default () => {
         >
           instagram
         </a>
-        <a
+        {/* <a
           sx={{
             color: "white",
             cursor: "crosshair",
@@ -280,7 +287,7 @@ export default () => {
           }}
         >
           pinterest
-        </a>
+        </a> */}
       </Social>
       {/* <Other>
         <a
@@ -322,6 +329,16 @@ export default () => {
           {phone}
         </p>
       </Other> */}
+      <Author sx={{
+            fontWeight: "heading",
+            fontFamily: "heading",
+            letterSpacing: "body",
+            textTransform: "uppercase",
+            width: "max-content",
+            fontSize: '0.7em'
+      }}>
+        Created by Hungry Bear Studio
+      </Author>
     </Container>
   );
 };
