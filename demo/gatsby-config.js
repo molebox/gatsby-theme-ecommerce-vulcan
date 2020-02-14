@@ -19,7 +19,7 @@ module.exports = {
                 version: 'v3',
                 currencySymbol: '$',
                 siteUrl: activeSiteUrl,
-                hasBlog: true,
+                hasBlog: false,
                 tagline: 'STYLE IS A WAY TO SAY WHO YOU ARE WITHOUT HAVING TO SPEAK'
             }
         }

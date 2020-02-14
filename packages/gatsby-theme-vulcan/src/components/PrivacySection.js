@@ -4,11 +4,9 @@ import React from "react";
 
 import PortableText from "@sanity/block-content-to-react";
 import { graphql, useStaticQuery } from "gatsby";
-import GatsbyImage from "gatsby-image";
 import {
   Outer,
   Container,
-  ImageContainer,
   TextContainer,
   serializers
 } from "./common-page-elements/index";
@@ -19,7 +17,7 @@ export default () => {
   return (
     <Outer
       sx={{
-        margin: "1em"
+        marginTop: "2em"
       }}
     >
       <Container>

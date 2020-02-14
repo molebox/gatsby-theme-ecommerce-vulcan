@@ -28,7 +28,7 @@ const Container = styled.div`
   height: auto;
   position: relative;
 
-  max-width: 1200px;
+  max-width: 1400px;
   margin: 2em auto;
 
   @media (min-width: 500px) {
@@ -57,7 +57,6 @@ const Container = styled.div`
       background-color: black;
       color: white;
       position: absolute;
-      // z-index: 100;
       display: flex;
       align-items: center;
       justify-content: center;
@@ -72,17 +71,15 @@ const ImageContainer = styled.div`
   display: grid;
   grid-template-columns: 1.5em minmax(300px, 1200px) 1.5em;
   align-items: center;
-  height: max-content;
+  height: min-content;
   width: 500px;
 `;
 
 const MainImageContainer = styled.div`
   width: 100%;
-  max-width: 800px;
-  height: auto;
-  justify-self: center;
-  align-self: center;
+  max-width: 1200px;
   grid-column: 2;
+  object-fit: contain;
 `;
 
 const Info = styled.div`
@@ -94,32 +91,34 @@ const Info = styled.div`
 
 const ProductHeader = styled.div`
   display: flex;
-  flex-direction: row;
-  justify-content: space-evenly;
-  align-items: center;
+  flex-direction: column;
+  justify-content: start;
   margin-bottom: 2em;
 `;
 
 const Price = styled.div`
-  font-size: 3em;
+  font-size: 2.5em;
 
   @media (min-width: 1280px) {
-    font-size: 2em;
+    font-size: 1.7em;
   }
 `;
 
 const OnSalePrice = styled.div`
-  font-size: 2em;
+  font-size: 1.7em;
+  margin-right: 1em;
 
   @media (min-width: 1280px) {
-    font-size: 1.5em;
+    font-size: 1em;
   }
 `;
 
-const PriceAndPurchase = styled.div`
+const PriceContainer = styled.div`
   display: flex;
-  justify-content: space-evenly;
-  align-items: center;
+  // justify-content: space-evenly;
+  // align-items: center;
+  // width: 10em;
+  margin-top: 1em;
 `;
 
 const Description = styled.div`
@@ -216,10 +215,10 @@ export default ({ data }) => {
               <FiChevronLeft size="1.5em" onClick={() => handlePrevious()} />
             </div>
             <MainImageContainer
-              sx={{
-                border: "2px solid",
-                borderColor: "primary"
-              }}
+            // sx={{
+            //   border: "2px solid",
+            //   borderColor: "primary"
+            // }}
             >
               <GatsbyImage
                 fluid={asset.fluid}
@@ -244,28 +243,36 @@ export default ({ data }) => {
                   letterSpacing: "body",
                   borderBottom: "solid 2px",
                   borderColor: "primary",
-                  padding: "0.5em"
+                  paddingBottom: "0.5em",
+                  width: "50%"
                 }}
               >
                 {title}
               </h2>
-            </ProductHeader>
-            <Description>
-              <PortableText blocks={_rawBody.en} serializers={serializers} />
-            </Description>
-            <PriceAndPurchase>
-              {onSalePrice ? (
-                <>
-                  <OnSalePrice
-                    sx={{
-                      fontFamily: "body",
-                      fontWeight: "bold",
-                      textDecoration: "line-through"
-                    }}
-                  >
-                    {currencySymbol}
-                    {price}
-                  </OnSalePrice>
+              <PriceContainer>
+                {onSalePrice ? (
+                  <>
+                    <OnSalePrice
+                      sx={{
+                        fontFamily: "body",
+                        fontWeight: "bold",
+                        textDecoration: "line-through"
+                      }}
+                    >
+                      {currencySymbol}
+                      {price}
+                    </OnSalePrice>
+                    <Price
+                      sx={{
+                        fontFamily: "body",
+                        fontWeight: "bold"
+                      }}
+                    >
+                      {currencySymbol}
+                      {onSalePrice}
+                    </Price>
+                  </>
+                ) : (
                   <Price
                     sx={{
                       fontFamily: "body",
@@ -273,38 +280,30 @@ export default ({ data }) => {
                     }}
                   >
                     {currencySymbol}
-                    {onSalePrice}
+                    {price}
                   </Price>
-                </>
-              ) : (
-                <Price
-                  sx={{
-                    fontFamily: "body",
-                    fontWeight: "bold"
-                  }}
-                >
-                  {currencySymbol}
-                  {price}
-                </Price>
-              )}
-
-              <BuyButton
-                key={title}
-                text="add to cart"
-                itemPrice={price}
-                image={asset.fluid.src}
-                itemTitle={title}
-                itemDescription={blurb.en}
-                pricesymbol={currencySymbol}
-                itemId={id}
-                itemUrl={siteUrl}
-                itemPath={`/${slug.current}`}
-                isStackable={true}
-                isTaxIncluded={taxable ? true : false}
-                data-item-custom1-name="Size"
-                data-item-custom1-options={sizes}
-              />
-            </PriceAndPurchase>
+                )}
+              </PriceContainer>
+            </ProductHeader>
+            <Description>
+              <PortableText blocks={_rawBody.en} serializers={serializers} />
+            </Description>
+            <BuyButton
+              key={title}
+              text="add to cart"
+              itemPrice={price}
+              image={asset.fluid.src}
+              itemTitle={title}
+              itemDescription={blurb.en}
+              pricesymbol={currencySymbol}
+              itemId={id}
+              itemUrl={siteUrl}
+              itemPath={`/${slug.current}`}
+              isStackable={true}
+              isTaxIncluded={taxable ? true : false}
+              data-item-custom1-name="Size"
+              data-item-custom1-options={sizes}
+            />
           </Info>
         </Container>
       </Main>

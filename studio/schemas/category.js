@@ -24,8 +24,22 @@ export default {
       type: 'text'
     },
     {
-      name: 'parents',
-      title: 'Parent categories',
+      name: 'isRoot',
+      title: 'Is Root category',
+      type: 'boolean',
+      description: 'Is this category the at the root level? For example Mens and Womens categories would be at the root level as they dont have any parent categories.'
+    },
+    {
+      title: 'Category Image',
+      name: 'categoryImage',
+      type: 'image',
+      options: {
+        hotspot: true
+      },
+    },
+    {
+      name: 'childrenCategories',
+      title: 'Children categories',
       type: 'array',
       of: [
         {

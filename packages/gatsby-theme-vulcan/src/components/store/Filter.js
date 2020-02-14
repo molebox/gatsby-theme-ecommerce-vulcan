@@ -1,83 +1,81 @@
 /** @jsx jsx */
 import { jsx } from "theme-ui";
-import styled from "@emotion/styled";
-// import React from 'react';
-
-// import Select, { components } from 'react-select';
+// import styled from "@emotion/styled";
+import Select, { components } from "react-select";
+// import makeAnimated from "react-select/animated";
 import { graphql } from "gatsby";
-import { useStaticQuery } from "gatsby";
-// import flattenDepth from 'lodash.flattendepth';
 
-// const groupStyles = {
-//   border: `2px dotted ${colourOptions[2].color}`,
-//   borderRadius: '5px',
-//   background: '#f2fcff',
-// };
-
-// const Group = props => (
-//   <div style={groupStyles}>
-//     <components.Group {...props} />
+// const controlComponent = props => (
+//   <div>
+//     <components.Control {...props} />
 //   </div>
 // );
 
-const Container = styled.div`
-  display: flex;
-  flex-direction: row;
-  justify-content: center;
-  align-items: center;
-  grid-area: filter;
-  height: 3em;
-  margin: 1em 2em;
-`;
+// const animatedComponents = makeAnimated(controlComponent);
 
-export default () => {
-  const categories = useStaticQuery(query);
-  const info = categories.allSanityCategory.nodes;
-  const parents = info.map(element => element.parents).flat(2);
-  console.log({ parents });
-  console.log({ categories });
+const groupStyles = {
+  border: `2px solid`,
+  borderRadius: "5px",
+  background: "#f2fcff"
+};
 
-  //   console.log('flat? ', flattenDepth(info, 3));
+const Group = props => (
+  <div style={groupStyles}>
+    <components.Group {...props} />
+  </div>
+);
 
-  //   const cats = info.map((category, index) => {
-  //     console.log({index})
-  //     index ++;
-  //     return {
-  //       value: category.parents[index].title,
-  //       label: category.parents[index].title
-  //     }
-  //   });
+// const Container = styled.div`
+//   display: flex;
+//   flex-direction: row;
+//   justify-content: center;
+//   align-items: center;
+//   grid-area: filter;
+//   height: 3em;
+//   margin: 1em 2em;
+// `;
 
-  //   const removeDuplicates = (array, key) => {
-  //     let lookup = new Set();
-  //     return array.filter(obj => !lookup.has(obj[key]) && lookup.add(obj[key]));
-  // }
+export default props => {
+  console.log({ props });
+  const { rootCategories, getSelectedCategories } = props;
+  // const allCategories = categories.map((cat) => ({
+  //   label: cat.title,
+  //   value: cat.title,
+  //   id: cat.id
+  // }));
 
-  // console.log('YO:', removeDuplicates(cats, 'value'));
+  const handleSelection = selections => {
+    if (selections) {
+      console.log({ selections });
+      return getSelectedCategories(selections);
+    }
+    return getSelectedCategories([]);
+  };
 
-  // const children = info.map(element => {
-  //   return {
-  //     parents: removeDuplicates(element.parents, 'title'),
-  //     children: element.title
-
-  //   }
-  // });
-
-  //     console.log('removeDuplicates: ', removeDuplicates(parents, 'title'))
-  console.log({ info });
-
-  // const convertCategoriesForDropdown = (productInfo) => {
-  //     console.log(productInfo);
-  // }
+  const groupedOptions = rootCategories.map(cat => ({
+    label: cat.title,
+    options: cat.childrenCategories.map(cat => ({
+      label: cat.title,
+      value: cat.title
+    }))
+  }));
 
   return (
-    <Container
+    <Select
       sx={{
-        backgroundColor: "secondary",
+        width: "90%",
+        color: "black",
         fontFamily: "heading",
-        fontWeight: "body"
+        borderColor: "primary"
       }}
-    ></Container>
+      isMulti
+      isClearable
+      name="filter"
+      placeholder="Filter by category..."
+      options={groupedOptions}
+      components={{ Group }}
+      onChange={handleSelection}
+    />
   );
 };
 
@@ -85,10 +83,21 @@ export const query = graphql`
   query ProductCategoryQuery {
     allSanityCategory {
       nodes {
-        parents {
-          title
-        }
         title
+        description
+        id
+        childrenCategories {
+          title
+          description
+          id
+        }
+        categoryImage {
+          asset {
+            fluid {
+              src
+            }
+          }
+        }
       }
     }
   }

@@ -17,7 +17,7 @@ export default () => {
   return (
     <Outer
       sx={{
-        margin: "1em"
+        marginTop: "2em"
       }}
     >
       <Container>

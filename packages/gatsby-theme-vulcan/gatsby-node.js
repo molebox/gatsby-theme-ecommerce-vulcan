@@ -67,7 +67,7 @@ exports.createPages = ({ actions, graphql }) => {
         index === product.length - 1 ? null : products[index + 1]
       const next = index === 0 ? null : products[index - 1]
         console.log({product})
-    const path = `/${product.slug.current}`
+    const path = `/products/${product.slug.current}`
 
       createPage({
         path,

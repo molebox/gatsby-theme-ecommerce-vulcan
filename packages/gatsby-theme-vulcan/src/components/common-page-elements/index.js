@@ -2,9 +2,8 @@ import React from "react";
 import styled from "@emotion/styled";
 
 export const Outer = styled.div`
-  width: 90%;
-  height: 100%;
   margin: 0 auto;
+  max-width: 1200px;
 `;
 
 export const Container = styled.div`
@@ -20,7 +19,7 @@ export const TextContainer = styled.div`
 
 export const ImageContainer = styled.div`
   width: 100%;
-  max-width: 1000px;
+  max-width: 1200px;
   height: auto;
   justify-self: center;
   align-self: center;
@@ -28,6 +27,7 @@ export const ImageContainer = styled.div`
 
 export const Text = styled.p`
   font-size: 1.5em;
+  font-weight: 500;
   padding-bottom: 0.5em;
 
   @media (min-width: 500px) {

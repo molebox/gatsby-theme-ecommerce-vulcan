@@ -1,6 +1,5 @@
 /** @jsx jsx */
 import { jsx } from "theme-ui";
-import React from "react";
 import styled from "@emotion/styled";
 import { graphql } from "gatsby";
 import ProductCard from "./ProductCard";

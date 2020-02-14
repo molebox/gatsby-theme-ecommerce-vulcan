@@ -1,7 +1,7 @@
 /** @jsx jsx */
 import { jsx } from "theme-ui";
 import styled from "@emotion/styled";
-import Card from ".././components/Card";
+import Card from "../components/Card";
 import { graphql } from "gatsby";
 import GatsbyImage from "gatsby-image";
 import { Link } from "gatsby";
@@ -9,7 +9,9 @@ import StoreLayout from "../components/layouts/StoreLayout";
 import Header from "../components/Header";
 import Footer from "../components/Footer";
 import Main from "../components/Main";
-import { useSiteMetadata } from "./../components/useSiteMetadata";
+import { useSiteMetadata } from "../components/useSiteMetadata";
+// import React from 'react';
+// import Filter from "../components/store/Filter";
 
 const ListContainer = styled.ul`
   list-style: none;
@@ -65,14 +67,44 @@ const OnSalePrice = styled.div`
   }
 `;
 
+// const SidebarContainer = styled.section`
+//   grid-area: categories;
+//   height: 90%;
+//   width: 90%;
+//   padding: 1em;
+//   margin: 2em;
+
+//   display: flex;
+//   justify-content: center;
+// `;
+
 export default ({ data }) => {
   const { nodes } = data.allSanityProduct;
+  // const cats = data.allSanityCategory.nodes;
+  // console.log({cats})
   const { currencySymbol } = useSiteMetadata();
+  // const [selectedCategory, setSelectedCategory] = React.useState([]);
+
+  // const rootCategories = cats.filter((cat) => cat.isRoot === true);
+
+  // const hasChildren = rootCategories.filter((cat) => cat.childrenCategories);
+
+  // const getSelectedCategories = selections => {
+  //   const cats = selections.map(cat => cat.value);
+  //   setSelectedCategory(cats);
+  // };
 
   return (
     <StoreLayout>
       <Header />
       <Main>
+        {/* <Filter
+        getSelectedCategories={getSelectedCategories}
+        sx={{
+          margin: "2em"
+        }}
+        rootCategories={rootCategories}
+      /> */}
         <ListContainer>
           {nodes.map((node, index) => (
             <li
@@ -84,8 +116,8 @@ export default ({ data }) => {
               }}
               key={index}
             >
-              <Link to={`/${node.slug.current}`}>
-                <Card>
+              <Link to={`products/${node.slug.current}`}>
+                <Card text="SHOP">
                   <GatsbyImage
                     fluid={node.defaultProductVariant.mainImage[0].asset.fluid}
                     alt={node.defaultProductVariant.title}
@@ -161,6 +193,27 @@ export const query = graphql`
               fluid(maxWidth: 500) {
                 ...GatsbySanityImageFluid
               }
+            }
+          }
+        }
+      }
+    }
+
+    allSanityCategory {
+      nodes {
+        title
+        isRoot
+        description
+        id
+        childrenCategories {
+          title
+          description
+          id
+        }
+        categoryImage {
+          asset {
+            fluid {
+              src
             }
           }
         }

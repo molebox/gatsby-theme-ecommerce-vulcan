@@ -1,11 +1,8 @@
 /** @jsx jsx */
 import { jsx } from "theme-ui";
-import React from "react";
 import styled from "@emotion/styled";
-// import Card from "./Card";
 import { graphql, useStaticQuery } from "gatsby";
 import GatsbyImage from "gatsby-image";
-// import { Link } from "gatsby";
 import { useSiteMetadata } from "./useSiteMetadata";
 import { Grid } from "@horacioh/gatsby-theme-instagram";
 import ProductCard from "./store/ProductCard";
@@ -40,12 +37,12 @@ const Image = styled(GatsbyImage)`
   height: auto;
   max-width: 100%;
   max-height: 100%;
-  margin-bottom: 3em;
+  margin: 3em 0;
 `;
 
 const Text = styled.h2`
   position: absolute;
-  top: 65%;
+  top: 85%;
   left: 45%;
   transform: translate(-50%, -50%);
 
@@ -53,12 +50,16 @@ const Text = styled.h2`
   line-height: 60px;
 
   @media (min-width: 500px) {
+    top: 65%;
+    left: 45%;
     font-size: 2em;
     line-height: 80px;
   }
 
   @media (min-width: 700px) {
-    font-size: 3em;
+    top: 60%;
+    left: 38%;
+    font-size: 2em;
     line-height: 90px;
   }
 
@@ -66,9 +67,7 @@ const Text = styled.h2`
     font-size: 3.5em;
     line-height: 130px;
     align-self: baseline;
-
-    position: absolute;
-    top: 60%;
+    top: 70%;
     left: 20%;
     right: 50%;
     transform: translate(-50%, -50%);
@@ -81,6 +80,7 @@ const Showcase = styled.section`
   grid-gap: 2em;
   width: auto;
   grid-template-columns: 1fr;
+  margin-bottom: 15em;
 
   grid-auto-rows: auto;
   justify-self: center;
@@ -101,9 +101,10 @@ const Showcase = styled.section`
 
 const IntroSection = styled.section`
   display: grid;
+  grid-row-gap: 7em;
   justify-content: center;
-  width: 100%;
-  grid-gap: 2em;
+  width: auto;
+  margin: 15em 0;
 `;
 
 const FirstIntroContainer = styled.section`
@@ -112,14 +113,12 @@ const FirstIntroContainer = styled.section`
   grid-auto-rows: auto;
   grid-gap: 2em;
   max-width: 1200px;
-  width: 100%;
 `;
 
 const TextContainer = styled.div`
   display: flex;
   flex-direction: column;
   justify-content: space-between;
-  padding: 2em;
 
   & > h3 {
     font-size: 2em;
@@ -158,7 +157,7 @@ const TextContainer = styled.div`
     }
 
     & > p {
-      font-size: 1.3 em;
+      font-size: 1.3em;
     }
   }
 `;
@@ -305,7 +304,7 @@ export default () => {
         {showcaseImages.map((node, index) => (
           <ProductCard
             itemId={node.id}
-            key={index + node.title}
+            key={index + node.id}
             title={node.defaultProductVariant.title}
             // category={node.categories[0].title}
             description={node._rawBody.en}

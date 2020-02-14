@@ -19,10 +19,7 @@ export default () => {
   return (
     <Outer
       sx={{
-        border: "2px solid",
-        borderColor: "primary",
-        padding: "2em",
-        boxShadow: "-3px 3px #00001F"
+        marginTop: "2em"
       }}
     >
       <Container>
@@ -30,8 +27,9 @@ export default () => {
           <React.Fragment key={index}>
             <ImageContainer
               sx={{
-                border: "2px solid",
-                borderColor: "primary"
+                border: "solid 2px",
+                borderColor: "primary",
+                boxShadow: "-3px 3px #00001F"
               }}
             >
               <GatsbyImage

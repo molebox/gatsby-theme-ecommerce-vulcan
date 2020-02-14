@@ -6,34 +6,20 @@ import { useSiteMetadata } from "./useSiteMetadata";
 
 const Nav = styled.nav`
   display: grid;
-  grid-template-columns: 1fr 1fr 1fr;
+  ${props =>
+    props.hasBlog
+      ? `grid-template-columns: 1fr 1fr 1fr`
+      : `grid-template-columns: 1fr 1fr`}
   grid-gap: 2em;
   align-items: center;
   justify-items: center;
   width: 500px;
-
-  // @media (min-width: 500px) {
-  //   & > ul {
-  //     display: flex;
-  //     align-items: center;
-  //     justify-content: space-between;
-  //   }
-  // }
-
-  // @media (min-width: 700px) {
-  //     & > ul {
-  //       display: flex;
-  //       justify-content: space-evenly;
-  //       flex-direction: row;
-  //     }
-  //   }
-  // }
 `;
 
 export default () => {
   const { hasBlog } = useSiteMetadata();
   return (
-    <Nav>
+    <Nav hasBlog={hasBlog}>
       <Link
         to="/about"
         sx={{
@@ -59,7 +45,7 @@ export default () => {
         about
       </Link>
       <Link
-        to="/productsPage"
+        to="/products"
         sx={{
           color: "white",
           cursor: "crosshair",

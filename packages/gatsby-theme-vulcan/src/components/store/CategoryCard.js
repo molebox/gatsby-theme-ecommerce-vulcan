@@ -4,10 +4,23 @@ import styled from "@emotion/styled";
 
 const Container = styled.div`
   position: relative;
-  max-width: 300px;
-  max-height: 500px;
-  width: 250px;
+  width: auto;
   height: auto;
+  max-width: 100%;
+  max-height: 100%;
+  margin-bottom: 3em;
+
+  @media (min-width: 700px) {
+    max-width: 600px;
+    max-height: 700px;
+    width: 600px;
+  }
+
+  @media (min-width: 1280px) {
+    max-width: 800px;
+    max-height: 900px;
+    width: 800px;
+  }
 
   cursor: crosshair;
 
@@ -33,8 +46,8 @@ const OverlayContent = styled.div`
   display: flex;
   justify-content: center;
   align-items: center;
-  writing-mode: vertical-rl;
-  text-orientation: upright;
+  //   writing-mode: vertical-rl;
+  //   text-orientation: upright;
 `;
 
 export default ({ children, text }) => {
