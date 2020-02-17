@@ -46,8 +46,6 @@ const OverlayContent = styled.div`
   display: flex;
   justify-content: center;
   align-items: center;
-  //   writing-mode: vertical-rl;
-  //   text-orientation: upright;
 `;
 
 export default ({ children, text }) => {

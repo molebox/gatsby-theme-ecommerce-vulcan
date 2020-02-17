@@ -1,9 +1,8 @@
 /** @jsx jsx */
 import { jsx } from "theme-ui";
 import styled from "@emotion/styled";
-import { graphql } from "gatsby";
+import { graphql, useStaticQuery } from "gatsby";
 import ProductCard from "./ProductCard";
-import { useStaticQuery } from "gatsby";
 
 const Container = styled.section`
   margin: 2em;
@@ -35,7 +34,6 @@ export default () => {
   const info = products.allSanityProduct.nodes;
 
   return (
-    <>
       <Container>
         {info.map((node, index) => {
           return (
@@ -54,7 +52,6 @@ export default () => {
           );
         })}
       </Container>
-    </>
   );
 };
 

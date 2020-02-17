@@ -6,6 +6,7 @@ const Container = styled.div`
   grid-area: main;
   height: 100%;
   margin: 5em 1em;
+  width: 100%;
 `;
 
 export default ({ children }) => {

@@ -1,9 +1,7 @@
 /** @jsx jsx */
 import { jsx } from "theme-ui";
 import styled from "@emotion/styled";
-import { Link } from "gatsby";
-import { graphql } from "gatsby";
-import { useStaticQuery } from "gatsby";
+import { Link, graphql, useStaticQuery } from "gatsby";
 
 const Container = styled.footer`
   grid-area: footer;
@@ -154,26 +152,6 @@ export default () => {
         >
           delivery + returns
         </Link>
-        {/* <Link
-          to="/faq"
-          sx={{
-            color: "white",
-            cursor: "crosshair",
-            textDecoration: "none",
-            fontSize: "1em",
-            fontWeight: "heading",
-            fontFamily: "heading",
-            letterSpacing: "body",
-            textTransform: "uppercase",
-            width: "min-content",
-            "&:hover": {
-              color: "primary",
-              backgroundColor: "accent"
-            }
-          }}
-        >
-          faq
-        </Link> */}
       </CustomerCare>
       <Info>
         <Link
@@ -216,26 +194,6 @@ export default () => {
         >
           privacy policy
         </Link>
-        {/* <Link
-          to="/terms"
-          sx={{
-            color: "white",
-            cursor: "crosshair",
-            textDecoration: "none",
-            fontSize: "1em",
-            fontWeight: "heading",
-            fontFamily: "heading",
-            letterSpacing: "body",
-            textTransform: "uppercase",
-            width: "max-content",
-            "&:hover": {
-              color: "primary",
-              backgroundColor: "accent"
-            }
-          }}
-        >
-          terms + conditions
-        </Link> */}
       </Info>
       <Social>
         <a
@@ -278,66 +236,7 @@ export default () => {
         >
           instagram
         </a>
-        {/* <a
-          sx={{
-            color: "white",
-            cursor: "crosshair",
-            textDecoration: "none",
-            fontSize: "1em",
-            fontWeight: "heading",
-            fontFamily: "heading",
-            letterSpacing: "body",
-            textTransform: "uppercase",
-            width: "min-content",
-            "&:hover": {
-              color: "primary",
-              backgroundColor: "accent"
-            }
-          }}
-        >
-          pinterest
-        </a> */}
       </Social>
-      {/* <Other>
-        <a
-          sx={{
-            color: "white",
-            cursor: "crosshair",
-            textDecoration: "none",
-            fontSize: "1em",
-            fontWeight: "heading",
-            fontFamily: "heading",
-            letterSpacing: "body",
-            textTransform: "uppercase",
-            width: "min-content",
-            "&:hover": {
-              color: "primary",
-              backgroundColor: "accent"
-            }
-          }}
-        >
-          {email}
-        </a>
-        <p
-          sx={{
-            color: "white",
-            cursor: "crosshair",
-            textDecoration: "none",
-            fontSize: "1em",
-            fontWeight: "heading",
-            fontFamily: "heading",
-            letterSpacing: "body",
-            textTransform: "uppercase",
-            width: "min-content",
-            "&:hover": {
-              color: "primary",
-              backgroundColor: "accent"
-            }
-          }}
-        >
-          {phone}
-        </p>
-      </Other> */}
       <Author
         sx={{
           fontWeight: "heading",

@@ -17,7 +17,6 @@ const Container = styled.section`
 export default () => {
   const cats = useStaticQuery(query);
   const categoryNodes = cats.allSanityCategory.nodes;
-  console.log({ categoryNodes });
   return (
     <Container
       sx={{

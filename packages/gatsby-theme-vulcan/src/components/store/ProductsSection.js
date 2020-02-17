@@ -2,9 +2,8 @@
 import { jsx } from "theme-ui";
 import styled from "@emotion/styled";
 import Card from "../Card";
-import { graphql, useStaticQuery } from "gatsby";
+import { graphql, useStaticQuery, Link } from "gatsby";
 import GatsbyImage from "gatsby-image";
-import { Link } from "gatsby";
 
 const ListContainer = styled.ul`
   list-style: none;

@@ -26,12 +26,11 @@ const Nav = styled.nav`
   font-size: 1em;
   font-weight: 400;
 
-  // main UL
   & > ul {
     list-style: none;
     padding: 16px;
     margin: 0;
-    // ACTUAL LI AND A LINKS
+
     & > li {
       opacity: 0.9;
       cursor: crosshair;
@@ -109,7 +108,6 @@ const Nav = styled.nav`
       position: relative;
       margin: 0 8px;
 
-      // THE DROPDOWN
       & > ul {
         visibility: hidden;
         opacity: 0;
@@ -196,7 +194,6 @@ const Nav = styled.nav`
         props.open === true ? "translateX(0)" : "translateX(100%)"};
       transition: transform 0.5s ease-in;
 
-      // THE DROPDOWN
       & > ul {
         visibility: hidden;
         opacity: 0;

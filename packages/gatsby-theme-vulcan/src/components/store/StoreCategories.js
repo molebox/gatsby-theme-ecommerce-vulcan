@@ -1,8 +1,7 @@
 /** @jsx jsx */
 import { jsx } from "theme-ui";
 import styled from "@emotion/styled";
-import { graphql, Link } from "gatsby";
-import { useStaticQuery } from "gatsby";
+import { graphql, Link, useStaticQuery } from "gatsby";
 import GatsbyImage from "gatsby-image";
 import CategoryCard from "./CategoryCard";
 
@@ -35,7 +34,6 @@ export default () => {
   const cats = useStaticQuery(query);
   const categoryNodes = cats.allSanityCategory.nodes;
   const rootCategories = categoryNodes.filter(cat => cat.isRoot === true);
-  console.log({ rootCategories });
   return (
     <Container>
       <ListContainer>

@@ -23,7 +23,6 @@ const Container = styled.div`
       "main main main main main main"
       "footer footer footer footer footer footer";
     height: 100vh;
-    width: fit-content;
   }
 `;
 

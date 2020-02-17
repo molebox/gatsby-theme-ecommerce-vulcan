@@ -8,7 +8,6 @@ const Container = styled.div`
   justify-content: center;
   align-items: center;
   flex-direction: column;
-  // height: 500px;
 `;
 
 const ContactForm = styled.form`
