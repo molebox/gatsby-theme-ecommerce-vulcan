@@ -5,13 +5,11 @@ import NavbarHeader from "../components/NavbarHeader";
 import Footer from "../components/Footer";
 import Main from "../components/Main";
 import StoreSection from "../components/store/StoreSection";
-import StoreSidebar from "../components/store/StoreSidebar";
 
 export default () => {
   return (
     <Layout>
       <NavbarHeader />
-      <StoreSidebar />
       <Main>
         <StoreSection />
       </Main>

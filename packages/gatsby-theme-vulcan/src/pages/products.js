@@ -10,8 +10,6 @@ import NavbarHeader from "../components/NavbarHeader";
 import Footer from "../components/Footer";
 import Main from "../components/Main";
 import { useSiteMetadata } from "../components/useSiteMetadata";
-// import React from 'react';
-// import Filter from "../components/store/Filter";
 
 const ListContainer = styled.ul`
   list-style: none;

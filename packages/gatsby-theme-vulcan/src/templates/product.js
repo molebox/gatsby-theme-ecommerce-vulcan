@@ -9,7 +9,7 @@ import { useSiteMetadata } from "../components/useSiteMetadata";
 import { FiChevronLeft, FiChevronRight } from "react-icons/fi";
 import { graphql } from "gatsby";
 import Layout from "../components/layouts/Layout";
-import Header from "../components/Header";
+import NavbarHeader from "../components/NavbarHeader";
 import Main from "../components/Main";
 import Footer from "../components/Footer";
 
@@ -193,7 +193,7 @@ export default ({ data }) => {
 
   return (
     <Layout>
-      <Header />
+      <NavbarHeader />
       <Main>
         <Container
           sx={{
