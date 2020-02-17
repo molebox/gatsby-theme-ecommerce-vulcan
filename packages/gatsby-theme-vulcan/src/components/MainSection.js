@@ -26,12 +26,14 @@ const Heading = styled.h4`
   @media (min-width: 1280px) {
     font-size: 2.8em;
   }
-
 `;
 
 const Container = styled.section`
   height: 100%;
-  margin-top: 5em;
+  margin-top: 2em;
+
+  @media (min-width: 1280px) {
+    margin-top: 5em;
 `;
 
 const Image = styled(GatsbyImage)`
@@ -43,19 +45,16 @@ const Image = styled(GatsbyImage)`
 `;
 
 const Text = styled.h2`
-  position: absolute;
-  top: 65%;
-  left: 45%;
-  transform: translate(-50%, -50%);
-
-  font-size: 1.8em;
-  line-height: 60px;
+  margin: 2em 1em;
+  align-self: center;
 
   @media (min-width: 500px) {
     top: 65%;
     left: 45%;
     font-size: 2em;
     line-height: 80px;
+    transform: translate(-50%, -50%);
+    position: absolute;
   }
 
   @media (min-width: 700px) {
@@ -63,6 +62,8 @@ const Text = styled.h2`
     left: 38%;
     font-size: 2em;
     line-height: 90px;
+    transform: translate(-50%, -50%);
+    position: absolute;
   }
 
   @media (min-width: 1280px) {
@@ -73,6 +74,7 @@ const Text = styled.h2`
     left: 20%;
     right: 50%;
     transform: translate(-50%, -50%);
+    position: absolute;
   }
 `;
 
@@ -106,21 +108,37 @@ const IntroSection = styled.section`
   grid-row-gap: 7em;
   justify-content: center;
   width: auto;
-  margin: 15em 0;
+  margin: 5em 0;
+
+  @media (min-width: 1280px) {
+    margin: 15em 0;
+  }
 `;
 
 const FirstIntroContainer = styled.section`
   display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(500px, 1fr));
+  grid-template-columns: 1fr;
   grid-auto-rows: auto;
   grid-gap: 2em;
   max-width: 1200px;
+
+  @media (min-width: 1280px) {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(500px, 1fr));
+    grid-auto-rows: auto;
+    grid-gap: 2em;
+    max-width: 1200px;
+  }
 `;
 
 const TextContainer = styled.div`
   display: flex;
   flex-direction: column;
   justify-content: space-between;
+
+  @media (max-width: 499px) {
+    grid-row: 1;
+  }
 
   & > h3 {
     font-size: 2em;
@@ -166,10 +184,18 @@ const TextContainer = styled.div`
 
 const SecondIntroContainer = styled.section`
   display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(500px, 1fr));
+  grid-template-columns: 1fr;
   grid-auto-rows: auto;
   grid-gap: 2em;
   max-width: 1200px;
+
+  @media (min-width: 1280px) {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(500px, 1fr));
+    grid-auto-rows: auto;
+    grid-gap: 2em;
+    max-width: 1200px;
+  }
 `;
 
 const ImageContainer = styled.div`

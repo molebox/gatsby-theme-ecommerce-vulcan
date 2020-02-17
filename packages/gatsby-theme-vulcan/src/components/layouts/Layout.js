@@ -11,7 +11,7 @@ const Container = styled.div`
     "main"
     "footer";
   height: 100vh;
-  width: 100vw;
+  width: fit-content;
 
   /* 48em = 768px */
   @media (min-width: 48em) {
@@ -22,6 +22,8 @@ const Container = styled.div`
       "nav nav nav nav nav nav"
       "main main main main main main"
       "footer footer footer footer footer footer";
+    height: 100vh;
+    width: fit-content;
   }
 `;
 
@@ -49,4 +51,3 @@ const Layout = ({ children }) => (
 );
 
 export default Layout;
-

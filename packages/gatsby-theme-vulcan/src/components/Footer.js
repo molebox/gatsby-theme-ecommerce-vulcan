@@ -8,17 +8,17 @@ import { useStaticQuery } from "gatsby";
 const Container = styled.footer`
   grid-area: footer;
   height: 20em;
-  width: 100%;
+  width: auto;
 
   display: grid;
   grid-gap: 2em;
-  grid-template-columns: 1fr 1fr 1fr;
+  grid-template-columns: 1fr;
   grid-template-areas:
-    " customerCare info social"
-    " customerCare info social"
-    " customerCare info social"
-    ". . ."
-    "author author author";
+    " customerCare "
+    " info "
+    " social "
+    "."
+    "author ";
 
   font-size: 1.2em;
 
@@ -52,6 +52,7 @@ const Container = styled.footer`
 
 const Author = styled.div`
   grid-area: author;
+  font-size: 0.6em;
 `;
 
 const CustomerCare = styled.div`
@@ -59,6 +60,8 @@ const CustomerCare = styled.div`
   display: flex;
   flex-direction: column;
   justify-content: space-evenly;
+  align-items: center;
+  font-size: 0.6em;
 
   @media (min-width: 700px) {
     display: flex;
@@ -72,6 +75,8 @@ const Info = styled.div`
   display: flex;
   flex-direction: column;
   justify-content: space-evenly;
+  align-items: center;
+  font-size: 0.6em;
 
   @media (min-width: 700px) {
     display: flex;
@@ -84,8 +89,9 @@ const Social = styled.div`
   grid-area: social;
   display: flex;
   flex-direction: column;
-  align-items: flex-start;
+  align-items: center;
   justify-content: space-evenly;
+  font-size: 0.6em;
 
   @media (min-width: 700px) {
     display: flex;
@@ -339,7 +345,7 @@ export default () => {
           letterSpacing: "body",
           textTransform: "uppercase",
           width: "max-content",
-          fontSize: "0.7em"
+          fontSize: "0.5em"
         }}
       >
         Created by Hungry Bear Studio
