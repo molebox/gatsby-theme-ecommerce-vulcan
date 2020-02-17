@@ -5,8 +5,8 @@ import Card from "../components/Card";
 import { graphql } from "gatsby";
 import GatsbyImage from "gatsby-image";
 import { Link } from "gatsby";
-import StoreLayout from "../components/layouts/StoreLayout";
-import Header from "../components/Header";
+import Layout from "../components/layouts/Layout";
+import NavbarHeader from "../components/NavbarHeader";
 import Footer from "../components/Footer";
 import Main from "../components/Main";
 import { useSiteMetadata } from "../components/useSiteMetadata";
@@ -95,8 +95,8 @@ export default ({ data }) => {
   // };
 
   return (
-    <StoreLayout>
-      <Header />
+    <Layout>
+      <NavbarHeader />
       <Main>
         {/* <Filter
         getSelectedCategories={getSelectedCategories}
@@ -172,7 +172,7 @@ export default ({ data }) => {
         </ListContainer>
       </Main>
       <Footer />
-    </StoreLayout>
+    </Layout>
   );
 };
 

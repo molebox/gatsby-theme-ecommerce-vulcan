@@ -1,19 +1,19 @@
 /** @jsx jsx */
 import { jsx } from "theme-ui";
-import HomeLayout from "../components/layouts/HomeLayout";
-import Header from "../components/Header";
+import Layout from "../components/layouts/Layout";
+import NavbarHeader from "../components/NavbarHeader";
 import Footer from "../components/Footer";
 import Main from "../components/Main";
 import ContactSection from "../components/ContactSection";
 
 export default () => {
   return (
-    <HomeLayout>
-      <Header />
+    <Layout>
+      <NavbarHeader />
       <Main>
         <ContactSection />
       </Main>
       <Footer />
-    </HomeLayout>
+    </Layout>
   );
 };

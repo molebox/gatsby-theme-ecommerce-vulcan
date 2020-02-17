@@ -9,14 +9,20 @@ import Checkout from "./snipcart/Checkout";
 
 const Container = styled.header`
   grid-area: header;
-  height: 13em;
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: center;
   align-self: center;
-  position: relative;
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  z-index: 100;
   width: 100%;
+  min-height: 8vh;
+  padding: 1em;
+  margin-bottom: 1em;
 `;
 
 const Title = styled.h1`

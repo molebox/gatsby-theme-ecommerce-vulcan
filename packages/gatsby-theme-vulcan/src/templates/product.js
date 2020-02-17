@@ -8,7 +8,7 @@ import PortableText from "@sanity/block-content-to-react";
 import { useSiteMetadata } from "../components/useSiteMetadata";
 import { FiChevronLeft, FiChevronRight } from "react-icons/fi";
 import { graphql } from "gatsby";
-import StoreLayout from "../components/layouts/StoreLayout";
+import Layout from "../components/layouts/Layout";
 import Header from "../components/Header";
 import Main from "../components/Main";
 import Footer from "../components/Footer";
@@ -192,7 +192,7 @@ export default ({ data }) => {
     .toString();
 
   return (
-    <StoreLayout>
+    <Layout>
       <Header />
       <Main>
         <Container
@@ -308,7 +308,7 @@ export default ({ data }) => {
         </Container>
       </Main>
       <Footer />
-    </StoreLayout>
+    </Layout>
   );
 };
 

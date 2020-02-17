@@ -1,7 +1,7 @@
 /** @jsx jsx */
 import { jsx } from "theme-ui";
-import HomeLayout from "../components/layouts/HomeLayout";
-import Header from "../components/Header";
+import Layout from "../components/layouts/Layout";
+import NavbarHeader from "../components/NavbarHeader";
 import Footer from "../components/Footer";
 import Sidebar from "../components/Sidebar";
 import Main from "../components/Main";
@@ -9,13 +9,13 @@ import MainSection from "../components/MainSection";
 
 export default () => {
   return (
-    <HomeLayout>
-      <Header />
+    <Layout>
+      <NavbarHeader />
       <Sidebar />
       <Main>
         <MainSection />
       </Main>
       <Footer />
-    </HomeLayout>
+    </Layout>
   );
 };

@@ -6,9 +6,6 @@ export default () => {
   return (
     <div
       sx={{
-        top: "1em",
-        right: "3em",
-        position: "absolute",
         cursor: "crosshair",
         color: "white",
         "&:hover": {
@@ -18,7 +15,7 @@ export default () => {
       }}
       className="snipcart-checkout"
     >
-      <AiOutlineShopping size="2em" />
+      <AiOutlineShopping size="1.5em" />
     </div>
   );
 };

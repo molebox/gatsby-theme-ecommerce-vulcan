@@ -26,10 +26,12 @@ const Heading = styled.h4`
   @media (min-width: 1280px) {
     font-size: 2.8em;
   }
+
 `;
 
 const Container = styled.section`
-  min-height: 900px;
+  height: 100%;
+  margin-top: 5em;
 `;
 
 const Image = styled(GatsbyImage)`
@@ -37,12 +39,12 @@ const Image = styled(GatsbyImage)`
   height: auto;
   max-width: 100%;
   max-height: 100%;
-  margin: 3em 0;
+  margin: 0 1em;
 `;
 
 const Text = styled.h2`
   position: absolute;
-  top: 85%;
+  top: 65%;
   left: 45%;
   transform: translate(-50%, -50%);
 
@@ -67,7 +69,7 @@ const Text = styled.h2`
     font-size: 3.5em;
     line-height: 130px;
     align-self: baseline;
-    top: 70%;
+    top: 65%;
     left: 20%;
     right: 50%;
     transform: translate(-50%, -50%);

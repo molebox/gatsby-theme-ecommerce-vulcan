@@ -4,9 +4,8 @@ import styled from "@emotion/styled";
 
 const Container = styled.div`
   grid-area: main;
-  height: auto;
-  // min-height: 100%;
-  margin: 1em;
+  height: 100%;
+  margin: 5em 1em;
 `;
 
 export default ({ children }) => {
