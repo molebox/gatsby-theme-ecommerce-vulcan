@@ -19,6 +19,7 @@ exports.createPages = ({ actions, graphql }) => {
             }
           categories {
             title
+            isRoot
           }
           defaultProductVariant {
             sku
