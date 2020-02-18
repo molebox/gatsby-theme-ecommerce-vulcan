@@ -3,7 +3,7 @@ import { jsx } from "theme-ui";
 import React from "react";
 import styled from "@emotion/styled";
 import { Link } from "gatsby";
-import { useSiteMetadata } from './useSiteMetadata';
+import { useSiteMetadata } from "./useSiteMetadata";
 import Glitch from "./Glitch";
 import Checkout from "./snipcart/Checkout";
 
@@ -15,7 +15,7 @@ const Nav = styled.nav`
   left: 0;
   right: 0;
   z-index: 100;
-
+  width: auto;
 
   display: flex;
   justify-content: space-around;
@@ -285,112 +285,116 @@ export default () => {
   const [open, setOpen] = React.useState(false);
 
   return (
-    <Nav sx={{
-      backgroundColor: "primary",
-      borderBottom: "solid 1px",
-      borderColor: "accent"
-    }} 
-    open={open}>
+    <Nav
+      sx={{
+        backgroundColor: "primary",
+        borderBottom: "solid 1px",
+        borderColor: "accent"
+      }}
+      open={open}
+    >
       <Link
-          to="/"
-          sx={{
-            color: "white",
-            cursor: "crosshair",
-            textDecoration: "none",
-            textTransform: "uppercase",
-            "&:hover": {
-              color: "white"
-            },
-            "&.active": {
-              color: "accent"
-            }
-          }}
-        >
-      <Logo className="logo"><Glitch>{siteName}</Glitch></Logo>
-        </Link>
+        to="/"
+        sx={{
+          color: "white",
+          cursor: "crosshair",
+          textDecoration: "none",
+          textTransform: "uppercase",
+          "&:hover": {
+            color: "white"
+          },
+          "&.active": {
+            color: "accent"
+          }
+        }}
+      >
+        <Logo className="logo">
+          <Glitch>{siteName}</Glitch>
+        </Logo>
+      </Link>
       <ul className="navLinks">
         <li className="link">
-        <Link
-        to="/about"
-        sx={{
-          color: "white",
-          cursor: "crosshair",
-          textDecoration: "none",
-          textTransform: "uppercase",
-          fontSize: "1.1em",
-          fontFamily: "heading",
-          fontWeight: "heading",
-          letterSpacing: "body",
-          gridColumn: 1,
-          width: "max-content",
-          "&:hover": {
-            color: "primary",
-            backgroundColor: "accent"
-          },
-          "&.active": {
-            color: "accent"
-          }
-        }}
-      >
-        about
-      </Link>
+          <Link
+            to="/about"
+            sx={{
+              color: "white",
+              cursor: "crosshair",
+              textDecoration: "none",
+              textTransform: "uppercase",
+              fontSize: "1.1em",
+              fontFamily: "heading",
+              fontWeight: "heading",
+              letterSpacing: "body",
+              gridColumn: 1,
+              width: "max-content",
+              "&:hover": {
+                color: "primary",
+                backgroundColor: "accent"
+              },
+              "&.active": {
+                color: "accent"
+              }
+            }}
+          >
+            about
+          </Link>
         </li>
         <li className="link">
-        <Link
-        to="/products"
-        sx={{
-          color: "white",
-          cursor: "crosshair",
-          textDecoration: "none",
-          fontFamily: "heading",
-          textTransform: "uppercase",
-          fontSize: "1.1em",
-          fontWeight: "heading",
-          letterSpacing: "body",
-          gridColumn: 2,
-          width: "max-content",
-          "&:hover": {
-            color: "primary",
-            backgroundColor: "accent"
-          },
-          "&.active": {
-            color: "accent"
-          }
-        }}
-      >
-        store
-      </Link>
+          <Link
+            to="/products"
+            sx={{
+              color: "white",
+              cursor: "crosshair",
+              textDecoration: "none",
+              fontFamily: "heading",
+              textTransform: "uppercase",
+              fontSize: "1.1em",
+              fontWeight: "heading",
+              letterSpacing: "body",
+              gridColumn: 2,
+              width: "max-content",
+              "&:hover": {
+                color: "primary",
+                backgroundColor: "accent"
+              },
+              "&.active": {
+                color: "accent"
+              }
+            }}
+          >
+            store
+          </Link>
         </li>
         <li className="link">
-        {hasBlog ? (
-        <Link
-          to="/blog"
-          sx={{
-            color: "white",
-            cursor: "crosshair",
-            textDecoration: "none",
-            fontFamily: "heading",
-            fontWeight: "heading",
-            textTransform: "uppercase",
-            fontSize: "1.1em",
-            letterSpacing: "body",
-            gridColumn: 3,
-            width: "max-content",
-            "&:hover": {
-              color: "primary",
-              backgroundColor: "accent"
-            },
-            "&.active": {
-              color: "accent"
-            }
-          }}
-        >
-          blog
-        </Link>
-      ) : null}
+          {hasBlog ? (
+            <Link
+              to="/blog"
+              sx={{
+                color: "white",
+                cursor: "crosshair",
+                textDecoration: "none",
+                fontFamily: "heading",
+                fontWeight: "heading",
+                textTransform: "uppercase",
+                fontSize: "1.1em",
+                letterSpacing: "body",
+                gridColumn: 3,
+                width: "max-content",
+                "&:hover": {
+                  color: "primary",
+                  backgroundColor: "accent"
+                },
+                "&.active": {
+                  color: "accent"
+                }
+              }}
+            >
+              blog
+            </Link>
+          ) : null}
         </li>
         <li className="link">
-        <Checkout/> 
+          <Checkout />
         </li>
       </ul>
       <Burger onClick={() => setOpen(!open)}>

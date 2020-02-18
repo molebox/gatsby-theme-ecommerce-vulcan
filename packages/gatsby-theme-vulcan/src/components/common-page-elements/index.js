@@ -2,7 +2,7 @@ import React from "react";
 import styled from "@emotion/styled";
 
 export const Outer = styled.div`
-  margin: 0 auto;
+  margin: 5em auto;
   max-width: 1200px;
 `;
 

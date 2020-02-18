@@ -5,9 +5,6 @@ import Card from "../components/Card";
 import { graphql } from "gatsby";
 import GatsbyImage from "gatsby-image";
 import { Link } from "gatsby";
-import Layout from "../components/layouts/Layout";
-import NavbarHeader from "../components/NavbarHeader";
-import Footer from "../components/Footer";
 import Main from "../components/Main";
 import { useSiteMetadata } from "../components/useSiteMetadata";
 
@@ -93,67 +90,54 @@ export default ({ data }) => {
   // };
 
   return (
-    <Layout>
-      <NavbarHeader />
-      <Main>
-        {/* <Filter
+    <Main>
+      {/* <Filter
         getSelectedCategories={getSelectedCategories}
         sx={{
           margin: "2em"
         }}
         rootCategories={rootCategories}
       /> */}
-        <ListContainer>
-          {nodes.map((node, index) => (
-            <li
+      <ListContainer>
+        {nodes.map((node, index) => (
+          <li
+            sx={{
+              border: "solid 2px",
+              borderColor: "primary",
+              boxShadow: "-3px 3px #00001F",
+              textDecoration: "none"
+            }}
+            key={index}
+          >
+            <Link to={`products/${node.slug.current}`}>
+              <Card text="SHOP">
+                <GatsbyImage
+                  fluid={node.defaultProductVariant.mainImage[0].asset.fluid}
+                  alt={node.defaultProductVariant.title}
+                />
+              </Card>
+            </Link>
+            <ProductInfo
               sx={{
-                border: "solid 2px",
+                fontFamily: "heading",
+                borderTop: "3px solid",
                 borderColor: "primary",
-                boxShadow: "-3px 3px #00001F",
                 textDecoration: "none"
               }}
-              key={index}
             >
-              <Link to={`products/${node.slug.current}`}>
-                <Card text="SHOP">
-                  <GatsbyImage
-                    fluid={node.defaultProductVariant.mainImage[0].asset.fluid}
-                    alt={node.defaultProductVariant.title}
-                  />
-                </Card>
-              </Link>
-              <ProductInfo
-                sx={{
-                  fontFamily: "heading",
-                  borderTop: "3px solid",
-                  borderColor: "primary",
-                  textDecoration: "none"
-                }}
-              >
-                <p>{node.defaultProductVariant.title}</p>
-                {node.defaultProductVariant.onSalePrice ? (
-                  <PriceContainer>
-                    <OnSalePrice
-                      sx={{
-                        fontFamily: "body",
-                        fontWeight: "bold",
-                        textDecoration: "line-through"
-                      }}
-                    >
-                      {currencySymbol}
-                      {node.defaultProductVariant.price}
-                    </OnSalePrice>
-                    <Price
-                      sx={{
-                        fontFamily: "body",
-                        fontWeight: "bold"
-                      }}
-                    >
-                      {currencySymbol}
-                      {node.defaultProductVariant.onSalePrice}
-                    </Price>
-                  </PriceContainer>
-                ) : (
+              <p>{node.defaultProductVariant.title}</p>
+              {node.defaultProductVariant.onSalePrice ? (
+                <PriceContainer>
+                  <OnSalePrice
+                    sx={{
+                      fontFamily: "body",
+                      fontWeight: "bold",
+                      textDecoration: "line-through"
+                    }}
+                  >
+                    {currencySymbol}
+                    {node.defaultProductVariant.price}
+                  </OnSalePrice>
                   <Price
                     sx={{
                       fontFamily: "body",
@@ -161,16 +145,25 @@ export default ({ data }) => {
                     }}
                   >
                     {currencySymbol}
-                    {node.defaultProductVariant.price}
+                    {node.defaultProductVariant.onSalePrice}
                   </Price>
-                )}
-              </ProductInfo>
-            </li>
-          ))}
-        </ListContainer>
-      </Main>
-      <Footer />
-    </Layout>
+                </PriceContainer>
+              ) : (
+                <Price
+                  sx={{
+                    fontFamily: "body",
+                    fontWeight: "bold"
+                  }}
+                >
+                  {currencySymbol}
+                  {node.defaultProductVariant.price}
+                </Price>
+              )}
+            </ProductInfo>
+          </li>
+        ))}
+      </ListContainer>
+    </Main>
   );
 };
 

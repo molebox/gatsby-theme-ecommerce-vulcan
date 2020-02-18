@@ -8,10 +8,7 @@ import PortableText from "@sanity/block-content-to-react";
 import { useSiteMetadata } from "../components/useSiteMetadata";
 import { FiChevronLeft, FiChevronRight } from "react-icons/fi";
 import { graphql } from "gatsby";
-import Layout from "../components/layouts/Layout";
-import NavbarHeader from "../components/NavbarHeader";
 import Main from "../components/Main";
-import Footer from "../components/Footer";
 
 // Inspiration: https://github.com/heyjordn/gatsby-slide-example/blob/master/src/components/slideshow.js
 
@@ -192,87 +189,70 @@ export default ({ data }) => {
     .toString();
 
   return (
-    <Layout>
-      <NavbarHeader />
-      <Main>
-        <Container
-          sx={{
-            border: "solid 2px",
-            borderColor: "primary",
-            boxShadow: "-3px 3px #00001F",
-            padding: "2em",
-            fontFamily: "heading"
-          }}
-          onSale={onSalePrice ? true : false}
-        >
-          <ImageContainer>
-            <div
+    <Main>
+      <Container
+        sx={{
+          border: "solid 2px",
+          borderColor: "primary",
+          boxShadow: "-3px 3px #00001F",
+          padding: "2em",
+          fontFamily: "heading"
+        }}
+        onSale={onSalePrice ? true : false}
+      >
+        <ImageContainer>
+          <div
+            sx={{
+              cursor: "crosshair",
+              justifySelf: "center"
+            }}
+          >
+            <FiChevronLeft size="1.5em" onClick={() => handlePrevious()} />
+          </div>
+          <MainImageContainer
+          // sx={{
+          //   border: "2px solid",
+          //   borderColor: "primary"
+          // }}
+          >
+            <GatsbyImage fluid={asset.fluid} key={title + index} alt={title} />
+          </MainImageContainer>
+          <div
+            sx={{
+              cursor: "crosshair",
+              justifySelf: "center"
+            }}
+          >
+            <FiChevronRight size="1.5em" onClick={() => handleNext()} />
+          </div>
+        </ImageContainer>
+        <Info>
+          <ProductHeader>
+            <h2
               sx={{
-                cursor: "crosshair",
-                justifySelf: "center"
+                fontFamily: "heading",
+                letterSpacing: "body",
+                borderBottom: "solid 2px",
+                borderColor: "primary",
+                paddingBottom: "0.5em",
+                width: "50%"
               }}
             >
-              <FiChevronLeft size="1.5em" onClick={() => handlePrevious()} />
-            </div>
-            <MainImageContainer
-            // sx={{
-            //   border: "2px solid",
-            //   borderColor: "primary"
-            // }}
-            >
-              <GatsbyImage
-                fluid={asset.fluid}
-                key={title + index}
-                alt={title}
-              />
-            </MainImageContainer>
-            <div
-              sx={{
-                cursor: "crosshair",
-                justifySelf: "center"
-              }}
-            >
-              <FiChevronRight size="1.5em" onClick={() => handleNext()} />
-            </div>
-          </ImageContainer>
-          <Info>
-            <ProductHeader>
-              <h2
-                sx={{
-                  fontFamily: "heading",
-                  letterSpacing: "body",
-                  borderBottom: "solid 2px",
-                  borderColor: "primary",
-                  paddingBottom: "0.5em",
-                  width: "50%"
-                }}
-              >
-                {title}
-              </h2>
-              <PriceContainer>
-                {onSalePrice ? (
-                  <>
-                    <OnSalePrice
-                      sx={{
-                        fontFamily: "body",
-                        fontWeight: "bold",
-                        textDecoration: "line-through"
-                      }}
-                    >
-                      {currencySymbol}
-                      {price}
-                    </OnSalePrice>
-                    <Price
-                      sx={{
-                        fontFamily: "body",
-                        fontWeight: "bold"
-                      }}
-                    >
-                      {currencySymbol}
-                      {onSalePrice}
-                    </Price>
-                  </>
-                ) : (
+              {title}
+            </h2>
+            <PriceContainer>
+              {onSalePrice ? (
+                <>
+                  <OnSalePrice
+                    sx={{
+                      fontFamily: "body",
+                      fontWeight: "bold",
+                      textDecoration: "line-through"
+                    }}
+                  >
+                    {currencySymbol}
+                    {price}
+                  </OnSalePrice>
                   <Price
                     sx={{
                       fontFamily: "body",
@@ -280,35 +260,44 @@ export default ({ data }) => {
                     }}
                   >
                     {currencySymbol}
-                    {price}
+                    {onSalePrice}
                   </Price>
-                )}
-              </PriceContainer>
-            </ProductHeader>
-            <Description>
-              <PortableText blocks={_rawBody.en} serializers={serializers} />
-            </Description>
-            <BuyButton
-              key={title}
-              text="add to cart"
-              itemPrice={price}
-              image={asset.fluid.src}
-              itemTitle={title}
-              itemDescription={blurb.en}
-              pricesymbol={currencySymbol}
-              itemId={id}
-              itemUrl={siteUrl}
-              itemPath={`/${slug.current}`}
-              isStackable={true}
-              isTaxIncluded={taxable ? true : false}
-              data-item-custom1-name="Size"
-              data-item-custom1-options={sizes}
-            />
-          </Info>
-        </Container>
-      </Main>
-      <Footer />
-    </Layout>
+                </>
+              ) : (
+                <Price
+                  sx={{
+                    fontFamily: "body",
+                    fontWeight: "bold"
+                  }}
+                >
+                  {currencySymbol}
+                  {price}
+                </Price>
+              )}
+            </PriceContainer>
+          </ProductHeader>
+          <Description>
+            <PortableText blocks={_rawBody.en} serializers={serializers} />
+          </Description>
+          <BuyButton
+            key={title}
+            text="add to cart"
+            itemPrice={price}
+            image={asset.fluid.src}
+            itemTitle={title}
+            itemDescription={blurb.en}
+            pricesymbol={currencySymbol}
+            itemId={id}
+            itemUrl={siteUrl}
+            itemPath={`/${slug.current}`}
+            isStackable={true}
+            isTaxIncluded={taxable ? true : false}
+            data-item-custom1-name="Size"
+            data-item-custom1-options={sizes}
+          />
+        </Info>
+      </Container>
+    </Main>
   );
 };
 

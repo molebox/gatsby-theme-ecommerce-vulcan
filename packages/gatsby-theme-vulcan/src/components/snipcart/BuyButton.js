@@ -3,8 +3,8 @@ import { jsx } from "theme-ui";
 import styled from "@emotion/styled";
 
 const Button = styled.button`
-  font-size: 1.6em;
-  height: 3em;
+  font-size: 1em;
+  height: 2.5em;
   width: 10em;
 
   @media (min-width: 500px) {

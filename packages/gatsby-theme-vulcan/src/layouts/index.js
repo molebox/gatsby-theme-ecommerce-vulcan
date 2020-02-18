@@ -1,6 +1,8 @@
 import React from "react";
 import styled from "@emotion/styled";
 import { Global, css } from "@emotion/core";
+import NavbarHeader from "../components/NavbarHeader";
+import Footer from "../components/Footer";
 
 const Container = styled.div`
   display: grid;
@@ -23,11 +25,12 @@ const Container = styled.div`
       "main main main main main main"
       "footer footer footer footer footer footer";
     height: 100vh;
+    width: auto;
   }
 `;
 
 const Layout = ({ children }) => (
-  <Container>
+  <>
     <Global
       styles={css`
         * {
@@ -45,8 +48,12 @@ const Layout = ({ children }) => (
         }
       `}
     />
-    {children}
-  </Container>
+    <Container>
+      <NavbarHeader />
+      {children}
+      <Footer />
+    </Container>
+  </>
 );
 
 export default Layout;

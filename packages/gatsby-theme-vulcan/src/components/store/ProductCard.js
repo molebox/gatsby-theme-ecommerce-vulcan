@@ -12,13 +12,21 @@ import { FiChevronLeft, FiChevronRight } from "react-icons/fi";
 
 const Container = styled.div`
   display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
-  grid-auto-rows: auto;
+  grid-template-columns: 1fr;
   grid-gap: 2em;
   height: auto;
   position: relative;
   min-width: 300px;
-  // width: auto;
+  width: 350px @media (min-width: 1280px) {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+    grid-auto-rows: auto;
+    grid-gap: 2em;
+    height: auto;
+    position: relative;
+    min-width: 300px;
+    // width: auto;
+  }
 
   ${props =>
     props.onSale
@@ -46,13 +54,14 @@ const Container = styled.div`
 
 const ImageContainer = styled.div`
   display: grid;
-  grid-template-columns: 1em minmax(300px, auto) 1em;
+  grid-template-columns: 1em minmax(150px, auto) 1em;
   align-items: center;
 `;
 
 const MainImageContainer = styled.div`
   width: 100%;
   max-width: 300px;
+  min-width: 150px
   height: auto;
   justify-self: center;
   align-self: center;

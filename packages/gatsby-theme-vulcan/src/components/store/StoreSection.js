@@ -34,24 +34,24 @@ export default () => {
   const info = products.allSanityProduct.nodes;
 
   return (
-      <Container>
-        {info.map((node, index) => {
-          return (
-            <ProductCard
-              itemId={node.id}
-              key={index + node.title}
-              title={node.title}
-              description={node._rawBody.en}
-              thumbnails={node.defaultProductVariant.thumbnails}
-              price={node.defaultProductVariant.price}
-              blurb={node.blurb.en}
-              size={node.defaultProductVariant.size}
-              fit={node.defaultProductVariant.fits}
-              onSalePrice={node.defaultProductVariant.onSalePrice}
-            />
-          );
-        })}
-      </Container>
+    <Container>
+      {info.map((node, index) => {
+        return (
+          <ProductCard
+            itemId={node.id}
+            key={index + node.title}
+            title={node.title}
+            description={node._rawBody.en}
+            thumbnails={node.defaultProductVariant.thumbnails}
+            price={node.defaultProductVariant.price}
+            blurb={node.blurb.en}
+            size={node.defaultProductVariant.size}
+            fit={node.defaultProductVariant.fits}
+            onSalePrice={node.defaultProductVariant.onSalePrice}
+          />
+        );
+      })}
+    </Container>
   );
 };
 

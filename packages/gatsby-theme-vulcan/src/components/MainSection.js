@@ -8,7 +8,7 @@ import { Grid } from "@horacioh/gatsby-theme-instagram";
 import ProductCard from "./store/ProductCard";
 
 const Heading = styled.h4`
-  font-size: 2.5em;
+  font-size: 1.4em;
 
   display: flex;
   align-items: center;
@@ -30,25 +30,36 @@ const Heading = styled.h4`
 
 const Container = styled.section`
   height: 100%;
-  margin-top: 2em;
+  margin-top: 2em auto;
 
   @media (min-width: 1280px) {
-    margin-top: 5em;
+    margin: 5em auto;
+  }
 `;
 
 const Image = styled(GatsbyImage)`
   width: auto;
   height: auto;
-  max-width: 100%;
-  max-height: 100%;
-  margin: 0 1em;
+  max-width: 80%;
+  max-height: 90%;
+  margin: 0 auto;
+
+  @media (min-width: 1280px) {
+    width: auto;
+    height: auto;
+    max-width: 90%;
+    max-height: 90%;
+    margin: 0 auto;
+  }
 `;
 
 const Text = styled.h2`
-  margin: 2em 1em;
-  align-self: center;
+  display: none;
 
   @media (min-width: 500px) {
+    display: block;
+    margin: 2em 1em;
+    align-self: center;
     top: 65%;
     left: 45%;
     font-size: 2em;
@@ -58,6 +69,9 @@ const Text = styled.h2`
   }
 
   @media (min-width: 700px) {
+    display: block;
+    margin: 2em 1em;
+    align-self: center;
     top: 60%;
     left: 38%;
     font-size: 2em;
@@ -67,6 +81,9 @@ const Text = styled.h2`
   }
 
   @media (min-width: 1280px) {
+    display: block;
+    margin: 2em 1em;
+    align-self: center;
     font-size: 3.5em;
     line-height: 130px;
     align-self: baseline;
@@ -84,7 +101,7 @@ const Showcase = styled.section`
   grid-gap: 2em;
   width: auto;
   grid-template-columns: 1fr;
-  margin-bottom: 15em;
+  margin: 0 auto;
 
   grid-auto-rows: auto;
   justify-self: center;
@@ -100,6 +117,7 @@ const Showcase = styled.section`
 
   @media (min-width: 1280px) {
     grid-template-columns: 1fr 1fr 1fr;
+    margin. 2em;
   }
 `;
 
@@ -135,18 +153,19 @@ const TextContainer = styled.div`
   display: flex;
   flex-direction: column;
   justify-content: space-between;
+  margin: 1em;
 
   @media (max-width: 499px) {
     grid-row: 1;
   }
 
   & > h3 {
-    font-size: 2em;
+    font-size: 1.4em;
     margin-bottom: 1em;
   }
 
   & > p {
-    font-size: 1.4em;
+    font-size: 1em;
   }
 
   @media (min-width: 500px) {
@@ -199,11 +218,17 @@ const SecondIntroContainer = styled.section`
 `;
 
 const ImageContainer = styled.div`
-  width: 100%;
-  max-width: 1000px;
+  width: 300px;
   height: auto;
-  justify-self: center;
-  align-self: center;
+  margin: 0 auto;
+
+  @media (min-width: 1280px) {
+    width: 100%;
+    max-width: 1000px;
+    height: auto;
+    justify-self: center;
+    align-self: center;
+  }
 `;
 
 export default () => {
