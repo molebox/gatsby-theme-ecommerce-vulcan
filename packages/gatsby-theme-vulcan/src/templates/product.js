@@ -13,11 +13,6 @@ import Main from "../components/Main";
 // Inspiration: https://github.com/heyjordn/gatsby-slide-example/blob/master/src/components/slideshow.js
 
 const Container = styled.div`
-  //   display: grid;
-  //   grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
-  //   grid-auto-rows: auto;
-  //   grid-gap: 2em;
-
   display: grid;
   grid-template-columns: 1frr;
   grid-gap: 2em;
@@ -112,9 +107,6 @@ const OnSalePrice = styled.div`
 
 const PriceContainer = styled.div`
   display: flex;
-  // justify-content: space-evenly;
-  // align-items: center;
-  // width: 10em;
   margin-top: 1em;
 `;
 
@@ -210,10 +202,6 @@ export default ({ data }) => {
             <FiChevronLeft size="1.5em" onClick={() => handlePrevious()} />
           </div>
           <MainImageContainer
-          // sx={{
-          //   border: "2px solid",
-          //   borderColor: "primary"
-          // }}
           >
             <GatsbyImage fluid={asset.fluid} key={title + index} alt={title} />
           </MainImageContainer>

@@ -2,9 +2,8 @@
 import { jsx } from "theme-ui";
 import styled from "@emotion/styled";
 import Card from "../components/Card";
-import { graphql } from "gatsby";
+import { graphql, Link } from "gatsby";
 import GatsbyImage from "gatsby-image";
-import { Link } from "gatsby";
 import Main from "../components/Main";
 import { useSiteMetadata } from "../components/useSiteMetadata";
 
@@ -61,43 +60,11 @@ const OnSalePrice = styled.div`
     font-size: 0.5em;
   }
 `;
-
-// const SidebarContainer = styled.section`
-//   grid-area: categories;
-//   height: 90%;
-//   width: 90%;
-//   padding: 1em;
-//   margin: 2em;
-
-//   display: flex;
-//   justify-content: center;
-// `;
-
 export default ({ data }) => {
   const { nodes } = data.allSanityProduct;
-  // const cats = data.allSanityCategory.nodes;
-  // console.log({cats})
   const { currencySymbol } = useSiteMetadata();
-  // const [selectedCategory, setSelectedCategory] = React.useState([]);
-
-  // const rootCategories = cats.filter((cat) => cat.isRoot === true);
-
-  // const hasChildren = rootCategories.filter((cat) => cat.childrenCategories);
-
-  // const getSelectedCategories = selections => {
-  //   const cats = selections.map(cat => cat.value);
-  //   setSelectedCategory(cats);
-  // };
-
   return (
     <Main>
-      {/* <Filter
-        getSelectedCategories={getSelectedCategories}
-        sx={{
-          margin: "2em"
-        }}
-        rootCategories={rootCategories}
-      /> */}
       <ListContainer>
         {nodes.map((node, index) => (
           <li
