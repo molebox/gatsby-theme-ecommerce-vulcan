@@ -4,8 +4,9 @@ import { Global, css } from "@emotion/core";
 import NavbarHeader from "../components/NavbarHeader";
 import Footer from "../components/Footer";
 import FixedMobileFooter from "../components/FixedMobileFooter";
-import { useBreakpoints } from "react-breakpoints-hook";
+//  { useBreakpoints } from "react-breakpoints-hook";
 import { breakpoints } from "../components/common-page-elements";
+import useBreakpoints from "./../components/window/index";
 
 const Container = styled.div`
   display: grid;

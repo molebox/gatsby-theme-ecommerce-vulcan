@@ -6,8 +6,9 @@ import { Link } from "gatsby";
 import { useSiteMetadata } from "./useSiteMetadata";
 import Glitch from "./Glitch";
 import Checkout from "./snipcart/Checkout";
-import { useBreakpoints } from "react-breakpoints-hook";
+// import { useBreakpoints } from "react-breakpoints-hook";
 import { breakpoints } from "./common-page-elements";
+import useBreakpoints from "./window/index";
 
 const Nav = styled.nav`
   grid-area: nav;
