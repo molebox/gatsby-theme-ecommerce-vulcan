@@ -22,7 +22,7 @@ const Nav = styled.nav`
   display: flex;
   justify-content: space-around;
   align-items: center;
-  min-height: 8vh;
+  min-height: 10vh;
   font-family: Montserrat;
   text-transform: uppercase;
   font-size: 1em;
@@ -311,30 +311,9 @@ export default () => {
                 backgroundColor: "accent"
               }
             }}
+            onClick={() => setOpen(!open)}
           >
             contact
-          </Link>
-        </li>
-        <li className="link">
-          <Link
-            to="/deliveryAndReturns"
-            sx={{
-              color: "white",
-              cursor: "crosshair",
-              textDecoration: "none",
-              fontSize: "1em",
-              fontWeight: "heading",
-              fontFamily: "heading",
-              letterSpacing: "body",
-              textTransform: "uppercase",
-              width: "max-content",
-              "&:hover": {
-                color: "primary",
-                backgroundColor: "accent"
-              }
-            }}
-          >
-            delivery + returns
           </Link>
         </li>
         <li className="link">
@@ -355,8 +334,32 @@ export default () => {
                 backgroundColor: "accent"
               }
             }}
+            onClick={() => setOpen(!open)}
           >
             size guide
+          </Link>
+        </li>
+        <li className="link">
+          <Link
+            to="/deliveryAndReturns"
+            sx={{
+              color: "white",
+              cursor: "crosshair",
+              textDecoration: "none",
+              fontSize: "1em",
+              fontWeight: "heading",
+              fontFamily: "heading",
+              letterSpacing: "body",
+              textTransform: "uppercase",
+              width: "max-content",
+              "&:hover": {
+                color: "primary",
+                backgroundColor: "accent"
+              }
+            }}
+            onClick={() => setOpen(!open)}
+          >
+            delivery + returns
           </Link>
         </li>
         <li className="link">
@@ -377,6 +380,7 @@ export default () => {
                 backgroundColor: "accent"
               }
             }}
+            onClick={() => setOpen(!open)}
           >
             privacy policy
           </Link>

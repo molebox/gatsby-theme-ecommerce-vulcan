@@ -10,7 +10,8 @@ import {
   Container,
   ImageContainer,
   TextContainer,
-  serializers
+  serializers,
+  Heading
 } from "./common-page-elements/index";
 
 export default () => {
@@ -38,24 +39,24 @@ export default () => {
                 alt={node.title}
               />
             </ImageContainer>
-            <h1
+            <Heading
               sx={{
                 fontFamily: "heading",
                 letterSpacing: "text",
                 fontWeight: "bold",
                 color: "primary",
                 marginBottom: "1em",
+                marginTop: "2em",
                 display: "flex",
                 alignSelf: "center",
                 justifySelf: "center",
-                margin: "1em",
                 borderBottom: "solid 2px",
                 borderColor: "primary",
                 padding: "0.5em"
               }}
             >
               {node.title}
-            </h1>
+            </Heading>
             <TextContainer
               sx={{
                 fontFamily: "body",

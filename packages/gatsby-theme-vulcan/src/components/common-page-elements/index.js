@@ -2,7 +2,7 @@ import React from "react";
 import styled from "@emotion/styled";
 
 export const Outer = styled.div`
-  margin: 5em auto;
+  margin-top: 5em;
 
   @media (min-width: 1280px) {
     margin: 5em auto;
@@ -13,12 +13,14 @@ export const Outer = styled.div`
 export const Container = styled.div`
   display: flex;
   flex-direction: column;
+  align-items: center;
   margin: 0 auto;
-  // width: 100%;
+  width: 90%;
 `;
 
 export const TextContainer = styled.div`
   margin: 0 auto;
+  width: 100%;
 `;
 
 export const ImageContainer = styled.div`
@@ -27,10 +29,19 @@ export const ImageContainer = styled.div`
   height: auto;
   justify-self: center;
   align-self: center;
+  margin-top: 5em;
+
+  @media (min-width: 1280px) {
+    width: 100%;
+    max-width: 1200px;
+    height: auto;
+    justify-self: center;
+    align-self: center;
+  }
 `;
 
 export const Text = styled.p`
-  font-size: 1em;
+  font-size: 0.8em;
   font-weight: 500;
   padding-bottom: 0.5em;
 
@@ -47,13 +58,13 @@ export const Text = styled.p`
   }
 `;
 
-export const Heading = styled.h2`
-  font-size: 1.3em;
+export const Heading = styled.h1`
+  font-size: 1.2em;
 
   display: flex;
   align-items: center;
   justify-content: center;
-  margin: 1em;
+  width: 100%;
 
   @media (min-width: 500px) {
     font-size: 2em;
@@ -73,7 +84,7 @@ export const serializers = {
     block(props) {
       switch (props.node.style) {
         case "h1":
-          return <h1>{props.children}</h1>;
+          return <Heading>{props.children}</Heading>;
         default:
           return <Text>{props.children}</Text>;
       }

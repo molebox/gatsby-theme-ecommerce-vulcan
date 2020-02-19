@@ -10,6 +10,7 @@ const FixedFooter = styled.footer`
   bottom: 0;
   z-index: 100;
   width: 100vw;
+  min-height: 10vh;
   height: 10vh;
 
   display: flex;

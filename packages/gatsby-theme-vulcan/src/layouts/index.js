@@ -10,7 +10,6 @@ import useBreakpoints from "./../components/window/index";
 const Container = styled.div`
   display: grid;
   grid-template-columns: 1fr;
-  //grid-template-rows: 0.2fr 1fr 0.2fr;
   grid-template-areas:
     "nav"
     "main"
