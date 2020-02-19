@@ -36,7 +36,7 @@ const Container = styled.div`
 const Layout = ({ children }) => {
   let { xs, sm } = useBreakpoints(breakpoints);
   const footer =
-    xs === true || sm === true ? <FixedMobileFooter /> : <Footer />;
+  xs && xs === true || sm && sm === true ? <FixedMobileFooter /> : <Footer />;
   return (
     <>
       <Global
