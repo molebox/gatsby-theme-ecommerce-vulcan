@@ -1,7 +1,7 @@
 /** @jsx jsx */
 import { jsx } from "theme-ui";
 import styled from "@emotion/styled";
-import { Heading } from "./common-page-elements/index";
+import { Heading, Text } from "./common-page-elements/index";
 
 const Container = styled.div`
   display: flex;
@@ -62,17 +62,26 @@ export default () => {
           textTransform: "uppercase",
           borderBottom: "solid 2px",
           borderColor: "primary",
-          padding: "0.5em"
+          padding: "0.5em",
+          maxWidth: "50%",
+          marginBottom: "1em"
         }}
       >
         Lets Talk
       </Heading>
+      <Text
+        sx={{
+          fontFamily: "body",
+          fontWeight: "500",
+          color: "text",
+          marginTop: "1em"
+        }}
+      >
+        Need to ask us a question? Get in touch!
+      </Text>
       <ContactForm
         sx={{
-          border: "solid 2px",
-          borderColor: "primary",
-          boxShadow: "-3px 3px #00001F",
-          padding: "2em",
+          padding: "1em",
           fontFamily: "heading"
         }}
         method="post"
@@ -92,6 +101,7 @@ export default () => {
             sx={{
               border: "solid 2px",
               borderColor: "primary",
+              marginTop: "1em",
               ":active": {
                 borderColor: "accent"
               },
@@ -117,6 +127,7 @@ export default () => {
             sx={{
               border: "solid 2px",
               borderColor: "primary",
+              marginTop: "1em",
               ":active": {
                 borderColor: "accent"
               },
@@ -142,6 +153,7 @@ export default () => {
             sx={{
               border: "solid 2px",
               borderColor: "primary",
+              marginTop: "1em",
               ":active": {
                 borderColor: "accent"
               },
@@ -167,6 +179,7 @@ export default () => {
             sx={{
               border: "solid 2px",
               borderColor: "primary",
+              marginTop: "1em",
               ":active": {
                 borderColor: "accent"
               },

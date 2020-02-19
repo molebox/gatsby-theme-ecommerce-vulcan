@@ -31,7 +31,6 @@ export default () => {
                 fontWeight: "bold",
                 color: "primary",
                 marginBottom: "1em",
-                marginTop: "2em",
                 display: "flex",
                 alignSelf: "center",
                 justifySelf: "center",

@@ -118,7 +118,7 @@ export default () => {
             color: "white",
             cursor: "crosshair",
             textDecoration: "none",
-            fontSize: "1em",
+            fontSize: "1.5em",
             fontWeight: "heading",
             fontFamily: "heading",
             letterSpacing: "body",
@@ -138,7 +138,7 @@ export default () => {
             color: "white",
             cursor: "crosshair",
             textDecoration: "none",
-            fontSize: "1em",
+            fontSize: "1.5em",
             fontWeight: "heading",
             fontFamily: "heading",
             letterSpacing: "body",
@@ -160,7 +160,7 @@ export default () => {
             color: "white",
             cursor: "crosshair",
             textDecoration: "none",
-            fontSize: "1em",
+            fontSize: "1.5em",
             fontWeight: "heading",
             fontFamily: "heading",
             letterSpacing: "body",
@@ -180,7 +180,7 @@ export default () => {
             color: "white",
             cursor: "crosshair",
             textDecoration: "none",
-            fontSize: "1em",
+            fontSize: "1.5em",
             fontWeight: "heading",
             fontFamily: "heading",
             letterSpacing: "body",
@@ -202,7 +202,7 @@ export default () => {
             color: "white",
             cursor: "crosshair",
             textDecoration: "none",
-            fontSize: "1em",
+            fontSize: "1.5em",
             fontWeight: "heading",
             fontFamily: "heading",
             letterSpacing: "body",
@@ -222,7 +222,7 @@ export default () => {
             color: "white",
             cursor: "crosshair",
             textDecoration: "none",
-            fontSize: "1em",
+            fontSize: "1.5em",
             fontWeight: "heading",
             fontFamily: "heading",
             letterSpacing: "body",
@@ -247,7 +247,15 @@ export default () => {
           fontSize: "0.5em"
         }}
       >
-        Created by Hungry Bear Studio
+        Created by{" "}
+        <a
+          sx={{
+            color: "white"
+          }}
+          href="https://twitter.com/studio_hungry"
+        >
+          Hungry Bear Studio
+        </a>
       </Author>
     </Container>
   );

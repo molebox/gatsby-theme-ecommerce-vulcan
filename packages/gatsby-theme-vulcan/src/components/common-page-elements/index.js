@@ -3,6 +3,7 @@ import styled from "@emotion/styled";
 
 export const Outer = styled.div`
   margin-top: 5em;
+  height: auto;
 
   @media (min-width: 1280px) {
     margin: 5em auto;
@@ -21,6 +22,10 @@ export const Container = styled.div`
 export const TextContainer = styled.div`
   margin: 0 auto;
   width: 100%;
+
+  @media (min-width: 1280px) {
+    margin-top: 2em;
+  }
 `;
 
 export const ImageContainer = styled.div`
@@ -37,6 +42,7 @@ export const ImageContainer = styled.div`
     height: auto;
     justify-self: center;
     align-self: center;
+    margin: 0;
   }
 `;
 
@@ -65,6 +71,7 @@ export const Heading = styled.h1`
   align-items: center;
   justify-content: center;
   width: 100%;
+  margin-top: 4em;
 
   @media (min-width: 500px) {
     font-size: 2em;
@@ -76,6 +83,7 @@ export const Heading = styled.h1`
 
   @media (min-width: 1280px) {
     font-size: 2.8em;
+    margin: 1em 0;
   }
 `;
 
