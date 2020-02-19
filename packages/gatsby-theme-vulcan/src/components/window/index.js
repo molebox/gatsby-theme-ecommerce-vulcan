@@ -1,22 +1,20 @@
 import React from "react";
 import { useState, useEffect } from "react";
 
-const loader = <span>loading...</span>;
-
 const getWidth = () =>
-  typeof window === "undefined"
-    ? loader
-    : window.innerWidth ||
+  typeof window !== "undefined"
+    ? window.innerWidth ||
       document.documentElement.clientWidth ||
-      document.body.clientWidth;
+      document.body.clientWidth
+    : false;
 
 function useCurrentWitdh() {
   let [width, setWidth, loader] = useState(getWidth());
 
   useEffect(() => {
     let timeoutId = null;
-    if (loader) {
-      return;
+    if (!getWidth()) {
+      return null;
     }
     const resizeListener = () => {
       clearTimeout(timeoutId);
@@ -39,6 +37,10 @@ function useBreakpoints(breakpoints) {
 
   let width = useCurrentWitdh();
   let result = {};
+
+  if (width === false) {
+    return null;
+  }
 
   for (const key of Object.keys(breakpoints)) {
     if (breakpoints[key].min !== parseInt(breakpoints[key].min, 10)) {
