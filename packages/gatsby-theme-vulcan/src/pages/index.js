@@ -4,13 +4,12 @@ import Main from "../components/Main";
 import MainSection from "../components/MainSection";
 import Hero from "../components/Hero";
 // import {useBreakpoints} from 'react-breakpoints-hook';
-// import { breakpoints } from "../components/common-page-elements";
-import {useWindowSize} from "./../components/window/index";
+import { breakpoints } from "../components/common-page-elements";
+import useBreakpoints from "./../components/window/index";
 
 export default () => {
-  // let { xs, sm } = useBreakpoints(breakpoints);
-  const size = useWindowSize();
+  let { xs, sm } = useBreakpoints(breakpoints);
 
-  const mainContent = size && size.width < 361 ? <Hero /> : <MainSection />;
+  const mainContent = xs || sm ? <Hero /> : <MainSection />;
   return <Main>{mainContent}</Main>;
 };

@@ -8,7 +8,7 @@ import Glitch from "./Glitch";
 import Checkout from "./snipcart/Checkout";
 // import { useBreakpoints } from "react-breakpoints-hook";
 import { breakpoints } from "./common-page-elements";
-import {useWindowSize} from "./../components/window/index";
+import useBreakpoints from "./window/index";
 
 const Nav = styled.nav`
   grid-area: nav;
@@ -288,8 +288,7 @@ const Logo = styled.span`
 export default () => {
   const { siteName, hasBlog } = useSiteMetadata();
   const [open, setOpen] = React.useState(false);
-  // let { xs, sm } = useBreakpoints(breakpoints);
-  const size = useWindowSize();
+  let { xs, sm } = useBreakpoints(breakpoints);
 
   const mobileContent = (
     <>
@@ -475,7 +474,7 @@ export default () => {
     </ul>
   );
 
-  const content = size && size.width < 361 ? mobileContent : desktopContent;
+  const content = xs || sm ? mobileContent : desktopContent;
 
   return (
     <Nav
