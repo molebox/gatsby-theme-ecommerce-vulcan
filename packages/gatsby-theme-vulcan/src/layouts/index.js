@@ -5,8 +5,8 @@ import NavbarHeader from "../components/NavbarHeader";
 import Footer from "../components/Footer";
 import FixedMobileFooter from "../components/FixedMobileFooter";
 //  { useBreakpoints } from "react-breakpoints-hook";
-import { breakpoints } from "../components/common-page-elements";
-import useBreakpoints from "./../components/window/index";
+// import { breakpoints } from "../components/common-page-elements";
+import {useWindowSize} from "./../components/window/index";
 
 const Container = styled.div`
   display: grid;
@@ -34,9 +34,9 @@ const Container = styled.div`
 `;
 
 const Layout = ({ children }) => {
-  let { xs, sm } = useBreakpoints(breakpoints);
-  const footer =
-  xs && xs === true || sm && sm === true ? <FixedMobileFooter /> : <Footer />;
+  // let { xs, sm } = useBreakpoints(breakpoints);
+  const size = useWindowSize();
+  const footer = size && size.width < 361 ? <FixedMobileFooter /> : <Footer />;
   return (
     <>
       <Global
