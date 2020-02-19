@@ -201,8 +201,7 @@ export default ({ data }) => {
           >
             <FiChevronLeft size="1.5em" onClick={() => handlePrevious()} />
           </div>
-          <MainImageContainer
-          >
+          <MainImageContainer>
             <GatsbyImage fluid={asset.fluid} key={title + index} alt={title} />
           </MainImageContainer>
           <div

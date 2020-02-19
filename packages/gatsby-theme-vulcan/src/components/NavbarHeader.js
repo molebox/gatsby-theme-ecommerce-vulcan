@@ -6,6 +6,8 @@ import { Link } from "gatsby";
 import { useSiteMetadata } from "./useSiteMetadata";
 import Glitch from "./Glitch";
 import Checkout from "./snipcart/Checkout";
+import { useBreakpoints } from "react-breakpoints-hook";
+import { breakpoints } from "./common-page-elements";
 
 const Nav = styled.nav`
   grid-area: nav;
@@ -15,12 +17,11 @@ const Nav = styled.nav`
   left: 0;
   right: 0;
   z-index: 100;
-  width: auto;
 
   display: flex;
   justify-content: space-around;
   align-items: center;
-  min-height: 10vh;
+  min-height: 8vh;
   font-family: Montserrat;
   text-transform: uppercase;
   font-size: 1em;
@@ -72,7 +73,10 @@ const Nav = styled.nav`
     }
 
     & > li {
-      padding-right: 36px;
+      @media (min-width: 1280px) {
+        padding-right: 36px;
+      }
+
       &::before {
         content: "";
         width: 0;
@@ -182,7 +186,7 @@ const Nav = styled.nav`
     .navLinks {
       position: absolute;
       right: 0;
-      height: 92vh;
+      height: 90vh;
       top: 8vh;
       background-color: #000010;
       display: flex;
@@ -247,13 +251,13 @@ const Burger = styled.button`
   background-color: transparent;
 
   .line1 {
-    width: 20px;
+    width: 12px;
     height: 2px;
     background-color: white;
     margin: 5px;
   }
   .line2 {
-    width: 20px;
+    width: 16px;
     height: 2px;
     background-color: white;
     margin: 5px;
@@ -283,6 +287,193 @@ const Logo = styled.span`
 export default () => {
   const { siteName, hasBlog } = useSiteMetadata();
   const [open, setOpen] = React.useState(false);
+  let { xs, sm } = useBreakpoints(breakpoints);
+
+  const mobileContent = (
+    <>
+      <ul className="navLinks">
+        <li className="link">
+          <Link
+            to="/contact"
+            sx={{
+              color: "white",
+              cursor: "crosshair",
+              textDecoration: "none",
+              fontSize: "1em",
+              fontWeight: "heading",
+              fontFamily: "heading",
+              letterSpacing: "body",
+              textTransform: "uppercase",
+              width: "min-content",
+              "&:hover": {
+                color: "primary",
+                backgroundColor: "accent"
+              }
+            }}
+          >
+            contact
+          </Link>
+        </li>
+        <li className="link">
+          <Link
+            to="/deliveryAndReturns"
+            sx={{
+              color: "white",
+              cursor: "crosshair",
+              textDecoration: "none",
+              fontSize: "1em",
+              fontWeight: "heading",
+              fontFamily: "heading",
+              letterSpacing: "body",
+              textTransform: "uppercase",
+              width: "max-content",
+              "&:hover": {
+                color: "primary",
+                backgroundColor: "accent"
+              }
+            }}
+          >
+            delivery + returns
+          </Link>
+        </li>
+        <li className="link">
+          <Link
+            to="/sizeGuide"
+            sx={{
+              color: "white",
+              cursor: "crosshair",
+              textDecoration: "none",
+              fontSize: "1em",
+              fontWeight: "heading",
+              fontFamily: "heading",
+              letterSpacing: "body",
+              textTransform: "uppercase",
+              width: "max-content",
+              "&:hover": {
+                color: "primary",
+                backgroundColor: "accent"
+              }
+            }}
+          >
+            size guide
+          </Link>
+        </li>
+        <li className="link">
+          <Link
+            to="/privacy"
+            sx={{
+              color: "white",
+              cursor: "crosshair",
+              textDecoration: "none",
+              fontSize: "1em",
+              fontWeight: "heading",
+              fontFamily: "heading",
+              letterSpacing: "body",
+              textTransform: "uppercase",
+              width: "max-content",
+              "&:hover": {
+                color: "primary",
+                backgroundColor: "accent"
+              }
+            }}
+          >
+            privacy policy
+          </Link>
+        </li>
+      </ul>
+      <Checkout />
+    </>
+  );
+
+  const desktopContent = (
+    <ul className="navLinks">
+      <li className="link">
+        <Link
+          to="/about"
+          sx={{
+            color: "white",
+            cursor: "crosshair",
+            textDecoration: "none",
+            textTransform: "uppercase",
+            fontSize: "1.1em",
+            fontFamily: "heading",
+            fontWeight: "heading",
+            letterSpacing: "body",
+            gridColumn: 1,
+            width: "max-content",
+            "&:hover": {
+              color: "primary",
+              backgroundColor: "accent"
+            },
+            "&.active": {
+              color: "accent"
+            }
+          }}
+        >
+          about
+        </Link>
+      </li>
+      <li className="link">
+        <Link
+          to="/products"
+          sx={{
+            color: "white",
+            cursor: "crosshair",
+            textDecoration: "none",
+            fontFamily: "heading",
+            textTransform: "uppercase",
+            fontSize: "1.1em",
+            fontWeight: "heading",
+            letterSpacing: "body",
+            gridColumn: 2,
+            width: "max-content",
+            "&:hover": {
+              color: "primary",
+              backgroundColor: "accent"
+            },
+            "&.active": {
+              color: "accent"
+            }
+          }}
+        >
+          store
+        </Link>
+      </li>
+      <li className="link">
+        {hasBlog ? (
+          <Link
+            to="/blog"
+            sx={{
+              color: "white",
+              cursor: "crosshair",
+              textDecoration: "none",
+              fontFamily: "heading",
+              fontWeight: "heading",
+              textTransform: "uppercase",
+              fontSize: "1.1em",
+              letterSpacing: "body",
+              gridColumn: 3,
+              width: "max-content",
+              "&:hover": {
+                color: "primary",
+                backgroundColor: "accent"
+              },
+              "&.active": {
+                color: "accent"
+              }
+            }}
+          >
+            blog
+          </Link>
+        ) : null}
+      </li>
+      <li className="link">
+        <Checkout />
+      </li>
+    </ul>
+  );
+
+  const content = xs || sm ? mobileContent : desktopContent;
 
   return (
     <Nav
@@ -312,91 +503,7 @@ export default () => {
           <Glitch>{siteName}</Glitch>
         </Logo>
       </Link>
-      <ul className="navLinks">
-        <li className="link">
-          <Link
-            to="/about"
-            sx={{
-              color: "white",
-              cursor: "crosshair",
-              textDecoration: "none",
-              textTransform: "uppercase",
-              fontSize: "1.1em",
-              fontFamily: "heading",
-              fontWeight: "heading",
-              letterSpacing: "body",
-              gridColumn: 1,
-              width: "max-content",
-              "&:hover": {
-                color: "primary",
-                backgroundColor: "accent"
-              },
-              "&.active": {
-                color: "accent"
-              }
-            }}
-          >
-            about
-          </Link>
-        </li>
-        <li className="link">
-          <Link
-            to="/products"
-            sx={{
-              color: "white",
-              cursor: "crosshair",
-              textDecoration: "none",
-              fontFamily: "heading",
-              textTransform: "uppercase",
-              fontSize: "1.1em",
-              fontWeight: "heading",
-              letterSpacing: "body",
-              gridColumn: 2,
-              width: "max-content",
-              "&:hover": {
-                color: "primary",
-                backgroundColor: "accent"
-              },
-              "&.active": {
-                color: "accent"
-              }
-            }}
-          >
-            store
-          </Link>
-        </li>
-        <li className="link">
-          {hasBlog ? (
-            <Link
-              to="/blog"
-              sx={{
-                color: "white",
-                cursor: "crosshair",
-                textDecoration: "none",
-                fontFamily: "heading",
-                fontWeight: "heading",
-                textTransform: "uppercase",
-                fontSize: "1.1em",
-                letterSpacing: "body",
-                gridColumn: 3,
-                width: "max-content",
-                "&:hover": {
-                  color: "primary",
-                  backgroundColor: "accent"
-                },
-                "&.active": {
-                  color: "accent"
-                }
-              }}
-            >
-              blog
-            </Link>
-          ) : null}
-        </li>
-        <li className="link">
-          <Checkout />
-        </li>
-      </ul>
+      {content}
       <Burger onClick={() => setOpen(!open)}>
         <div className="line1"></div>
         <div className="line2"></div>

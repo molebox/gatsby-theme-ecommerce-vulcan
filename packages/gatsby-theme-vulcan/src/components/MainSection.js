@@ -249,7 +249,7 @@ export default () => {
         key="get a key"
         alt="add alt here"
       />
-      <Text
+      {/* <Text
         sx={{
           fontFamily: "heading",
           letterSpacing: "text",
@@ -259,7 +259,7 @@ export default () => {
         }}
       >
         {tagline}
-      </Text>
+      </Text> */}
       <IntroSection>
         <FirstIntroContainer>
           <ImageContainer

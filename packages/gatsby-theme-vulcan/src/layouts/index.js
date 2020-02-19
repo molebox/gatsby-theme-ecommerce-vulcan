@@ -3,16 +3,19 @@ import styled from "@emotion/styled";
 import { Global, css } from "@emotion/core";
 import NavbarHeader from "../components/NavbarHeader";
 import Footer from "../components/Footer";
+import FixedMobileFooter from "../components/FixedMobileFooter";
+import { useBreakpoints } from "react-breakpoints-hook";
+import { breakpoints } from "../components/common-page-elements";
 
 const Container = styled.div`
   display: grid;
   grid-template-columns: 1fr;
-  grid-template-rows: 0.2fr 2fr;
+  //grid-template-rows: 0.2fr 1fr 0.2fr;
   grid-template-areas:
     "nav"
     "main"
     "footer";
-  height: 100vh;
+  height: 100%;
   width: fit-content;
 
   /* 48em = 768px */
@@ -29,31 +32,35 @@ const Container = styled.div`
   }
 `;
 
-const Layout = ({ children }) => (
-  <>
-    <Global
-      styles={css`
-        * {
-          margin: 0;
-          padding: 0;
-          box-sizing: border-box;
-        }
-        body {
-          scroll-behavior: smooth;
-          overflow-y: scroll;
-          -webkit-overflow-scrolling: touch;
-          // overflow: hidden;
-          // width: 100%;
-          overflow-x: hidden;
-        }
-      `}
-    />
-    <Container>
-      <NavbarHeader />
-      {children}
-      <Footer />
-    </Container>
-  </>
-);
+const Layout = ({ children }) => {
+  let { xs, sm } = useBreakpoints(breakpoints);
+  const footer = xs || sm ? <FixedMobileFooter /> : <Footer />;
+  return (
+    <>
+      <Global
+        styles={css`
+          * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+          }
+          body {
+            scroll-behavior: smooth;
+            overflow-y: scroll;
+            -webkit-overflow-scrolling: touch;
+            // overflow: hidden;
+            width: 100%;
+            overflow-x: hidden;
+          }
+        `}
+      />
+      <Container>
+        <NavbarHeader />
+        {children}
+        {footer}
+      </Container>
+    </>
+  );
+};
 
 export default Layout;

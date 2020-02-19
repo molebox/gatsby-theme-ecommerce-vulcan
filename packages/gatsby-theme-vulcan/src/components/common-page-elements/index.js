@@ -76,3 +76,10 @@ export const serializers = {
     }
   }
 };
+
+export const breakpoints = {
+  xs: { min: 0, max: 360 },
+  sm: { min: 361, max: 960 },
+  md: { min: 961, max: 1400 },
+  lg: { min: 1401, max: null }
+};
