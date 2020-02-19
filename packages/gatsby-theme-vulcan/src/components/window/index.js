@@ -9,12 +9,12 @@ const getWidth = () =>
     : false;
 
 function useCurrentWitdh() {
-  let [width, setWidth, loader] = useState(getWidth());
+  let [width, setWidth] = useState(getWidth());
 
   useEffect(() => {
     let timeoutId = null;
     if (!getWidth()) {
-      return null;
+      return;
     }
     const resizeListener = () => {
       clearTimeout(timeoutId);
