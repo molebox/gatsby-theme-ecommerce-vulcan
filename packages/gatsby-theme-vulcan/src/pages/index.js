@@ -9,7 +9,7 @@ import { breakpoints } from "../components/common-page-elements";
 export default () => {
   let { xs, sm } = useBreakpoints(breakpoints);
 
-  const mainContent = xs || sm ? <Hero /> : <MainSection />;
+  const mainContent = typeof window !== 'undefined' && xs || sm ? <Hero /> : <MainSection />;
   return <Main>{mainContent}</Main>;
 };
 
