@@ -1,11 +1,10 @@
 import { useState, useEffect } from "react";
+import { window, document } from "browser-monads";
 
 const getWidth = () =>
-  typeof window !== "undefined"
-    ? window.innerWidth ||
+ window.innerWidth ||
       document.documentElement.clientWidth ||
-      document.body.clientWidth
-    : undefined;
+      document.body.clientWidth;
 
 function useCurrentWitdh() {
   let [width, setWidth] = useState(getWidth());
@@ -60,4 +59,4 @@ function useBreakpoints(breakpoints) {
 }
 
 export default useBreakpoints;
-export { useCurrentWitdh, useBreakpoints, useWindowSize };
+export { useCurrentWitdh, useBreakpoints };
