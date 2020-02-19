@@ -3,14 +3,18 @@ import styled from "@emotion/styled";
 
 export const Outer = styled.div`
   margin: 5em auto;
-  max-width: 1200px;
+
+  @media (min-width: 1280px) {
+    margin: 5em auto;
+    max-width: 1200px;
+  }
 `;
 
 export const Container = styled.div`
   display: flex;
   flex-direction: column;
   margin: 0 auto;
-  width: 100%;
+  // width: 100%;
 `;
 
 export const TextContainer = styled.div`
@@ -26,7 +30,7 @@ export const ImageContainer = styled.div`
 `;
 
 export const Text = styled.p`
-  font-size: 1.5em;
+  font-size: 1em;
   font-weight: 500;
   padding-bottom: 0.5em;
 
@@ -44,7 +48,7 @@ export const Text = styled.p`
 `;
 
 export const Heading = styled.h2`
-  font-size: 1.5em;
+  font-size: 1.3em;
 
   display: flex;
   align-items: center;

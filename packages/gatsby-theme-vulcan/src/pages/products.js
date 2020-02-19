@@ -9,11 +9,11 @@ import { useSiteMetadata } from "../components/useSiteMetadata";
 
 const ListContainer = styled.ul`
   list-style: none;
-  margin: 2em;
+  margin: 5em auto;
   display: grid;
   grid-gap: 3em;
   grid-auto-flow: dense;
-  grid-template-columns: 1fr 1fr;
+  grid-template-columns: 1fr;
   justify-items: center;
   width: auto;
   height: auto;

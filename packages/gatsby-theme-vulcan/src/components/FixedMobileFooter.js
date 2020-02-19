@@ -19,7 +19,13 @@ const FixedFooter = styled.footer`
 
 export default () => {
   return (
-    <FixedFooter>
+    <FixedFooter
+      sx={{
+        backgroundColor: "primary",
+        borderTop: "solid 1px",
+        borderColor: "accent"
+      }}
+    >
       <Link
         to="/about"
         sx={{

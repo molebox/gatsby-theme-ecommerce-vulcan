@@ -14,14 +14,13 @@ import Main from "../components/Main";
 
 const Container = styled.div`
   display: grid;
-  grid-template-columns: 1frr;
+  grid-template-columns: 1fr;
   grid-gap: 2em;
   align-items: center;
   height: auto;
+  width: auto;
   position: relative;
-
-  max-width: 1400px;
-  margin: 2em auto;
+  margin: 5em 1em;
 
   @media (min-width: 500px) {
     grid-template-columns: 1fr;
@@ -61,10 +60,10 @@ const Container = styled.div`
 
 const ImageContainer = styled.div`
   display: grid;
-  grid-template-columns: 1.5em minmax(300px, 1200px) 1.5em;
+  grid-template-columns: 1.5em minmax(150px, 1200px) 1.5em;
   align-items: center;
   height: min-content;
-  width: 500px;
+  width: auto;
 `;
 
 const MainImageContainer = styled.div`
@@ -86,10 +85,21 @@ const ProductHeader = styled.div`
   flex-direction: column;
   justify-content: start;
   margin-bottom: 2em;
+  width: 90%;
+
+  & > h2 {
+    width: 100%;
+  }
+
+  font-size: 1em;
+
+  @media (min-width: 1280px) {
+    font-size: 1.7em;
+  }
 `;
 
 const Price = styled.div`
-  font-size: 2.5em;
+  font-size: 1.3em;
 
   @media (min-width: 1280px) {
     font-size: 1.7em;
@@ -97,7 +107,7 @@ const Price = styled.div`
 `;
 
 const OnSalePrice = styled.div`
-  font-size: 1.7em;
+  font-size: 1em;
   margin-right: 1em;
 
   @media (min-width: 1280px) {
@@ -111,7 +121,7 @@ const PriceContainer = styled.div`
 `;
 
 const Description = styled.div`
-  font-size: 1.5em;
+  font-size: 1.2em;
   margin-bottom: 1em;
 
   @media (min-width: 500px) {
