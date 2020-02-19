@@ -1,6 +1,6 @@
 {
   "name": "gatsby-theme-vulcan",
-  "version": "0.0.39",
+  "version": "0.0.40",
   "main": "index.js",
   "author": "Hungry Bear Studio <roar@hungrybearstudio.com>",
   "license": "MIT",
@@ -16,6 +16,7 @@
     "@emotion/styled": "^10.0.27",
     "@horacioh/gatsby-theme-instagram": "^0.1.6",
     "@sanity/block-content-to-react": "^2.0.7",
+    "browser-monads": "^1.0.0",
     "dotenv": "^8.2.0",
     "gatsby": "^2.19.8",
     "gatsby-image": "^2.2.39",
