@@ -10,6 +10,6 @@ import useBreakpoints from "./../components/window/index";
 export default () => {
   let { xs, sm } = useBreakpoints(breakpoints);
 
-  const mainContent = xs || sm ? <Hero /> : <MainSection />;
+  const mainContent = xs === true || sm === true ? <Hero /> : <MainSection />;
   return <Main>{mainContent}</Main>;
 };

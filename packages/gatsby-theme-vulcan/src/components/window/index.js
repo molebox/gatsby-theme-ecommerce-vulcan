@@ -6,15 +6,15 @@ const getWidth = () =>
     ? window.innerWidth ||
       document.documentElement.clientWidth ||
       document.body.clientWidth
-    : false;
+    : undefined;
 
 function useCurrentWitdh() {
   let [width, setWidth] = useState(getWidth());
 
   useEffect(() => {
     let timeoutId = null;
-    if (!getWidth()) {
-      return;
+    if (getWidth() === undefined) {
+      return undefined;
     }
     const resizeListener = () => {
       clearTimeout(timeoutId);
@@ -38,8 +38,8 @@ function useBreakpoints(breakpoints) {
   let width = useCurrentWitdh();
   let result = {};
 
-  if (width === false) {
-    return null;
+  if (width === undefined) {
+    return undefined;
   }
 
   for (const key of Object.keys(breakpoints)) {
