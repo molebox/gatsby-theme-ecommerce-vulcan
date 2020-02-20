@@ -9,26 +9,35 @@ const Container = styled.div`
   max-width: 100%;
   max-height: 100%;
   margin-bottom: 3em;
+  .overlay {
+    opacity: 1;
+  }
 
   @media (min-width: 700px) {
     max-width: 600px;
     max-height: 700px;
     width: 600px;
+
+    &:hover {
+      .overlay {
+        opacity: 1;
+      }
+    }
   }
 
   @media (min-width: 1280px) {
     max-width: 800px;
     max-height: 900px;
     width: 800px;
+
+    &:hover {
+      .overlay {
+        opacity: 1;
+      }
+    }
   }
 
   cursor: crosshair;
-
-  &:hover {
-    .overlay {
-      opacity: 1;
-    }
-  }
 `;
 
 const OverlayContent = styled.div`
@@ -42,10 +51,14 @@ const OverlayContent = styled.div`
   transition: 0.5s ease;
   opacity: 0;
   color: white;
-  font-size: 5em;
+  font-size: 2em;
   display: flex;
   justify-content: center;
   align-items: center;
+
+  @media (min-width: 1280px) {
+    font-size: 5em;
+  }
 `;
 
 export default ({ children, text }) => {

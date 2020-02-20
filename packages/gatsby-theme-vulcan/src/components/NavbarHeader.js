@@ -420,7 +420,7 @@ export default () => {
       </li>
       <li className="link">
         <Link
-          to="/products"
+          to="/categories"
           sx={{
             color: "white",
             cursor: "crosshair",

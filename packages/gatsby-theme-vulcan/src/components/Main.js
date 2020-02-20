@@ -4,12 +4,11 @@ import styled from "@emotion/styled";
 
 const Container = styled.div`
   grid-area: main;
-  // height: 100%;
-  // width: 100%;
+  height: 100%;
 
   @media (min-width: 1280px) {
+    margin-top: 5em;
     height: 100%;
-    margin: 5em auto;
     width: 100%;
   }
 `;

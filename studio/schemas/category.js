@@ -38,15 +38,15 @@ export default {
       },
     },
     {
-      name: 'childrenCategories',
-      title: 'Children categories',
+      name: 'products',
+      title: 'Category Products',
       type: 'array',
       of: [
         {
           type: 'reference',
-          to: [{type: 'category'}]
+          to: {type: 'product'}
         }
       ]
-    }
+    },
   ]
 }

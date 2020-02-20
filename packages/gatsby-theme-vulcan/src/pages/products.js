@@ -156,26 +156,5 @@ export const query = graphql`
         }
       }
     }
-
-    allSanityCategory {
-      nodes {
-        title
-        isRoot
-        description
-        id
-        childrenCategories {
-          title
-          description
-          id
-        }
-        categoryImage {
-          asset {
-            fluid {
-              src
-            }
-          }
-        }
-      }
-    }
   }
 `;

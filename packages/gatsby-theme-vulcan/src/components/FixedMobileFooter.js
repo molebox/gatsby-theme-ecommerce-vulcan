@@ -52,7 +52,7 @@ export default () => {
         about
       </Link>
       <Link
-        to="/products"
+        to="/categories"
         sx={{
           color: "white",
           cursor: "crosshair",

@@ -5,7 +5,10 @@ exports.createPages = ({ actions, graphql }) => {
   const { createPage } = actions
   const productTemplate = require.resolve(
     './src/templates/product.js'
-  )
+  );
+  const categoryTemplate = require.resolve(
+    './src/templates/category.js'
+  );
 
   return graphql(`
   {
@@ -53,6 +56,47 @@ exports.createPages = ({ actions, graphql }) => {
           }
         }
       }
+
+      allSanityCategory(filter: {slug: {current: {ne: null}}}) {
+        nodes {
+          title
+          slug {
+            current
+          }
+          isRoot
+          description
+          id
+          categoryImage {
+            asset {
+              fluid {
+                src
+              }
+            }
+          }
+          products {
+            title
+            slug {
+              current
+            }
+            blurb {
+              en
+            }
+            defaultProductVariant {
+              price
+              onSalePrice
+              taxable
+              title
+              thumbnails {
+                asset {
+                  fluid {
+                    src
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
   }
     
   `).then(result => {
@@ -61,13 +105,12 @@ exports.createPages = ({ actions, graphql }) => {
     }
 
     const products = result.data.allSanityProduct.nodes || [];
+    const categories = result.data.allSanityCategory.nodes || [];
 
     products.forEach((product, index) => {
-      console.log({product})
       const previous =
         index === product.length - 1 ? null : products[index + 1]
       const next = index === 0 ? null : products[index - 1]
-        console.log({product})
     const path = `/products/${product.slug.current}`
 
       createPage({
@@ -78,6 +121,20 @@ exports.createPages = ({ actions, graphql }) => {
         id: product.id,
         previous,
         next,
+        },
+      })
+    })
+
+    categories.forEach((cat) => {
+      console.log({cat})
+    const categoriesPath = `/category/${cat.slug.current}`
+
+      createPage({
+        path: categoriesPath,
+        component: categoryTemplate,
+        context: {
+        slug: cat.slug.current,
+        id: cat.id,
         },
       })
     })
