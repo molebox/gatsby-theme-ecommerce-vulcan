@@ -79,7 +79,7 @@ export default ({ data }) => {
             <Link to={`products/${node.slug.current}`}>
               <Card text="SHOP">
                 <GatsbyImage
-                  fluid={node.defaultProductVariant.mainImage[0].asset.fluid}
+                  fluid={node.defaultProductVariant.thumbnails[0].asset.fluid}
                   alt={node.defaultProductVariant.title}
                 />
               </Card>
@@ -146,7 +146,7 @@ export const query = graphql`
           title
           price
           onSalePrice
-          mainImage {
+          thumbnails {
             asset {
               fluid(maxWidth: 500) {
                 ...GatsbySanityImageFluid
