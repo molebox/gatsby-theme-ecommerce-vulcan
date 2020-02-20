@@ -58,28 +58,6 @@ export const query = graphql`
             }
           }
         }
-        products {
-          title
-          slug {
-            current
-          }
-          blurb {
-            en
-          }
-          defaultProductVariant {
-            price
-            onSalePrice
-            taxable
-            title
-            thumbnails {
-              asset {
-                fluid {
-                  ...GatsbySanityImageFluid
-                }
-              }
-            }
-          }
-        }
       }
     }
   }
