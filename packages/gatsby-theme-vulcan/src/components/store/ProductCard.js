@@ -187,12 +187,7 @@ export default ({
         >
           <FiChevronLeft size="1.5em" onClick={() => handlePrevious()} />
         </div>
-        <MainImageContainer
-          sx={{
-            border: "0.1em solid",
-            borderColor: "primary"
-          }}
-        >
+        <MainImageContainer>
           <GatsbyImage fluid={asset.fluid} key={title + index} alt={title} />
         </MainImageContainer>
         <div

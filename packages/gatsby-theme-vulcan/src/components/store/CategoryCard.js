@@ -9,8 +9,11 @@ const Container = styled.div`
   max-width: 100%;
   max-height: 100%;
   margin-bottom: 3em;
-  .overlay {
-    opacity: 1;
+
+  @media (max-width: 390px) {
+    .overlay {
+      opacity: 1;
+    }
   }
 
   @media (min-width: 700px) {

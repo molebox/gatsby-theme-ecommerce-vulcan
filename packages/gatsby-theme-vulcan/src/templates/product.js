@@ -61,8 +61,9 @@ const Container = styled.div`
 const ImageContainer = styled.div`
   display: grid;
   grid-template-columns: 1.5em minmax(150px, 1200px) 1.5em;
+  grid-auto-rows: auto;
   align-items: center;
-  height: min-content;
+  height: auto;
   width: auto;
 `;
 
@@ -194,10 +195,6 @@ export default ({ data }) => {
     <Main>
       <Container
         sx={{
-          border: "solid 2px",
-          borderColor: "primary",
-          boxShadow: "-3px 3px #00001F",
-          padding: "2em",
           fontFamily: "heading"
         }}
         onSale={onSalePrice ? true : false}
@@ -228,11 +225,7 @@ export default ({ data }) => {
             <h2
               sx={{
                 fontFamily: "heading",
-                letterSpacing: "body",
-                borderBottom: "solid 2px",
-                borderColor: "primary",
-                paddingBottom: "0.5em",
-                width: "50%"
+                letterSpacing: "body"
               }}
             >
               {title}

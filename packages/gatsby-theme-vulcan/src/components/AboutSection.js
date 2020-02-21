@@ -26,13 +26,7 @@ export default () => {
       <Container>
         {info.map((node, index) => (
           <React.Fragment key={index}>
-            <ImageContainer
-              sx={{
-                border: "solid 2px",
-                borderColor: "primary",
-                boxShadow: "-3px 3px #00001F"
-              }}
-            >
+            <ImageContainer>
               <GatsbyImage
                 fluid={node.images.asset.fluid}
                 key={node.title + index}
@@ -49,10 +43,7 @@ export default () => {
                 marginTop: "2em",
                 display: "flex",
                 alignSelf: "center",
-                justifySelf: "center",
-                borderBottom: "solid 2px",
-                borderColor: "primary",
-                padding: "0.5em"
+                justifySelf: "center"
               }}
             >
               {node.title}

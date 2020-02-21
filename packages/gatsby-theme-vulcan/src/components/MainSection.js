@@ -239,16 +239,7 @@ export default () => {
   const { images } = home.sanityHomePage;
   return (
     <Container>
-      <Image
-        sx={{
-          border: "solid 2px",
-          borderColor: "primary",
-          boxShadow: "-3px 3px #00001F"
-        }}
-        fluid={images[0].asset.fluid}
-        key="get a key"
-        alt="add alt here"
-      />
+      <Image fluid={images[0].asset.fluid} key="get a key" alt="add alt here" />
       <Text
         sx={{
           fontFamily: "heading",
@@ -262,12 +253,7 @@ export default () => {
       </Text>
       <IntroSection>
         <FirstIntroContainer>
-          <ImageContainer
-            sx={{
-              border: "2px solid",
-              borderColor: "primary"
-            }}
-          >
+          <ImageContainer>
             <GatsbyImage
               fluid={images[1].asset.fluid}
               key="get another key"
@@ -326,12 +312,7 @@ export default () => {
               waistcoat dreamcatcher shabby chic vegan.
             </p>
           </TextContainer>
-          <ImageContainer
-            sx={{
-              border: "2px solid",
-              borderColor: "primary"
-            }}
-          >
+          <ImageContainer>
             <GatsbyImage
               fluid={images[2].asset.fluid}
               key="get another another key"

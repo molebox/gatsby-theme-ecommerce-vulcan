@@ -41,14 +41,14 @@ const ProductInfo = styled.div`
   display: flex;
   flex-direction: column;
   justify-content: center;
-  align-items: center;
+  align-items: start;
 `;
 
 const PriceContainer = styled.div`
   display: flex;
   justify-content: space-evenly;
-  align-items: center;
-  width: 100%;
+  align-items: start;
+  width: 50%;
 `;
 
 const Price = styled.div`
@@ -68,8 +68,8 @@ const OnSalePrice = styled.div`
 `;
 
 export default ({ data }) => {
-  console.log("data: ", data.sanityCategory);
-  const { products, title } = data.sanityCategory;
+  console.log("data: ", data.sanityBaseCategory);
+  const { products, title } = data.sanityBaseCategory;
   const { currencySymbol } = useSiteMetadata();
 
   return (
@@ -84,10 +84,7 @@ export default ({ data }) => {
             marginBottom: "1em",
             display: "flex",
             alignSelf: "center",
-            justifySelf: "center",
-            borderBottom: "solid 2px",
-            borderColor: "primary",
-            padding: "0.5em"
+            justifySelf: "center"
           }}
         >
           {title}
@@ -96,9 +93,9 @@ export default ({ data }) => {
           {products.map((node, index) => (
             <li
               sx={{
-                border: "solid 2px",
-                borderColor: "primary",
-                boxShadow: "-3px 3px #00001F",
+                // border: "solid 2px",
+                // borderColor: "primary",
+                // boxShadow: "-3px 3px #00001F",
                 textDecoration: "none"
               }}
               key={index}
@@ -114,8 +111,8 @@ export default ({ data }) => {
               <ProductInfo
                 sx={{
                   fontFamily: "heading",
-                  borderTop: "3px solid",
-                  borderColor: "primary",
+                  // borderTop: "3px solid",
+                  // borderColor: "primary",
                   textDecoration: "none"
                 }}
               >
@@ -164,12 +161,11 @@ export default ({ data }) => {
 
 export const query = graphql`
   query CategoryQuery($slug: String!) {
-    sanityCategory(slug: { current: { eq: $slug } }) {
+    sanityBaseCategory(slug: { current: { eq: $slug } }) {
       title
       slug {
         current
       }
-      isRoot
       description
       id
       products {

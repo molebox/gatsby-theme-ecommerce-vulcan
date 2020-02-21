@@ -22,6 +22,7 @@ import showcase from './showcase'
 import privacy from './privacy'
 import deliveryAndRetuns from './deliveryAndRetuns'
 import termsAndConditions from './termsAndConditions'
+import baseCategory from './baseCategory'
 
 // Then we give our schema to the builder and provide the result to Sanity
 export default createSchema({
@@ -51,5 +52,6 @@ export default createSchema({
     privacy,
     deliveryAndRetuns,
     termsAndConditions,
+    baseCategory,
   ])
 })

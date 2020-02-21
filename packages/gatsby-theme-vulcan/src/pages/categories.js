@@ -11,20 +11,19 @@ const Container = styled.section`
 
   @media (min-width: 1280px) {
     display: flex;
-    justify-content: center;
+    justify-content: space-evenly;
     align-items: center;
     margin-top: 5em;
   }
 `;
 
 export default ({ data }) => {
-  const { nodes } = data.allSanityCategory;
-
-  const rootCategories = nodes.filter(cat => cat.isRoot === true);
+  const { nodes } = data.allSanityBaseCategory;
+  console.log({ nodes });
   return (
     <Main>
       <Container>
-        {rootCategories.map((node, index) => (
+        {nodes.map((node, index) => (
           <Link key={node.title + index} to={`category/${node.slug.current}`}>
             <CategoryCard key={node.title + index} text={node.title}>
               <GatsbyImage
@@ -42,13 +41,12 @@ export default ({ data }) => {
 
 export const query = graphql`
   query CategoriesQuery {
-    allSanityCategory {
+    allSanityBaseCategory {
       nodes {
         title
         slug {
           current
         }
-        isRoot
         description
         id
         categoryImage {

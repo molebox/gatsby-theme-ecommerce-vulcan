@@ -60,9 +60,6 @@ export const query = graphql`
       nodes {
         _rawBody(resolveReferences: { maxDepth: 10 })
         title
-        categories {
-          title
-        }
         defaultProductVariant {
           sku
           price

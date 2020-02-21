@@ -20,10 +20,6 @@ exports.createPages = ({ actions, graphql }) => {
             slug {
                 current
             }
-          categories {
-            title
-            isRoot
-          }
           defaultProductVariant {
             sku
             price
@@ -57,22 +53,14 @@ exports.createPages = ({ actions, graphql }) => {
         }
       }
 
-      allSanityCategory(filter: {slug: {current: {ne: null}}}) {
+      allSanityBaseCategory(filter: {slug: {current: {ne: null}}}) {
         nodes {
           title
           slug {
             current
           }
-          isRoot
           description
           id
-          categoryImage {
-            asset {
-              fluid {
-                src
-              }
-            }
-          }
           products {
             title
             slug {
@@ -105,7 +93,7 @@ exports.createPages = ({ actions, graphql }) => {
     }
 
     const products = result.data.allSanityProduct.nodes || [];
-    const categories = result.data.allSanityCategory.nodes || [];
+    const categories = result.data.allSanityBaseCategory.nodes || [];
 
     products.forEach((product, index) => {
       const previous =

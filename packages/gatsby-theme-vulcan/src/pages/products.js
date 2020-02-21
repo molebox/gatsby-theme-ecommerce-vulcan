@@ -69,9 +69,6 @@ export default ({ data }) => {
         {nodes.map((node, index) => (
           <li
             sx={{
-              border: "solid 2px",
-              borderColor: "primary",
-              boxShadow: "-3px 3px #00001F",
               textDecoration: "none"
             }}
             key={index}
