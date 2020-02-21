@@ -96,7 +96,8 @@ export default ({ data }) => {
                     sx={{
                       fontFamily: "body",
                       fontWeight: "bold",
-                      textDecoration: "line-through"
+                      textDecoration: "line-through",
+                      color: "secondaryDarker"
                     }}
                   >
                     {currencySymbol}

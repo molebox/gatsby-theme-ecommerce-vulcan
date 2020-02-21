@@ -92,6 +92,7 @@ const Text = styled.h2`
     right: 50%;
     transform: translate(-50%, -50%);
     position: absolute;
+    z-index: 100;
   }
 `;
 
@@ -116,7 +117,7 @@ const Showcase = styled.section`
   }
 
   @media (min-width: 1280px) {
-    grid-template-columns: 1fr 1fr 1fr;
+    grid-template-columns: 1fr 1fr;
     margin. 2em;
   }
 `;
@@ -239,18 +240,19 @@ export default () => {
   const { images } = home.sanityHomePage;
   return (
     <Container>
-      <Image fluid={images[0].asset.fluid} key="get a key" alt="add alt here" />
-      <Text
-        sx={{
-          fontFamily: "heading",
-          letterSpacing: "text",
-          fontWeight: "heading",
-          color: "primary",
-          textTransform: "uppercase"
-        }}
-      >
-        {tagline}
-      </Text>
+      <Image fluid={images[0].asset.fluid} key="get a key" alt="add alt here">
+        <Text
+          sx={{
+            fontFamily: "heading",
+            letterSpacing: "text",
+            fontWeight: "heading",
+            color: "primary",
+            textTransform: "uppercase"
+          }}
+        >
+          {tagline}
+        </Text>
+      </Image>
       <IntroSection>
         <FirstIntroContainer>
           <ImageContainer>
@@ -321,7 +323,7 @@ export default () => {
           </ImageContainer>
         </SecondIntroContainer>
       </IntroSection>
-      <Heading
+      {/* <Heading
         sx={{
           fontFamily: "heading",
           letterSpacing: "text",
@@ -333,8 +335,8 @@ export default () => {
         }}
       >
         Showcase
-      </Heading>
-      <Showcase>
+      </Heading> */}
+      {/* <Showcase>
         {showcaseImages.map((node, index) => (
           <ProductCard
             itemId={node.id}
@@ -349,16 +351,13 @@ export default () => {
             onSalePrice={node.defaultProductVariant.onSalePrice}
           />
         ))}
-      </Showcase>
+      </Showcase> */}
       <Heading
         sx={{
           fontFamily: "heading",
           letterSpacing: "text",
           fontWeight: "heading",
-          textTransform: "uppercase",
-          borderBottom: "solid 2px",
-          borderColor: "primary",
-          padding: "0.5em"
+          textTransform: "uppercase"
         }}
       >
         Instagram
@@ -377,6 +376,7 @@ export default () => {
 export const query = graphql`
   query HomePageImageQuery {
     sanityHomePage {
+      title
       images {
         asset {
           fluid(maxWidth: 1200) {

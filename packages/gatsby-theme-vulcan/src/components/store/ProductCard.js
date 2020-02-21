@@ -25,7 +25,6 @@ const Container = styled.div`
     height: auto;
     position: relative;
     min-width: 300px;
-    // width: auto;
   }
 
   ${props =>
@@ -59,7 +58,7 @@ const ImageContainer = styled.div`
 `;
 
 const MainImageContainer = styled.div`
-  width: 100%;
+  width: 300px;
   max-width: 300px;
   min-width: 150px
   height: auto;
@@ -149,7 +148,8 @@ export default ({
   itemId,
   size,
   fit,
-  onSalePrice
+  onSalePrice,
+  carousel
 }) => {
   const { currencySymbol, siteUrl } = useSiteMetadata();
   const [index, setIndex] = React.useState(0);
@@ -170,35 +170,37 @@ export default ({
   return (
     <Container
       sx={{
-        border: "2px solid",
-        borderColor: "primary",
-        padding: "2em",
-        boxShadow: "-4px 4px #00001F",
         fontFamily: "heading"
       }}
       onSale={onSalePrice ? true : false}
     >
-      <ImageContainer>
-        <div
-          sx={{
-            cursor: "crosshair",
-            justifySelf: "center"
-          }}
-        >
-          <FiChevronLeft size="1.5em" onClick={() => handlePrevious()} />
-        </div>
+      {!!carousel ? (
+        <ImageContainer>
+          <div
+            sx={{
+              cursor: "crosshair",
+              justifySelf: "center"
+            }}
+          >
+            <FiChevronLeft size="1.5em" onClick={() => handlePrevious()} />
+          </div>
+          <MainImageContainer>
+            <GatsbyImage fluid={asset.fluid} key={title + index} alt={title} />
+          </MainImageContainer>
+          <div
+            sx={{
+              cursor: "crosshair",
+              justifySelf: "center"
+            }}
+          >
+            <FiChevronRight size="1.5em" onClick={() => handleNext()} />
+          </div>
+        </ImageContainer>
+      ) : (
         <MainImageContainer>
           <GatsbyImage fluid={asset.fluid} key={title + index} alt={title} />
         </MainImageContainer>
-        <div
-          sx={{
-            cursor: "crosshair",
-            justifySelf: "center"
-          }}
-        >
-          <FiChevronRight size="1.5em" onClick={() => handleNext()} />
-        </div>
-      </ImageContainer>
+      )}
       <Info>
         <Header>
           <p

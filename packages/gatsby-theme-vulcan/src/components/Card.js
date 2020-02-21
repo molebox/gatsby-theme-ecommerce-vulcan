@@ -29,7 +29,7 @@ const OverlayContent = styled.div`
   transition: 0.5s ease;
   opacity: 0;
   color: white;
-  font-size: 5em;
+  font-size: 4em;
   display: flex;
   justify-content: center;
   align-items: center;

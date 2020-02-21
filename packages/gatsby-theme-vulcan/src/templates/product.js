@@ -20,7 +20,8 @@ const Container = styled.div`
   height: auto;
   width: auto;
   position: relative;
-  margin: 5em 1em;
+  margin: 5em auto;
+  max-width: 1200px;
 
   @media (min-width: 500px) {
     grid-template-columns: 1fr;
@@ -33,45 +34,28 @@ const Container = styled.div`
   @media (min-width: 1280px) {
     grid-template-columns: 1fr 2fr;
   }
-
-  ${props =>
-    props.onSale
-      ? `
-    &::before {
-      content: 'SALE';
-      width: 2em;
-      height: 6em;
-      border-right: 1px solid black;
-      border-bottom: 1px solid black;
-      writing-mode: vertical-rl;
-      text-orientation: upright;
-      background-color: black;
-      color: white;
-      position: absolute;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      font-weight: bold;
-      top: 0;
-    }
-  `
-      : null}
 `;
 
 const ImageContainer = styled.div`
   display: grid;
-  grid-template-columns: 1.5em minmax(150px, 1200px) 1.5em;
-  grid-auto-rows: auto;
+  grid-template-columns: 2.5em minmax(150px, 1200px) 2.5em;
+  grid-auto-rows: 500px;
   align-items: center;
   height: auto;
   width: auto;
 `;
 
 const MainImageContainer = styled.div`
+  // width: 100%;
+  // max-width: 1200px;
+  // grid-column: 2;
+  // object-fit: contain;
+
   width: 100%;
-  max-width: 1200px;
-  grid-column: 2;
-  object-fit: contain;
+  max-width: 1000px;
+  height: auto;
+  justify-self: center;
+  align-self: center;
 `;
 
 const Info = styled.div`
@@ -95,15 +79,15 @@ const ProductHeader = styled.div`
   font-size: 1em;
 
   @media (min-width: 1280px) {
-    font-size: 1.7em;
+    font-size: 1.5em;
   }
 `;
 
 const Price = styled.div`
-  font-size: 1.3em;
+  font-size: 1.1em;
 
   @media (min-width: 1280px) {
-    font-size: 1.7em;
+    font-size: 1.3em;
   }
 `;
 
@@ -197,7 +181,6 @@ export default ({ data }) => {
         sx={{
           fontFamily: "heading"
         }}
-        onSale={onSalePrice ? true : false}
       >
         <ImageContainer>
           <div
@@ -236,8 +219,9 @@ export default ({ data }) => {
                   <OnSalePrice
                     sx={{
                       fontFamily: "body",
-                      fontWeight: "bold",
-                      textDecoration: "line-through"
+                      fontWeight: "400",
+                      textDecoration: "line-through",
+                      color: "secondaryDarker"
                     }}
                   >
                     {currencySymbol}
@@ -246,7 +230,7 @@ export default ({ data }) => {
                   <Price
                     sx={{
                       fontFamily: "body",
-                      fontWeight: "bold"
+                      fontWeight: "400"
                     }}
                   >
                     {currencySymbol}
@@ -257,7 +241,7 @@ export default ({ data }) => {
                 <Price
                   sx={{
                     fontFamily: "body",
-                    fontWeight: "bold"
+                    fontWeight: "400"
                   }}
                 >
                   {currencySymbol}

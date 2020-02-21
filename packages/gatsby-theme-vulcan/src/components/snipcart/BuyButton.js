@@ -49,8 +49,8 @@ export default ({
         "&:hover": {
           color: "primary",
           backgroundColor: "accent",
-          fontWeight: "bold",
-          boxShadow: "-3px 3px #00001F"
+          fontWeight: "bold"
+          // boxShadow: "-3px 3px #00001F"
         },
         "&:active": {
           boxShadow: "-1px 1px #00001F"

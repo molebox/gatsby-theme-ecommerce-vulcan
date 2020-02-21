@@ -4,6 +4,7 @@ import React from "react";
 import styled from "@emotion/styled";
 import { graphql, Link } from "gatsby";
 import Card from "../components/Card";
+import Checkbox from "../components/Checkbox";
 import Main from "../components/Main";
 import GatsbyImage from "gatsby-image";
 import { useSiteMetadata } from "../components/useSiteMetadata";
@@ -11,7 +12,16 @@ import { Heading } from "../components/common-page-elements";
 
 const Container = styled.section`
   margin: 0 auto;
+  max-width: 1200px;
 `;
+
+const Categories = styled.div`
+  display: flex;
+  justify-content: space-evenly;
+  width. 100%;
+`;
+
+const Category = styled.button``;
 
 const ListContainer = styled.ul`
   list-style: none;
@@ -70,7 +80,13 @@ const OnSalePrice = styled.div`
 export default ({ data }) => {
   console.log("data: ", data.sanityBaseCategory);
   const { products, title } = data.sanityBaseCategory;
+  const { nodes } = data.allSanityCategory;
   const { currencySymbol } = useSiteMetadata();
+  const [selectedCat, setSelectedCat] = React.useState();
+
+  const onCatSelect = () => {
+    setSelectedCat(!selectedCat);
+  };
 
   return (
     <Main>
@@ -89,13 +105,34 @@ export default ({ data }) => {
         >
           {title}
         </Heading>
+        {/* <Categories 
+            sx={{
+            fontFamily: "heading",
+            letterSpacing: "text",
+            fontWeight: "bold",
+            color: "primary",
+            marginBottom: "1em",
+            display: "flex",
+            alignSelf: "center",
+            justifySelf: "center"
+          }}>
+            <Checkbox 
+            label="All"
+            checked={selectedCat}
+            onChange={onCatSelect}
+          />
+        {nodes.map((node) => (
+          <Checkbox 
+            label={node.title}
+            checked={selectedCat}
+            onChange={onCatSelect}
+          />
+        ))}
+        </Categories> */}
         <ListContainer>
           {products.map((node, index) => (
             <li
               sx={{
-                // border: "solid 2px",
-                // borderColor: "primary",
-                // boxShadow: "-3px 3px #00001F",
                 textDecoration: "none"
               }}
               key={index}
@@ -122,8 +159,9 @@ export default ({ data }) => {
                     <OnSalePrice
                       sx={{
                         fontFamily: "body",
-                        fontWeight: "bold",
-                        textDecoration: "line-through"
+                        fontWeight: "400",
+                        textDecoration: "line-through",
+                        color: "secondaryDarker"
                       }}
                     >
                       {currencySymbol}
@@ -132,7 +170,7 @@ export default ({ data }) => {
                     <Price
                       sx={{
                         fontFamily: "body",
-                        fontWeight: "bold"
+                        fontWeight: "400"
                       }}
                     >
                       {currencySymbol}
@@ -143,7 +181,7 @@ export default ({ data }) => {
                   <Price
                     sx={{
                       fontFamily: "body",
-                      fontWeight: "bold"
+                      fontWeight: "400"
                     }}
                   >
                     {currencySymbol}
@@ -195,6 +233,36 @@ export const query = graphql`
         title
         slug {
           current
+        }
+      }
+    }
+
+    allSanityCategory {
+      nodes {
+        title
+        products {
+          title
+          id
+          defaultProductVariant {
+            onSalePrice
+            price
+            taxable
+            title
+            thumbnails {
+              asset {
+                fluid {
+                  ...GatsbySanityImageFluid
+                }
+              }
+            }
+            mainImage {
+              asset {
+                fluid {
+                  ...GatsbySanityImageFluid
+                }
+              }
+            }
+          }
         }
       }
     }
