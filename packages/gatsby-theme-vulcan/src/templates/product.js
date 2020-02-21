@@ -46,11 +46,6 @@ const ImageContainer = styled.div`
 `;
 
 const MainImageContainer = styled.div`
-  // width: 100%;
-  // max-width: 1200px;
-  // grid-column: 2;
-  // object-fit: contain;
-
   width: 100%;
   max-width: 1000px;
   height: auto;
