@@ -31,6 +31,17 @@ export default {
         },
       },
       {
+        name: 'categories',
+        title: 'Categories',
+        type: 'array',
+        of: [
+          {
+            type: 'reference',
+            to: {type: 'category'}
+          }
+        ]
+      },
+      {
         name: 'products',
         title: 'Category Products',
         type: 'array',

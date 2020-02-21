@@ -24,7 +24,7 @@ export default ({ data }) => {
     <Main>
       <Container>
         {nodes.map((node, index) => (
-          <Link key={node.title + index} to={`category/${node.slug.current}`}>
+          <Link key={node.title + index} to={`collection/${node.slug.current}`}>
             <CategoryCard key={node.title + index} text={node.title}>
               <GatsbyImage
                 fluid={node.categoryImage.asset.fluid}

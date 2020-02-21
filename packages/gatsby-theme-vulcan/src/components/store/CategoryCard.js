@@ -6,9 +6,9 @@ const Container = styled.div`
   position: relative;
   width: auto;
   height: auto;
-  max-width: 100%;
-  max-height: 100%;
-  margin-bottom: 3em;
+  max-width: 90%;
+  max-height: 90%;
+  margin: 3em;
 
   @media (max-width: 390px) {
     .overlay {

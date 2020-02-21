@@ -18,7 +18,7 @@ const Container = styled.section`
 
 const ListContainer = styled.ul`
   list-style: none;
-  margin: 5em auto;
+  margin: 2em auto;
   display: grid;
   grid-gap: 3em;
   grid-auto-flow: dense;
@@ -33,13 +33,8 @@ const ListContainer = styled.ul`
   }
 
   @media (min-width: 1280px) {
-    ${props =>
-      props.listLength > 1
-        ? `grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));`
-        : `
-      display: flex;
-      justify-content: center;
-    `}
+    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+    margin: 5em auto;
   }
 `;
 
@@ -77,8 +72,9 @@ const OnSalePrice = styled.div`
 `;
 
 export default ({ data }) => {
-  const { products, title } = data.sanityCategory;
-  const { categories } = data.sanityBaseCategory;
+  console.log("data: ", data.sanityBaseCategory);
+  const { products, title, categories } = data.sanityBaseCategory;
+
   const { currencySymbol } = useSiteMetadata();
 
   return (
@@ -98,8 +94,8 @@ export default ({ data }) => {
         >
           {title}
         </Heading>
-        {/* <CategoryNav catNodes={categories} /> */}
-        <ListContainer listLength={products.length}>
+        <CategoryNav catNodes={categories} />
+        <ListContainer>
           {products.map((node, index) => (
             <li
               sx={{
@@ -168,15 +164,24 @@ export default ({ data }) => {
 };
 
 export const query = graphql`
-  query CategoryQuery($slug: String!) {
-    sanityCategory(slug: { current: { eq: $slug } }) {
+  query CollectionQuery($slug: String!) {
+    sanityBaseCategory(slug: { current: { eq: $slug } }) {
       title
-      products {
-        title
+      categories {
         slug {
           current
         }
-        id
+        title
+      }
+      slug {
+        current
+      }
+      description
+      id
+      products {
+        blurb {
+          en
+        }
         defaultProductVariant {
           onSalePrice
           price
@@ -197,48 +202,10 @@ export const query = graphql`
             }
           }
         }
-      }
-    }
-
-    allSanityCategory {
-      nodes {
         title
         slug {
           current
         }
-        products {
-          title
-          id
-          defaultProductVariant {
-            onSalePrice
-            price
-            taxable
-            title
-            thumbnails {
-              asset {
-                fluid {
-                  ...GatsbySanityImageFluid
-                }
-              }
-            }
-            mainImage {
-              asset {
-                fluid {
-                  ...GatsbySanityImageFluid
-                }
-              }
-            }
-          }
-        }
-      }
-    }
-
-    sanityBaseCategory {
-      categories {
-        slug {
-          current
-        }
-        title
       }
     }
   }

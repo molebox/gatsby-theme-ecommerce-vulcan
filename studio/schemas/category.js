@@ -24,6 +24,17 @@ export default {
       type: 'text'
     },
     {
+      name: 'parentCategory',
+      title: 'Parent Category',
+      type: 'array',
+      of: [
+        {
+          type: 'reference',
+          to: {type: 'baseCategory'}
+        }
+      ]
+    },
+    {
       name: 'products',
       title: 'Category Products',
       type: 'array',

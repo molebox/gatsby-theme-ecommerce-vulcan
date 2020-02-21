@@ -9,6 +9,9 @@ exports.createPages = ({ actions, graphql }) => {
   const categoryTemplate = require.resolve(
     './src/templates/category.js'
   );
+  const collectionsTemplate = require.resolve(
+    './src/templates/collection.js'
+  );
 
   return graphql(`
   {
@@ -85,6 +88,39 @@ exports.createPages = ({ actions, graphql }) => {
           }
         }
       }
+
+      allSanityCategory(filter: {slug: {current: {ne: null}}}) {
+        nodes {
+          title
+          slug {
+            current
+          }
+          products {
+            title
+            id
+            defaultProductVariant {
+              onSalePrice
+              price
+              taxable
+              title
+              thumbnails {
+                asset {
+                  fluid {
+                    src
+                  }
+                }
+              }
+              mainImage {
+                asset {
+                  fluid {
+                    src
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
   }
     
   `).then(result => {
@@ -93,7 +129,8 @@ exports.createPages = ({ actions, graphql }) => {
     }
 
     const products = result.data.allSanityProduct.nodes || [];
-    const categories = result.data.allSanityBaseCategory.nodes || [];
+    const collections = result.data.allSanityBaseCategory.nodes || [];
+    const category = result.data.allSanityCategory.nodes || [];
 
     products.forEach((product, index) => {
       const previous =
@@ -113,8 +150,20 @@ exports.createPages = ({ actions, graphql }) => {
       })
     })
 
-    categories.forEach((cat) => {
-      console.log({cat})
+    collections.forEach((cat) => {
+    const categoriesPath = `/collection/${cat.slug.current}`
+
+      createPage({
+        path: categoriesPath,
+        component: collectionsTemplate,
+        context: {
+        slug: cat.slug.current,
+        id: cat.id,
+        },
+      })
+    })
+
+    category.forEach((cat) => {
     const categoriesPath = `/category/${cat.slug.current}`
 
       createPage({
